@@ -1246,9 +1246,9 @@
 
         // 视频源、iframe源
         const videoSources = [
-            "https://workdrive.zohopublic.com.cn/external/248f64e4c37674b894c516314b42619780559bfe31f0809bd6a3675ebd7c53a5/download?directDownload=true",
-            "https://workdrive.zohopublic.com.cn/external/9333d62e8e483b1fc7897ab0e58d047df613bd7a9b2cdaf7e5ff615b802af73a/download?directDownload=true",
-            "https://workdrive.zohopublic.com.cn/external/59821c04e431f0d6a02bbb2e9ce7ae89562f9f5e0ade393b1fd7665bd11f9bdb/download?directDownload=true"
+            "https://workdrive.zohopublic.com.cn/external/b7e23ca12250e0f5003fa47df6435c72bf9b830415b4705e4b7233abfeaef489/download?directDownload=true",
+            "https://workdrive.zohopublic.com.cn/external/6c606102382bdab5b99b34175be319eb9a5eab25aabbb873fb3a31cd785711dd/download?directDownload=true",
+            "https://workdrive.zohopublic.com.cn/external/7fd78328e5969ffb7dbe9f3aa2a47390a64ea773c85b107ae0e555e51e1b8b83/download?directDownload=true"
         ];
         const iframeSrcs = [
             "https://workdrive.zohopublic.com.cn/embed/kpgnr272ef737019b483e80ff06b2b907818f?toolbar=false&appearance=light&themecolor=green",
@@ -1358,6 +1358,7 @@
                 $('#video-container').style.display = 'block';
                 $('#iframe-container').style.display = 'none';
                 $('#src-iframe').src = '';
+                // 修复：始终设置播放器源，保证切换后能正常播放
                 player.source = { type: 'video', sources: [{ src: videoSources[index], type: 'video/mp4' }] };
             }
             updateTips();
@@ -1544,6 +1545,8 @@
             // 初始化
             startCarouselInterval();
             updateCarousel();
+            // 修复：初始化时，确保播放器和内容与线路一同步
+            switchVideo(0, false);
         }
 
         document.addEventListener('DOMContentLoaded', init);
