@@ -730,6 +730,12 @@
             background: rgba(0, 0, 0, 0.8);
         }
 
+        /* 超链接无下划线 */
+        a,
+        .switch-src-btn {
+            text-decoration: none !important;
+        }
+
         /* 响应式调整 */
         @media (max-width: 768px) {
             .carousel-slide img {
@@ -1223,26 +1229,10 @@
     <!-- 本地引入Plyr脚本 -->
     <script src="plyr.min.js"></script>
     <script>
-        // 公共工具
+        // 工具函数
         function $(selector, ctx = document) { return ctx.querySelector(selector); }
         function $$(selector, ctx = document) { return Array.from(ctx.querySelectorAll(selector)); }
-
-        // 任务图标点击切换删除线
-        document.addEventListener('DOMContentLoaded', function () {
-            $$('.task-icon').forEach(function (icon) {
-                icon.addEventListener('click', function () {
-                    const text = this.nextElementSibling;
-                    text.classList.toggle('task-done');
-                    this.style.color = text.classList.contains('task-done') ? '#2ecc71' : '#bbb';
-                });
-            });
-        });
-        // 删除线样式
-        (() => {
-            const style = document.createElement('style');
-            style.innerHTML = `.task-done { text-decoration: line-through; color: #aaa !important; }`;
-            document.head.appendChild(style);
-        })();
+        function $on(el, event, handler) { el && el.addEventListener(event, handler); }
 
         // 视频源、iframe源
         const videoSources = [
@@ -1256,37 +1246,51 @@
             "https://workdrive.zohopublic.com.cn/embed/kpgnrab51ce9b0e4149438f932a14c612587f?toolbar=false&appearance=light&themecolor=green"
         ];
 
-        // DOM元素
-        const videoBtns = $$('.video-btn');
-        const switchSrcBtns = $$('.switch-src-btn');
-        const tipsBtn = $('#tips-btn');
-        const tipsBox = $('#tips-box');
-        const tipsItems = $$('.tips-item');
-        const notesBtn = $('#notes-btn');
-        const notesBox = $('#notes-box');
-        const notesLists = [$('#notes-list-0'), $('#notes-list-1'), $('#notes-list-2')];
-        const downloadBtn = $('#download-btn');
-        const downloadModal = $('#download-modal');
-        const addNoteBtn = $('#add-note');
-        const noteText = $('#note-text');
-        const videoDescBtn = $('#video-desc-btn');
-        const videoDescBox = $('#video-desc-box');
-        const videoDescItems = $$('.video-desc-item');
-        const carouselContainer = $('.carousel-container');
-        const carouselSlides = $$('.carousel-slide');
-        const prevBtn = $('.carousel-prev');
-        const nextBtn = $('.carousel-next');
-        const indicators = $$('.carousel-indicator');
-        const pinButton = $('#pinButton');
-        const popupImgBtnFixed = $('#popupImgBtnFixed');
+        // DOM元素收集
+        const dom = {
+            videoBtns: $$('.video-btn'),
+            switchSrcBtns: $$('.switch-src-btn'),
+            tipsBtn: $('#tips-btn'),
+            tipsBox: $('#tips-box'),
+            tipsItems: $$('.tips-item'),
+            notesBtn: $('#notes-btn'),
+            notesBox: $('#notes-box'),
+            notesLists: [$('#notes-list-0'), $('#notes-list-1'), $('#notes-list-2')],
+            downloadBtn: $('#download-btn'),
+            downloadModal: $('#download-modal'),
+            addNoteBtn: $('#add-note'),
+            noteText: $('#note-text'),
+            videoDescBtn: $('#video-desc-btn'),
+            videoDescBox: $('#video-desc-box'),
+            videoDescItems: $$('.video-desc-item'),
+            carouselContainer: $('.carousel-container'),
+            carouselSlides: $$('.carousel-slide'),
+            prevBtn: $('.carousel-prev'),
+            nextBtn: $('.carousel-next'),
+            indicators: $$('.carousel-indicator'),
+            pinButton: $('#pinButton'),
+            popupImgBtnFixed: $('#popupImgBtnFixed'),
+            player: null,
+            iframeContainer: $('#iframe-container'),
+            videoContainer: $('#video-container'),
+            srcIframe: $('#src-iframe'),
+            popupImg: $('#popup-img'),
+            imgPopupModal: $('#img-popup-modal'),
+            closeImgPopup: $('#close-img-popup'),
+            copyAddressBtn: $('#copy-address-btn'),
+            addressText: $('#address-text'),
+            basicTipsContent: $('.basic-tips-content')
+        };
+
+        // 状态变量
         let currentVideoIndex = 0;
         let currentSlide = 0;
         let isPinned = false;
         let carouselInterval;
-        let startX = 0, isDragging = false, dragThreshold = 50, deltaX = 0;
+        let drag = { startX: 0, isDragging: false, threshold: 50, deltaX: 0 };
 
         // Plyr播放器初始化
-        const player = new Plyr('#player', {
+        dom.player = new Plyr('#player', {
             controls: [
                 'play-large', 'play', 'rewind', 'fast-forward', 'progress', 'current-time', 'duration',
                 'mute', 'volume', 'captions', 'settings', 'speed', 'fullscreen'
@@ -1342,24 +1346,23 @@
 
         // 统一显示/隐藏信息框
         function showBox(box) {
-            [tipsBox, notesBox, videoDescBox].forEach(b => b.classList.remove('visible'));
+            [dom.tipsBox, dom.notesBox, dom.videoDescBox].forEach(b => b.classList.remove('visible'));
             box.classList.add('visible');
         }
 
         // 视频切换
         function switchVideo(index, useIframe = false) {
             currentVideoIndex = index;
-            videoBtns.forEach((btn, i) => btn.classList.toggle('active', i === index));
+            dom.videoBtns.forEach((btn, i) => btn.classList.toggle('active', i === index));
             if (useIframe) {
-                $('#video-container').style.display = 'none';
-                $('#iframe-container').style.display = 'block';
-                $('#src-iframe').src = iframeSrcs[index];
+                dom.videoContainer.style.display = 'none';
+                dom.iframeContainer.style.display = 'block';
+                dom.srcIframe.src = iframeSrcs[index];
             } else {
-                $('#video-container').style.display = 'block';
-                $('#iframe-container').style.display = 'none';
-                $('#src-iframe').src = '';
-                // 修复：始终设置播放器源，保证切换后能正常播放
-                player.source = { type: 'video', sources: [{ src: videoSources[index], type: 'video/mp4' }] };
+                dom.videoContainer.style.display = 'block';
+                dom.iframeContainer.style.display = 'none';
+                dom.srcIframe.src = '';
+                dom.player.source = { type: 'video', sources: [{ src: videoSources[index], type: 'video/mp4' }] };
             }
             updateTips();
             updateVideoDesc();
@@ -1368,20 +1371,20 @@
 
         // 更新提示内容
         function updateTips() {
-            tipsItems.forEach((item, idx) => item.style.display = idx === currentVideoIndex ? 'block' : 'none');
+            dom.tipsItems.forEach((item, idx) => item.style.display = idx === currentVideoIndex ? 'block' : 'none');
         }
         // 更新视频说明
         function updateVideoDesc() {
-            videoDescItems.forEach((item, idx) => item.style.display = idx === currentVideoIndex ? 'block' : 'none');
+            dom.videoDescItems.forEach((item, idx) => item.style.display = idx === currentVideoIndex ? 'block' : 'none');
         }
         // 更新笔记列表显示
         function updateNotesList() {
-            notesLists.forEach((list, idx) => list.style.display = idx === currentVideoIndex ? 'block' : 'none');
+            dom.notesLists.forEach((list, idx) => list.style.display = idx === currentVideoIndex ? 'block' : 'none');
         }
 
         // 添加笔记
         function addNote() {
-            const text = noteText.value.trim();
+            const text = dom.noteText.value.trim();
             if (!text) return;
             const now = new Date();
             const timeString = now.toLocaleString();
@@ -1392,13 +1395,13 @@
                 <div class="note-content">${text}</div>
                 <button class="delete-note"><i class="fa fa-times"></i></button>
             `;
-            notesLists[currentVideoIndex].prepend(noteItem);
-            noteText.value = '';
+            dom.notesLists[currentVideoIndex].prepend(noteItem);
+            dom.noteText.value = '';
         }
 
         // 删除笔记（事件委托）
-        notesLists.forEach(list => {
-            list.addEventListener('click', function (e) {
+        dom.notesLists.forEach(list => {
+            $on(list, 'click', function (e) {
                 if (e.target.closest('.delete-note')) {
                     e.target.closest('.note-item').remove();
                 }
@@ -1407,15 +1410,15 @@
 
         // 轮播图更新
         function updateCarousel() {
-            carouselContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-            indicators.forEach((indicator, idx) => indicator.classList.toggle('active', idx === currentSlide));
+            dom.carouselContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dom.indicators.forEach((indicator, idx) => indicator.classList.toggle('active', idx === currentSlide));
         }
         // 轮播自动切换
         function startCarouselInterval() {
             clearInterval(carouselInterval);
             carouselInterval = setInterval(() => {
                 if (!isPinned) {
-                    currentSlide = (currentSlide + 1) % carouselSlides.length;
+                    currentSlide = (currentSlide + 1) % dom.carouselSlides.length;
                     updateCarousel();
                 }
             }, 5000);
@@ -1424,107 +1427,124 @@
         // 轮播图拖动/滑动逻辑
         function bindCarouselDrag() {
             // 触摸
-            carouselContainer.addEventListener('touchstart', e => {
+            $on(dom.carouselContainer, 'touchstart', e => {
                 if (isPinned || e.touches.length !== 1) return;
-                isDragging = true; startX = e.touches[0].clientX; deltaX = 0;
+                drag.isDragging = true; drag.startX = e.touches[0].clientX; drag.deltaX = 0;
             });
-            carouselContainer.addEventListener('touchmove', e => {
-                if (!isDragging || isPinned) return;
-                deltaX = e.touches[0].clientX - startX;
+            $on(dom.carouselContainer, 'touchmove', e => {
+                if (!drag.isDragging || isPinned) return;
+                drag.deltaX = e.touches[0].clientX - drag.startX;
             });
-            carouselContainer.addEventListener('touchend', () => {
-                if (!isDragging || isPinned) return;
-                isDragging = false;
-                if (Math.abs(deltaX) > dragThreshold) {
-                    currentSlide = (deltaX > 0)
-                        ? (currentSlide - 1 + carouselSlides.length) % carouselSlides.length
-                        : (currentSlide + 1) % carouselSlides.length;
+            $on(dom.carouselContainer, 'touchend', () => {
+                if (!drag.isDragging || isPinned) return;
+                drag.isDragging = false;
+                if (Math.abs(drag.deltaX) > drag.threshold) {
+                    currentSlide = (drag.deltaX > 0)
+                        ? (currentSlide - 1 + dom.carouselSlides.length) % dom.carouselSlides.length
+                        : (currentSlide + 1) % dom.carouselSlides.length;
                     updateCarousel();
                 }
-                deltaX = 0;
+                drag.deltaX = 0;
             });
             // 鼠标
-            carouselContainer.addEventListener('mousedown', e => {
+            $on(dom.carouselContainer, 'mousedown', e => {
                 if (isPinned) return;
-                isDragging = true; startX = e.clientX; deltaX = 0;
+                drag.isDragging = true; drag.startX = e.clientX; drag.deltaX = 0;
             });
-            carouselContainer.addEventListener('mousemove', e => {
-                if (!isDragging || isPinned) return;
-                deltaX = e.clientX - startX;
+            $on(dom.carouselContainer, 'mousemove', e => {
+                if (!drag.isDragging || isPinned) return;
+                drag.deltaX = e.clientX - drag.startX;
             });
-            carouselContainer.addEventListener('mouseup', () => {
-                if (!isDragging || isPinned) return;
-                isDragging = false;
-                if (Math.abs(deltaX) > dragThreshold) {
-                    currentSlide = (deltaX > 0)
-                        ? (currentSlide - 1 + carouselSlides.length) % carouselSlides.length
-                        : (currentSlide + 1) % carouselSlides.length;
+            $on(dom.carouselContainer, 'mouseup', () => {
+                if (!drag.isDragging || isPinned) return;
+                drag.isDragging = false;
+                if (Math.abs(drag.deltaX) > drag.threshold) {
+                    currentSlide = (drag.deltaX > 0)
+                        ? (currentSlide - 1 + dom.carouselSlides.length) % dom.carouselSlides.length
+                        : (currentSlide + 1) % dom.carouselSlides.length;
                     updateCarousel();
                 }
-                deltaX = 0;
+                drag.deltaX = 0;
             });
-            carouselContainer.addEventListener('mouseleave', () => { isDragging = false; deltaX = 0; });
+            $on(dom.carouselContainer, 'mouseleave', () => { drag.isDragging = false; drag.deltaX = 0; });
         }
+
+        // 任务图标点击切换删除线
+        document.addEventListener('DOMContentLoaded', function () {
+            $$('.task-icon').forEach(function (icon) {
+                $on(icon, 'click', function () {
+                    const text = this.nextElementSibling;
+                    text.classList.toggle('task-done');
+                    this.style.color = text.classList.contains('task-done') ? '#2ecc71' : '#bbb';
+                });
+            });
+        });
+        // 删除线样式
+        (() => {
+            const style = document.createElement('style');
+            style.innerHTML = `.task-done { text-decoration: line-through; color: #aaa !important; }`;
+            document.head.appendChild(style);
+        })();
 
         // 初始化页面
         function init() {
             bindCarouselDrag();
             // 视源切换
-            switchSrcBtns.forEach(btn => {
-                btn.addEventListener('click', function (e) {
+            dom.switchSrcBtns.forEach(btn => {
+                $on(btn, 'click', function (e) {
                     e.stopPropagation();
                     const lineIndex = parseInt(this.closest('.video-btn').getAttribute('data-index'));
                     switchVideo(lineIndex, true);
                 });
             });
             // 线路按钮切换
-            videoBtns.forEach((btn, idx) => {
-                btn.addEventListener('click', () => switchVideo(idx, false));
+            dom.videoBtns.forEach((btn, idx) => {
+                $on(btn, 'click', () => switchVideo(idx, false));
             });
             // 按钮区域
-            tipsBtn.addEventListener('click', () => showBox(tipsBox) && updateTips());
-            notesBtn.addEventListener('click', () => showBox(notesBox) && updateNotesList());
-            videoDescBtn.addEventListener('click', () => showBox(videoDescBox) && updateVideoDesc());
-            downloadBtn.addEventListener('click', () => {
-                downloadModal.classList.add('visible');
-                setTimeout(() => downloadModal.classList.remove('visible'), 1000);
+            $on(dom.tipsBtn, 'click', () => showBox(dom.tipsBox) && updateTips());
+            $on(dom.notesBtn, 'click', () => showBox(dom.notesBox) && updateNotesList());
+            $on(dom.videoDescBtn, 'click', () => showBox(dom.videoDescBox) && updateVideoDesc());
+            $on(dom.downloadBtn, 'click', () => {
+                dom.downloadModal.classList.add('visible');
+                setTimeout(() => dom.downloadModal.classList.remove('visible'), 1000);
             });
-            addNoteBtn.addEventListener('click', addNote);
-            noteText.addEventListener('keypress', e => {
+            $on(dom.addNoteBtn, 'click', addNote);
+            $on(dom.noteText, 'keypress', e => {
                 if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); addNote(); }
             });
             // 轮播图按钮
-            prevBtn.addEventListener('click', () => {
-                if (!isPinned) { currentSlide = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length; updateCarousel(); }
+            $on(dom.prevBtn, 'click', () => {
+                if (!isPinned) { currentSlide = (currentSlide - 1 + dom.carouselSlides.length) % dom.carouselSlides.length; updateCarousel(); }
             });
-            nextBtn.addEventListener('click', () => {
-                if (!isPinned) { currentSlide = (currentSlide + 1) % carouselSlides.length; updateCarousel(); }
+            $on(dom.nextBtn, 'click', () => {
+                if (!isPinned) { currentSlide = (currentSlide + 1) % dom.carouselSlides.length; updateCarousel(); }
             });
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', () => {
+            dom.indicators.forEach(indicator => {
+                $on(indicator, 'click', () => {
                     if (!isPinned) { currentSlide = parseInt(indicator.getAttribute('data-index')); updateCarousel(); }
                 });
             });
             // 固定轮播图
-            pinButton.addEventListener('click', () => {
+            $on(dom.pinButton, 'click', () => {
                 isPinned = !isPinned;
-                pinButton.classList.toggle('pinned', isPinned);
+                dom.pinButton.classList.toggle('pinned', isPinned);
                 isPinned ? clearInterval(carouselInterval) : startCarouselInterval();
             });
             // 图片弹窗
-            popupImgBtnFixed.addEventListener('click', () => {
-                const img = carouselSlides[currentSlide].querySelector('img');
-                $('#popup-img').src = img.src;
-                $('#popup-img').alt = img.alt;
-                $('#img-popup-modal').classList.add('visible');
+            $on(dom.popupImgBtnFixed, 'click', () => {
+                const img = dom.carouselSlides[currentSlide].querySelector('img');
+                dom.popupImg.src = img.src;
+                dom.popupImg.alt = img.alt;
+                dom.imgPopupModal.classList.add('visible');
             });
-            $('#close-img-popup').addEventListener('click', () => $('#img-popup-modal').classList.remove('visible'));
-            $('#img-popup-modal').addEventListener('click', e => {
-                if (e.target === $('#img-popup-modal')) $('#img-popup-modal').classList.remove('visible');
+            $on(dom.closeImgPopup, 'click', () => dom.imgPopupModal.classList.remove('visible'));
+            $on(dom.imgPopupModal, 'click', e => {
+                if (e.target === dom.imgPopupModal) dom.imgPopupModal.classList.remove('visible');
             });
             // 地址复制
-            $('#copy-address-btn').addEventListener('click', function () {
-                const addressText = $('#address-text').textContent;
+            $on(dom.copyAddressBtn, 'click', function () {
+                const addressText = dom.addressText.textContent;
                 navigator.clipboard.writeText(addressText).then(() => {
                     const originalText = this.innerHTML;
                     this.innerHTML = '<i class="fa fa-check"></i> 已复制';
@@ -1532,7 +1552,7 @@
                 });
             });
             // 基础提示展开/收纳（事件委托）
-            $('.basic-tips-content').addEventListener('click', function (e) {
+            $on(dom.basicTipsContent, 'click', function (e) {
                 const toggle = e.target.closest('.exam-process-toggle');
                 if (!toggle) return;
                 const container = toggle.closest('.basic-tip-item');
@@ -1545,7 +1565,6 @@
             // 初始化
             startCarouselInterval();
             updateCarousel();
-            // 修复：初始化时，确保播放器和内容与线路一同步
             switchVideo(0, false);
         }
 
