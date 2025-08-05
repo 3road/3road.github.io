@@ -1700,6 +1700,10 @@
         function switchVideo(index, useIframe = false) {
             currentVideoIndex = index;
             dom.videoBtns.forEach((btn, i) => btn.classList.toggle('active', i === index));
+            // 保证只播放当前点击的
+            dom.player.pause();
+            dom.player.currentTime = 0;
+            dom.player.stop && dom.player.stop(); // Plyr兼容
             if (useIframe) {
                 dom.videoContainer.style.display = 'none';
                 dom.iframeContainer.style.display = 'block';
@@ -2081,12 +2085,20 @@
             carBtnSrcIframe.src = '';
             carBtnOnlineBtn.onclick = function(e) {
                 e.stopPropagation();
+                // 保证只播放当前点击的
+                carBtnPlayer.pause();
+                carBtnPlayer.currentTime = 0;
+                carBtnPlayer.stop && carBtnPlayer.stop();
                 carBtnVideoContainer.style.display = 'block';
                 carBtnIframeContainer.style.display = 'none';
                 carBtnSrcIframe.src = '';
             };
             carBtnStreamBtn.onclick = function(e) {
                 e.stopPropagation();
+                // 保证只播放当前点击的
+                carBtnPlayer.pause();
+                carBtnPlayer.currentTime = 0;
+                carBtnPlayer.stop && carBtnPlayer.stop();
                 carBtnVideoContainer.style.display = 'none';
                 carBtnIframeContainer.style.display = 'block';
                 carBtnSrcIframe.src = 'https://workdrive.zohopublic.com.cn/embed/kpgnr04aee3f766b142b3a8b137ef7ca90217?toolbar=false&appearance=light&themecolor=green';
