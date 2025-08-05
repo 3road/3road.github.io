@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="plyr.css">
 
     <style>
-        /* 基础样式 */
+        /* 基础样式优化：合并重复、提升一致性 */
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +18,7 @@
         }
 
         body {
-            background-color: #f5f5f5;
+            background: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
@@ -93,10 +93,11 @@
             transition: max-height 0.3s ease;
             /* 可选：增加底部内边距，防止内容贴边 */
             padding-bottom: 0;
+            /* 修复内容遮挡：允许内容完整显示 */
         }
 
         .exam-process-content.expanded {
-            max-height: 1200px;
+            max-height: 3000px;
             /* 增大高度，保证内容完整显示 */
             padding-bottom: 10px;
             /* 可选：展开时增加内边距 */
@@ -736,62 +737,224 @@
             text-decoration: none !important;
         }
 
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-            .carousel-slide img {
-                height: 350px;
-            }
+        /* 按钮统一样式优化 */
+        .btn,
+        .video-btn,
+        .scroll-button,
+        #carBtnSwitchSrcBtn,
+        .popup-img-btn-fixed {
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
 
-            .button-group {
-                flex-direction: column;
-            }
+        .btn-primary,
+        .video-btn.active,
+        #carBtnSwitchSrcBtn {
+            background: #3498db;
+            color: #fff;
+        }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
+        .btn-primary:hover,
+        .video-btn:not(.active):hover,
+        #carBtnSwitchSrcBtn:hover {
+            background: #2980b9;
+        }
 
-            .logo {
-                font-size: 1.2rem;
-            }
+        /* 音乐播放器样式 */
+        #music-popup {
+            position: fixed;
+            right: 90px;
+            bottom: 24px;
+            z-index: 9999;
+            display: none;
+            background: rgba(44, 62, 80, 0.85);
+            border-radius: 10px;
+            padding: 16px 14px;
+            min-width: 140px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-            .basic-tips-content {
-                grid-template-columns: 1fr;
-            }
+        #music-file-name {
+            color: #fff;
+            font-size: 0.98rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
 
-            .location-map {
-                height: 200px;
-            }
+        /* 悬浮音乐按钮样式 */
+        #music-float-btn {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 9999;
+            background: #3498dbcc;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
 
-            .notes-container {
-                padding: 6px 2px 2px 2px;
-            }
+        /* 音乐控制按钮样式 */
+        .music-control-btn,
+        #music-prev,
+        #music-play,
+        #music-next {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            padding: 0;
+        }
 
-            .note-input {
-                flex-direction: column;
-                gap: 6px;
-                padding: 6px 2px;
-            }
+        /* 返回顶部和底部按钮样式 */
+        .scroll-buttons {
+            position: fixed;
+            right: 24px;
+            bottom: 80px;
+            z-index: 9998;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-            .note-input textarea {
-                font-size: 0.98rem;
-                height: 56px;
-                padding: 8px 8px;
-            }
+        .scroll-button {
+            background: #3498dbcc;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
 
-            .notes-list {
-                max-height: 180px;
-                padding-top: 6px;
-            }
+        .scroll-button:hover {
+            background: #3498db;
+            transform: scale(1.1);
+        }
 
-            .note-item {
-                padding: 8px 7px 6px 7px;
-                font-size: 0.97rem;
-            }
+        .scroll-button.bottom {
+            background: #e74c3cbb;
+        }
 
-            .note-item .note-time {
-                font-size: 0.78rem;
-            }
+        .scroll-button.bottom:hover {
+            background: #e74c3c;
+        }
+
+        /* 视频容器强制约束 */
+        .video-container {
+            width: 100% !important;
+            /* 确保容器占满父元素宽度 */
+            max-width: 1200px !important;
+            /* 可选：限制最大宽度，避免过大 */
+            margin: 20px auto !important;
+            /* 居中显示 */
+        }
+
+        /* 播放器尺寸强化（16:9比例锁定） */
+        #player {
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 16/9 !important;
+            /* 核心：锁定宽高比 */
+            object-fit: contain !important;
+            /* 视频内容适应容器，不拉伸 */
+            max-width: 100% !important;
+            max-height: none !important;
+        }
+
+        /* 车载按钮视频源切换按钮样式 */
+        #carBtnSwitchSrcBtn {
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        #carBtnSwitchSrcBtn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #carBtnSwitchSrcBtn:active {
+            transform: translateY(0);
+        }
+    </style>
+    <style>
+        /* 返回顶部和底部按钮样式 */
+        .scroll-buttons {
+            position: fixed;
+            right: 24px;
+            bottom: 80px;
+            z-index: 9998;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .scroll-button {
+            background: #3498dbcc;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .scroll-button:hover {
+            background: #3498db;
+            transform: scale(1.1);
+        }
+
+        .scroll-button.bottom {
+            background: #e74c3cbb;
+        }
+
+        .scroll-button.bottom:hover {
+            background: #e74c3c;
         }
     </style>
 </head>
@@ -808,6 +971,16 @@
     </header>
 
     <!-- 主内容区 -->
+
+    <div class="scroll-buttons">
+        <button class="scroll-button top" id="scrollToTop" title="返回顶部" aria-label="返回顶部">
+            <i class="fa fa-arrow-up"></i>
+        </button>
+        <button class="scroll-button bottom" id="scrollToBottom" title="返回底部" aria-label="返回底部">
+            <i class="fa fa-arrow-down"></i>
+        </button>
+    </div>
+
     <div class="container">
         <!-- 轮播图 -->
         <div class="carousel">
@@ -821,21 +994,24 @@
             </button>
             <div class="carousel-container">
                 <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/15e76cec828f9be600bc85d39c2f77a920935fbc228dd3fd32657076a5dce10a/download?directDownload=true" alt="" loading="lazy">
+                    <img src="https://workdrive.zohopublic.com.cn/external/15e76cec828f9be600bc85d39c2f77a920935fbc228dd3fd32657076a5dce10a/download?directDownload=true"
+                        alt="待考区图片" loading="lazy">
                     <div class="carousel-caption">
                         <h3>待考区</h3>
                         <p>等候厅/发车区 叫名即出 </p>
                     </div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/7e3d60a80a7985e30187cda6d6543cab5ef1d8f702924987e985e47e84430d8b/download?directDownload=true" alt="" loading="lazy">
+                    <img src="https://workdrive.zohopublic.com.cn/external/7e3d60a80a7985e30187cda6d6543cab5ef1d8f702924987e985e47e84430d8b/download?directDownload=true"
+                        alt="左转区（起步）图片" loading="lazy">
                     <div class="carousel-caption">
                         <h3>左转区（起步）</h3>
                         <p>注：第一个拐弯口</p>
                     </div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/1ba0f809a68dbff094c8e0798ec80b73d77809ac5769b7e3687e2892346aa276/download?directDownload=true" alt="" loading="lazy">
+                    <img src="https://workdrive.zohopublic.com.cn/external/1ba0f809a68dbff094c8e0798ec80b73d77809ac5769b7e3687e2892346aa276/download?directDownload=true"
+                        alt="出门区图片" loading="lazy">
                     <div class="carousel-caption">
                         <h3>出门区</h3>
                         <p>注意减速、左右观察瞭望（3路均左转；勿压实线；必要可打“左转向”）</p>
@@ -843,14 +1019,16 @@
                 </div>
 
                 <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/99ea22a484241f6fc5e55436771c682ec2ae65809fdc04ccbff6891957caafce/download?directDownload=true" alt="" loading="lazy">
+                    <img src="https://workdrive.zohopublic.com.cn/external/99ea22a484241f6fc5e55436771c682ec2ae65809fdc04ccbff6891957caafce/download?directDownload=true"
+                        alt="签字/物品领取区图片" loading="lazy">
                     <div class="carousel-caption">
                         <h3>签字/物品领取区</h3>
                         <p>合格签字，反之</p>
                     </div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/d10be3317351490e9498f900f369bc4377898224b77562e4f704139a56bee62a/download?directDownload=true" alt="" loading="lazy">
+                    <img src="https://workdrive.zohopublic.com.cn/external/d10be3317351490e9498f900f369bc4377898224b77562e4f704139a56bee62a/download?directDownload=true"
+                        alt="东升（通谐）考场·科目三 线路图图片" loading="lazy">
                     <div class="carousel-caption">
                         <h3>东升（通谐）考场·科目三 线路图</h3>
                         <p>1、2、3号详情图</p>
@@ -881,7 +1059,7 @@
                         <ul>
                             <li><span style="font-weight: bold; color: #e74c3c;">转向灯</span>
                                 <div style="margin-left: 1em;">
-                                    <p>打灯 用力拨</p>
+                                    <p>打灯 用力拨（重打轻拨）</p>
                                     <p><span style="font-weight: bold; color: #e74c3c;">起步 先打左灯 是你爹</p>
                                     <p><span style="font-weight: bold; color: #e74c3c;">靠边 先打右灯 是你娘</p>
                                     <p>超转变掉道 打灯5秒后 再换路</p>
@@ -895,9 +1073,11 @@
                             </li>
                             <li><span style="font-weight: bold; color: #e74c3c;">语音</span>
                                 <div style="margin-left: 1em;">
-                                    <p>拒绝：抢语音 操作</p>
-                                    <p>听到 下车上车准备 下车按钮 </p>
-                                    <p>听到 开始起步 打灯开始起步 </p>
+                                    <p>X拒绝：抢语音 操作</p>
+                                    <p>驾校：听到 下车上车准备 下车按钮 </p>
+                                      <p style="text-indent: 1em;">➤考试：听 请开始考试→下车按钮 </p><br/>
+                                    <p>驾校：听到 开始起步 打灯起步 </p>
+                                     <p style="text-indent: 1em;">➤考试：听 请起步继续完成考试→打灯起步</p>
                                 </div>
                             </li>
                             <li><span style="font-weight: bold; color: #e74c3c;">起步</span>
@@ -920,7 +1100,7 @@
                             <li><span style="font-weight: bold; color: #e74c3c;">考试（模拟）流程</span>
                                 <div style="margin-left: 1em;">
                                     <p>排队机器刷证→入场刷证（递交电子设备）→等候厅等待（期间可如厕）→叫名+车号（开始出）→</p><br>
-                                    <p>上车→刷证→语言提示后（下车按钮）→上车（调整座椅+灯光复位）+系安全带→灯光模拟→语言提示后（起步打灯：挂1档即记分）→上路项目测验→靠边停车</p>
+                                    <p>上车→刷证→语言提示后（观望+开门10秒内下车，按车钮）→上车（调整座椅+灯光复位）+系安全带→灯光模拟→语言提示后（起步打灯：松手刹，即计时+分）→上路项目测验→靠边停车</p>
                                 </div>
                             </li>
                             <li><span style="font-weight: bold; color: #e74c3c;">附：车轮&方向盘</span>
@@ -939,7 +1119,11 @@
                     </h3>
                     <div class="exam-process-content">
                         <ul>
-                            <li><span style="font-weight: bold; color: #e74c3c;">近光灯</span>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="lamp-checkbox" style="margin-right:6px;">
+                                    <span style="font-weight: bold; color: #e74c3c;">近光灯</span>
+                                </label>
                                 <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
                                     <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
                                     <span class="task-text">与机动车会车</span>
@@ -957,7 +1141,11 @@
                                     <span class="task-text">在有信号灯路口转弯</span>
                                 </div>
                             </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">远光灯</span>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="lamp-checkbox" style="margin-right:6px;">
+                                    <span style="font-weight: bold; color: #e74c3c;">远光灯</span>
+                                </label>
                                 <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
                                     <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
                                     <span class="task-text">在无照明道路上行驶</span>
@@ -967,7 +1155,11 @@
                                     <span class="task-text">在照明不良的道路上行驶</span>
                                 </div>
                             </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">远近交替灯</span>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="lamp-checkbox" style="margin-right:6px;">
+                                    <span style="font-weight: bold; color: #e74c3c;">远近交替灯</span>
+                                </label>
                                 <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
                                     <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
                                     <span class="task-text">通过:急弯</span>
@@ -993,7 +1185,11 @@
                                     <span class="task-text">通过:没有信号灯控制的路口</span>
                                 </div>
                             </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">示廓灯</span>
+                            <li>
+                                <label>
+                                    <input type="checkbox" class="lamp-checkbox" style="margin-right:6px;">
+                                    <span style="font-weight: bold; color: #e74c3c;">示廓灯</span>
+                                </label>
                                 <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
                                     <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
                                     <span class="task-text">路边临时停车</span>
@@ -1005,6 +1201,143 @@
                                 </div>
                             </li>
                         </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 精简驾校版项目总结折叠卡片 -->
+        <div class="basic-tip-item" id="school-summary-toggle" style="margin-bottom:24px;">
+            <h3 class="exam-process-toggle" style="cursor:pointer;">
+                <i class="fa fa-tag"></i>
+                <span>精简驾校版：驾考项目·文字总结</span>
+                <i class="fa fa-angle-double-down toggle-icon"></i>
+            </h3>
+            <div class="exam-process-content" id="school-summary-content">
+                <ul style="margin-left:0;">
+                    <li>
+                        <span style="font-weight:bold;color:#e74c3c;">基础档位 规则</span>
+                        <ul>
+                            <li>一档限制：除靠边停车外，所有路段一档行驶，不超过 <b>50 米</b>（及时挂2挡路）</li>
+                            <li>换挡标准：起步 / 停车后，离合平稳控制 <b>5 秒</b>再松开</li>
+                            <li>加油至 <b>15 迈</b>松油门、踩离合换二档，速度勿超 <b>20 迈</b>，否则视越档100分</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span style="font-weight:bold;color:#e74c3c;">重点项目 操作要点</span>
+                        <ul style="margin-left:1em;">
+                            <li>
+                                <b>一 起步</b><br>
+                                听指令，开左转向灯，挂一档、松手刹<br>
+                                慢抬离合，至车辆平稳；稳住5秒以上再松开，完成起步
+                            </li>
+                            <li>
+                                <b>二 加减档</b><br>
+                                <u>操作步骤：</u><br>
+                                听指令后，油门踩到底至30迈，踩离合挂3档，松离合后，左脚放地面<br>
+                                立即踩离合，挂4档，左脚离地后数8秒（匀速数）<br>
+                                踩离合退3档，轻踩刹车至30迈以下，踩离合退2档，慢松离合防抖动<br>
+                                <u>扣分红线：</u><br>
+                                180米内未完成、四档行驶时间不足扣10分<br>
+                                超速/低速，导致档位速度不匹配；轻度扣10分、严重扣100分<br>
+                                挂错档、离合未踩到底、未抬开时挂档，均视为越级挂档，扣100分
+                            </li>
+                            <li>
+                                <b>三 直线行驶</b><br>
+                                提前调整直线位置，微调后回正方向<br>
+                                指令播报后保持方向稳定，行驶120米结束，车不歪斜即可
+                            </li>
+                            <li>
+                                <b>四 会车</b><br>
+                                轻踩刹车减速，向右微调方向，路边线30公分（偏左多调、偏中/右少调）<br>
+                                随即向左回正，对正道路，行驶70米，并等待项目结束
+                            </li>
+                            <li>
+                                <b>五 变更车道</b><br>
+                                注：操作同超车，但不回原车道（一次只能变更1条车道；实际路途中，请合理引用）<br>
+                                开左转向灯，并数够5秒，左右观察，后视镜无车或安全距离后，打1/4方向变道<br>
+                                车头到道路中间，回正方向，再打1/4右方向，车正后回正
+                            </li>
+                            <li>
+                                <b>六 超车</b><br>
+                                注：操作同变更车道，但须变回原车道<br>
+                                开左转向灯，并数够5秒，左右观察，后视镜无车或安全距离后，打1/4方向变道，并将车回正，行驶几秒后<br>
+                                再开右转向灯，并数够5秒，左右观察，后视镜无车或安全距离后，打1/4方向变道，并将车回正行驶
+                            </li>
+                            <li>
+                                <b>七 掉头</b><br>
+                                注：请分辨车在那条道路，方便变道调整（中道：左转向灯+变最左侧、左道：左转向灯+掉头）<br>
+                                注意观察红路灯；选择参照物，向左打满方向掉头<br>
+                                正常用二档；遇阻碍可停车或退一档；掉头后，迅速加油升二档
+                            </li>
+                            <li>
+                                <b>八 路口操作</b><br>
+                                直行：斑马线前轻踩刹车<br>
+                                左转弯：打左转向灯，走最左侧车道，绿灯轻踩刹车、红灯停车等待<br>
+                                右转弯：打右转向灯，无需等红绿灯，斑马线前点刹转弯
+                            </li>
+                            <li>
+                                <b>九 人行横道（抽考）</b><br>
+                                注：机车前盖，请在停止线前，且盖住地上指路标识<br>
+                                播报“有行人”时，斑马线前停车；行人通过后，挂一档起步<br>
+                                无播报时，仅轻踩刹车通过
+                            </li>
+                            <li>
+                                <b>十 学校 / 公交站</b><br>
+                                经过前时，不加油、不鸣笛<br>
+                                公交站轻踩几脚刹车
+                            </li>
+                            <li>
+                                <b>十一 靠边停车</b><br>
+                                注：指令播报后，100米内完成停车，不提前停<br>
+                                最右侧车道：开右转向灯，退一档，摆正会车位置，确认车身距边缘线≤30公分后停车<br>
+                                在中间车道：开右转向灯，变至最右侧车道（灯灭需重开），后续同上述步骤<br>
+                                <u>停车后流程：</u><br>
+                                摘空挡→拉手刹→熄火→解安全带→松脚→开关车门（关车门后等待结果；熄火前，勿松离合、刹车）
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 新增：车载按钮·视频说明折叠模块 -->
+        <div class="basic-tip-item" id="car-btn-desc-toggle" style="margin-bottom:24px;">
+            <h3 class="exam-process-toggle" style="cursor:pointer;">
+                <i class="fa fa-automobile"></i>
+                <span>车载按钮·视频说明</span>
+                <i class="fa fa-angle-double-down toggle-icon"></i>
+            </h3>
+            <div class="exam-process-content" id="car-btn-desc-content">
+                
+                <!-- 独立视频播放器区域 -->
+                <div style="margin-top:24px;">
+                    <!-- 按钮居中包裹 -->
+                    <div style="display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+                      <button id="carBtnSwitchSrcBtn" style="background: #3498db; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 500;">
+    <span id="carBtnOnlineBtn" style="cursor:pointer;">在线视频</span>
+    <span style="color: #fff; font-weight: normal;">|</span>
+    <span id="carBtnStreamBtn" style="color: #85dc85; cursor:pointer;">流畅视源</span>
+</button>
+                    </div>
+                    <div class="video-container" id="car-btn-video-container">
+                        <video id="car-btn-player" controls aria-label="车载按钮视频说明播放器"
+                            style="width:100%;height:auto;max-width:100%;aspect-ratio:16/9;display:block;">
+                            <source src="https://workdrive.zohopublic.com.cn/external/360a2794ccd059fb6137a9559672cb66fb8a0063871397ef965c566d519f0d03/download?directDownload=true" type="video/mp4">
+                            您的浏览器不支持视频播放
+                        </video>
+                    </div>
+                    <div class="video-container" id="car-btn-iframe-container" style="display:none;text-align:center;">
+                        <div style="position:relative;width:100%;padding-top:56.25%;">
+                            <iframe id="car-btn-src-iframe"
+                                src=""
+                                scrolling="no"
+                                frameborder="0"
+                                allowfullscreen
+                                title="嵌入的代码"
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1043,8 +1376,7 @@
 
         <!-- 视频播放器 -->
         <div class="video-container" id="video-container">
-            <video id="player" controls
-                style="width:100%;height:auto;max-width:100%;aspect-ratio:16/9;display:block;"><!-- 自适应宽高 -->
+            <video id="player" controls aria-label="主线路视频播放器">
                 <source src="video1.mp4" type="video/mp4">
                 您的浏览器不支持视频播放
             </video>
@@ -1086,13 +1418,13 @@
                     <div class="tips-item" data-index="0">
                         <p>建议（2、3号线 按需采纳）</p>
                         <p style="text-indent: 2em;">【预防系统逻辑·判定错误】请在出门口时，再次打开"左转向"灯，在对应车道后，记关</p>
-                        <p>1号线 直线行驶 在 路口直行 后（紧接着 </p>
-                        <p></p>1号线，在返程路口前，需自主变道（左）；用途：左转弯</p>
-                        <p></p>1号线，以3车道为基础；起步变更车道，请合理选择，其余多数均在中路</p>
+                        <p>1号线 直线行驶 在 路口直行 后（紧接着 请提前摆正、调整 </p>
+                        <p>1号线，在返程路口前，需自主变道（左）；用途：左转弯</p>
+                        <p>1号线，以3车道为基础；起步变更车道，请合理选择，其余多数均在中路</p>
                     </div>
                     <div class="tips-item" data-index="1" style="display:none">
                         <p>2、3号线 加减档位置 一样</p>
-                        <p>2号线 直线行驶 位置在 黄房子边</p>
+                        <p>2号线 直线行驶 位置在 黄房子边（请提前摆正、调整</p>
                         <p>2、3号线 转弯/掉头 2车道 逻辑/位置 一样（如3车道，请走中）</p>
                         <p style="text-indent: 2em;">车 转弯前/掉头前 左车道 </p>
                         <p style="text-indent: 2em;">车 转弯后/掉头后 右车道 </p>
@@ -1101,7 +1433,7 @@
                     </div>
                     <div class="tips-item" data-index="2" style="display:none">
                         <p>2、3号线 加减档位置 一样</p>
-                        <p>3号线 直线行驶 在 路口直行 后（紧接着 </p>
+                        <p>3号线 直线行驶 在 路口直行 后（紧接着 请提前摆正、调整 </p>
                         <p>2、3号线 转弯/掉头 2车道 逻辑/位置 一样（如3车道，请走中）</p>
                         <p style="text-indent: 2em;">车 转弯前/掉头前 左车道 </p>
                         <p style="text-indent: 2em;">车 转弯后/掉头后 右车道 </p>
@@ -1140,7 +1472,7 @@
                 <div id="video-desc-content">
                     <div class="video-desc-item" data-index="0">
                         <h4>线路一 </h4>
-                        <p>经实地对比：项目点，均正确</p>
+                        <p>经实地对比：项目点范围，均正确</p>
                         <p style="text-indent: 2em;">考试速度：要控制或低于：≤25-30km/h</p>
                         <p style="text-indent: 2em;">学校、公交车站；踩刹车，均在掉头返程路侧</p>
         
@@ -1150,7 +1482,7 @@
                     </div>
                     <div class="video-desc-item" data-index="1" style="display:none">
                         <h4>线路二 </h4>
-                        <p>经实地对比：项目点，均正确</p>
+                        <p>经实地对比：项目点范围，均正确</p>
                         <p style="text-indent: 2em;">考试速度：要控制或低于：≤25-30km/h</p>
                         <p style="text-indent: 2em;">学校、公交车站；踩刹车，均在掉头返程路侧</p>
                         <li>其它提示：</li>
@@ -1158,7 +1490,7 @@
                     </div>
                     <div class="video-desc-item" data-index="2" style="display:none">
                         <h4>线路三 </h4>
-                        <p>经实地对比：项目点，均正确</p>
+                        <p>经实地对比：项目点范围，均正确</p>
                         <p style="text-indent: 2em;">考试速度：要控制或低于：≤25-30km/h</p>
                         <p style="text-indent: 2em;">学校、公交车站；踩刹车，均在掉头返程路侧</p>
                         <li>其它提示：</li>
@@ -1209,13 +1541,27 @@
     </div>
 
     <!-- 图片弹窗 -->
-    <div class="modal" id="img-popup-modal" style="z-index:2000;">
-        <div class="modal-content" style="padding:0;max-width:90vw;width:auto;position:relative;">
-            <button id="close-img-popup"
-                style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.7);color:#fff;border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;font-size:1.3rem;">
+    <div class="modal" id="img-popup-modal" aria-modal="true" role="dialog">
+        <div class="modal-content">
+            <button id="close-img-popup" aria-label="关闭图片弹窗">
                 <i class="fa fa-times"></i>
             </button>
-            <img id="popup-img" src="" alt="大图预览" style="max-width:80vw;max-height:80vh;display:block;margin:auto;">
+            <img id="popup-img" src="" alt="大图预览" style="max-width:80vw;max-height:80vh;">
+        </div>
+    </div>
+
+    <!-- 悬浮音乐按钮 -->
+    <button id="music-float-btn" title="夜间模拟语音" style="position:fixed;right:24px;bottom:24px;z-index:9999;background:#3498dbcc;color:#fff;border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.18);font-size:1.2rem;cursor:pointer;">
+        <i class="fa fa-music"></i>
+    </button>
+    <!-- 音乐播放器弹出容器（只保留中间内容，无外围包裹，且刷新时默认收纳） -->
+    <div id="music-popup" style="position:fixed;right:90px;bottom:24px;z-index:9999;display:none;background:rgba(44,62,80,0.85);border-radius:10px;padding:16px 14px;min-width:140px;box-shadow:0 2px 12px rgba(0,0,0,0.18);flex-direction:column;align-items:center;justify-content:center;">
+        <div id="music-file-name" style="color:#fff;font-size:0.98rem;margin-bottom:10px;text-align:center;">夜间模拟语音1</div>
+        <audio id="music-audio" src="0.mp3"></audio>
+        <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
+            <button id="music-prev" style="background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;width:28px;height:28px;padding:0;"><i class="fa fa-step-backward"></i></button>
+            <button id="music-play" style="background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;width:28px;height:28px;padding:0;"><i class="fa fa-play"></i></button>
+            <button id="music-next" style="background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;width:28px;height:28px;padding:0;"><i class="fa fa-step-forward"></i></button>
         </div>
     </div>
 
@@ -1229,10 +1575,10 @@
     <!-- 本地引入Plyr脚本 -->
     <script src="plyr.min.js"></script>
     <script>
-        // 工具函数
-        function $(selector, ctx = document) { return ctx.querySelector(selector); }
-        function $$(selector, ctx = document) { return Array.from(ctx.querySelectorAll(selector)); }
-        function $on(el, event, handler) { el && el.addEventListener(event, handler); }
+        // 工具函数优化
+        const $ = (sel, ctx = document) => ctx.querySelector(sel);
+        const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+        const $on = (el, evt, fn) => el && el.addEventListener(evt, fn);
 
         // 视频源、iframe源
         const videoSources = [
@@ -1304,12 +1650,24 @@
                 play: '播放',
                 pause: '暂停',
                 fastForward: '快进{seektime}秒',
+                seek: '查找',
                 seekLabel: '{currentTime} / {duration}',
+                played: '已播放',
+                buffered: '已缓冲',
+                currentTime: '当前时间',
+                duration: '总时长',
+                volume: '音量',
+                mute: '静音',
+                unmute: '取消静音',
+                enableCaptions: '开启字幕',
+                disableCaptions: '关闭字幕',
+                download: '下载',
                 enterFullscreen: '全屏',
                 exitFullscreen: '退出全屏',
                 frameTitle: '播放器',
                 captions: '字幕',
                 settings: '设置',
+                menuBack: '返回上一级菜单',
                 speed: '速度',
                 normal: '正常',
                 quality: '质量',
@@ -1320,6 +1678,7 @@
                 reset: '重置',
                 disabled: '禁用',
                 enabled: '启用',
+                advertisement: '广告',
                 qualityBadge: {
                     2160: '4K',
                     1440: 'HD',
@@ -1370,6 +1729,7 @@
         }
 
         // 添加笔记
+
         function addNote() {
             const text = dom.noteText.value.trim();
             if (!text) return;
@@ -1460,6 +1820,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             $$('.task-icon').forEach(function (icon) {
                 $on(icon, 'click', function () {
+
                     const text = this.nextElementSibling;
                     text.classList.toggle('task-done');
                     this.style.color = text.classList.contains('task-done') ? '#2ecc71' : '#bbb';
@@ -1471,6 +1832,86 @@
             const style = document.createElement('style');
             style.innerHTML = `.task-done { text-decoration: line-through; color: #aaa !important; }`;
             document.head.appendChild(style);
+        })();
+
+        // 音乐播放器相关
+        (() => {
+            const musicBtn = document.getElementById('music-float-btn');
+            const popup = document.getElementById('music-popup');
+            const audio = document.getElementById('music-audio');
+            const playBtn = document.getElementById('music-play');
+            const prevBtn = document.getElementById('music-prev');
+            const nextBtn = document.getElementById('music-next');
+            const fileName = document.getElementById('music-file-name');
+            const files = [
+                {src: 'https://workdrive.zohopublic.com.cn/external/b195777bd183e88ef3bd75123f5952b6643973ff83f5c3040caaafcf9c042efe/download?directDownload=true', name: '夜间模拟语音1'},
+                {src: 'https://workdrive.zohopublic.com.cn/external/d2c631696be70a3eda4037f3faa70f9013b416d7b64d3a5b66ce2de0070a0480/download?directDownload=true', name: '夜间模拟语音2'},
+                {src: 'https://workdrive.zohopublic.com.cn/external/da7d9d62f4214f6fc84e44873e35bf8b90543744574e99aa5661dde5f9481621/download?directDownload=true', name: '夜间模拟语音3'},
+                {src: 'https://workdrive.zohopublic.com.cn/external/833e30af12e80c422d9fb2fd96e596d5f5c6d6517453f9a87dd8e5c6b069d738/download?directDownload=true', name: '夜间模拟语音4'},
+                {src: 'https://workdrive.zohopublic.com.cn/external/9a91fe1f0fcbf4e3443622a0a4b5e6844bdf7c6c1ebb9ed8ee9892dd6726385b/download?directDownload=true', name: '夜间模拟语音5'}
+            ];
+            let idx = 0;
+            let isPlaying = false;
+
+            function updatePlayer(autoPlay = false) {
+                audio.src = files[idx].src;
+                fileName.textContent = files[idx].name;
+                playBtn.innerHTML = `<i class="fa fa-play"></i>`;
+                isPlaying = false;
+                audio.pause();
+                audio.currentTime = 0;
+                if (autoPlay) {
+                    audio.play();
+                    playBtn.innerHTML = `<i class="fa fa-pause"></i>`;
+                    isPlaying = true;
+                }
+            }
+
+            musicBtn.onclick = (e) => {
+                e.stopPropagation();
+                if (popup.style.display === 'none' || popup.style.display === '') {
+                    popup.style.display = 'flex';
+                    updatePlayer();
+                } else {
+                    popup.style.display = 'none';
+                    audio.pause();
+                    playBtn.innerHTML = `<i class="fa fa-play"></i>`;
+                    isPlaying = false;
+                }
+            };
+
+            playBtn.onclick = (e) => {
+                e.stopPropagation();
+                if (isPlaying) {
+                    audio.pause();
+                    playBtn.innerHTML = `<i class="fa fa-play"></i>`;
+                    isPlaying = false;
+                } else {
+                    audio.play();
+                    playBtn.innerHTML = `<i class="fa fa-pause"></i>`;
+                    isPlaying = true;
+                }
+            };
+
+            prevBtn.onclick = (e) => {
+                e.stopPropagation();
+                idx = (idx - 1 + files.length) % files.length;
+                updatePlayer(isPlaying);
+            };
+
+            nextBtn.onclick = (e) => {
+                e.stopPropagation();
+                idx = (idx + 1) % files.length;
+                updatePlayer(isPlaying);
+            };
+
+            audio.onended = () => {
+                playBtn.innerHTML = `<i class="fa fa-play"></i>`;
+                isPlaying = false;
+            };
+
+            // 移除弹窗外点击关闭逻辑
+            // ...不再自动关闭弹窗...
         })();
 
         // 初始化页面
@@ -1549,14 +1990,151 @@
                 icon.classList.toggle('fa-angle-double-down', !content.classList.contains('expanded'));
                 icon.classList.toggle('fa-angle-double-up', content.classList.contains('expanded'));
             });
-            // 初始化
-            startCarouselInterval();
-            updateCarousel();
-            switchVideo(0, false);
+
+            // 修复：精简驾校版折叠卡片展开/收纳
+            const schoolSummaryToggle = document.querySelector('#school-summary-toggle .exam-process-toggle');
+            const schoolSummaryContent = document.getElementById('school-summary-content');
+            const schoolSummaryIcon = document.querySelector('#school-summary-toggle .toggle-icon');
+            // 默认关闭
+            schoolSummaryContent.classList.remove('expanded');
+            schoolSummaryToggle.onclick = function () {
+                schoolSummaryContent.classList.toggle('expanded');
+                schoolSummaryIcon.classList.toggle('fa-angle-double-down', !schoolSummaryContent.classList.contains('expanded'));
+                schoolSummaryIcon.classList.toggle('fa-angle-double-up', schoolSummaryContent.classList.contains('expanded'));
+            };
+
+            // 新增：车载按钮·视频说明折叠卡片展开/收纳
+            const carBtnDescToggle = document.querySelector('#car-btn-desc-toggle .exam-process-toggle');
+            const carBtnDescContent = document.getElementById('car-btn-desc-content');
+            const carBtnDescIcon = document.querySelector('#car-btn-desc-toggle .toggle-icon');
+            // 默认关闭
+            carBtnDescContent.classList.remove('expanded');
+            carBtnDescToggle.onclick = function () {
+                carBtnDescContent.classList.toggle('expanded');
+                carBtnDescIcon.classList.toggle('fa-angle-double-down', !carBtnDescContent.classList.contains('expanded'));
+                carBtnDescIcon.classList.toggle('fa-angle-double-up', carBtnDescContent.classList.contains('expanded'));
+            };
+
+            // 新增：车载按钮视频说明独立播放器逻辑
+            const carBtnPlayer = new Plyr('#car-btn-player', {
+                controls: [
+                    'play-large', 'play', 'rewind', 'fast-forward', 'progress', 'current-time', 'duration',
+                    'mute', 'volume', 'captions', 'settings', 'speed', 'fullscreen'
+                ],
+                settings: ['captions', 'quality', 'speed', 'loop'],
+                autoplay: false,
+                muted: false,
+                i18n: {
+                    restart: '重新开始',
+                    rewind: '快退{seektime}秒',
+                    play: '播放',
+                    pause: '暂停',
+                    fastForward: '快进{seektime}秒',
+                    seek: '查找',
+                    seekLabel: '{currentTime} / {duration}',
+                    played: '已播放',
+                    buffered: '已缓冲',
+                    currentTime: '当前时间',
+                    duration: '总时长',
+                    volume: '音量',
+                    mute: '静音',
+                    unmute: '取消静音',
+                    enableCaptions: '开启字幕',
+                    disableCaptions: '关闭字幕',
+                    download: '下载',
+                    enterFullscreen: '全屏',
+                    exitFullscreen: '退出全屏',
+                    frameTitle: '播放器',
+                    captions: '字幕',
+                    settings: '设置',
+                    menuBack: '返回上一级菜单',
+                    speed: '速度',
+                    normal: '正常',
+                    quality: '质量',
+                    loop: '循环',
+                    start: '开始',
+                    end: '结束',
+                    all: '全部',
+                    reset: '重置',
+                    disabled: '禁用',
+                    enabled: '启用',
+                    advertisement: '广告',
+                    qualityBadge: {
+                        2160: '4K',
+                        1440: 'HD',
+                        1080: 'HD',
+                        720: 'HD',
+                        576: 'SD',
+                        480: 'SD',
+                    }
+                }
+            });
+            const carBtnVideoContainer = document.getElementById('car-btn-video-container');
+            const carBtnIframeContainer = document.getElementById('car-btn-iframe-container');
+            const carBtnSrcIframe = document.getElementById('car-btn-src-iframe');
+            // 新增：分别绑定两个按钮
+            const carBtnOnlineBtn = document.getElementById('carBtnOnlineBtn');
+            const carBtnStreamBtn = document.getElementById('carBtnStreamBtn');
+            // 默认显示在线视频
+            carBtnVideoContainer.style.display = 'block';
+            carBtnIframeContainer.style.display = 'none';
+            carBtnSrcIframe.src = '';
+            carBtnOnlineBtn.onclick = function(e) {
+                e.stopPropagation();
+                carBtnVideoContainer.style.display = 'block';
+                carBtnIframeContainer.style.display = 'none';
+                carBtnSrcIframe.src = '';
+            };
+            carBtnStreamBtn.onclick = function(e) {
+                e.stopPropagation();
+                carBtnVideoContainer.style.display = 'none';
+                carBtnIframeContainer.style.display = 'block';
+                carBtnSrcIframe.src = 'https://workdrive.zohopublic.com.cn/embed/kpgnr04aee3f766b142b3a8b137ef7ca90217?toolbar=false&appearance=light&themecolor=green';
+            };
         }
 
         document.addEventListener('DOMContentLoaded', init);
     </script>
+
+<script>
+// 添加滚动按钮功能
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollToBottomBtn = document.getElementById('scrollToBottom');
+    const footer = document.querySelector('footer');
+    
+    // 返回顶部功能
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // 返回底部功能（滚动到页脚）
+    scrollToBottomBtn.addEventListener('click', function() {
+        const footerTop = footer.offsetTop;
+        window.scrollTo({
+            top: footerTop,
+            behavior: 'smooth'
+        });
+    });
+    
+    // 滚动时显示/隐藏返回顶部按钮
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.display = 'flex';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    });
+    
+    // 初始化时隐藏返回顶部按钮
+    scrollToTopBtn.style.display = 'none';
+});
+
+</script>
+
 </body>
 
 </html>
