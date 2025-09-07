@@ -1,0 +1,739 @@
+/* 基础布局与字体 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* 基础提示样式 */
+.basic-tips {
+    background-color: #e8f4fd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 4px solid #3498db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.basic-tips h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+.basic-tips-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.basic-tip-item {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    transition: transform 0.3s;
+}
+.basic-tip-item:hover {
+    transform: translateY(-3px);
+}
+.basic-tip-item h3 {
+    color: #3498db;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.basic-tip-item ul {
+    margin-left: 20px;
+    line-height: 1.7;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.basic-tip-item li {
+    margin-bottom: 8px;
+}
+/* 考试流程列表样式 */
+.exam-process-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-bottom: 0;
+}
+.exam-process-content.expanded {
+    max-height: 3000px;
+    padding-bottom: 10px;
+}
+/* 头部样式 */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.logo i {
+    font-size: 1.8rem;
+}
+/* 轮播图样式 */
+.carousel {
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+.carousel-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+}
+.carousel-caption h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-prev {
+    left: 10px;
+}
+.carousel-next {
+    right: 10px;
+}
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+}
+.carousel-indicator.active {
+    background: white;
+}
+/* 固定图片按钮样式 */
+.pin-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pin-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+.pin-button.pinned {
+    background: #e74c3c;
+}
+/* 视频选择器样式 */
+.video-selectors {
+    margin: 30px 0;
+}
+.video-selectors h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+.selector-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+.video-btn {
+    background: white;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.video-btn.active {
+    background: #3498db;
+    color: white;
+}
+.video-btn:not(.active):hover {
+    border-color: #2980b9;
+    background: #f0f7ff;
+}
+/* 视频播放器样式 */
+.video-container {
+    margin: 20px 0;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 20px auto !important;
+}
+#player {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    object-fit: contain !important;
+    max-width: 100% !important;
+    max-height: none !important;
+}
+/* 按钮区域样式 */
+.button-group {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+.btn-primary:hover {
+    background: #2980b9;
+}
+.btn-secondary {
+    background: #e74c3c;
+    color: white;
+}
+.btn-secondary:hover {
+    background: #c0392b;
+}
+.btn-tertiary {
+    background: #f39c12;
+    color: white;
+}
+.btn-tertiary:hover {
+    background: #d35400;
+}
+.btn-info {
+    background: #2ecc71;
+    color: white;
+}
+.btn-info:hover {
+    background: #27ae60;
+}
+/* 提示框和笔记框样式 */
+.info-box-container {
+    margin-bottom: 20px;
+}
+.info-box {
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 6px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+.info-box.visible {
+    display: block;
+}
+.info-box h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f8fbff;
+    border-radius: 8px;
+    padding: 12px 8px 8px 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+.note-input {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 6px;
+    padding: 8px 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+.note-input textarea {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1.5px solid #c6e2ff;
+    border-radius: 6px;
+    resize: none;
+    height: 70px;
+    font-size: 1rem;
+    background: #f6faff;
+    transition: border 0.2s;
+    min-width: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+.note-input textarea:focus {
+    border: 1.5px solid #3498db;
+}
+.notes-list {
+    max-height: 260px;
+    overflow-y: auto;
+    margin-top: 10px;
+    border-top: 1px solid #e3eaf2;
+    padding-top: 10px;
+    background: #fafdff;
+    border-radius: 6px;
+}
+.note-item {
+    padding: 10px 12px 8px 12px;
+    background: #f4faff;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(52, 152, 219, 0.04);
+}
+.note-item .delete-note {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    color: #e74c3c;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 2px;
+}
+.note-item .note-time {
+    font-size: 0.82rem;
+    color: #7a8fa6;
+    margin-bottom: 3px;
+}
+.warning-text {
+    color: #e74c3c;
+    font-style: italic;
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: #fff6f6;
+    border-radius: 4px;
+    font-size: 0.97rem;
+}
+/* 分割线样式 */
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+    width: 100%;
+}
+/* 补考注意样式 */
+.makeup-exam-notes {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: #fff8e1;
+    border-left: 4px solid #f57c00;
+    border-radius: 4px;
+}
+.makeup-exam-notes h3 {
+    color: #e65100;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.makeup-exam-notes ul {
+    margin-left: 25px;
+    line-height: 1.8;
+}
+.makeup-exam-notes li {
+    margin-bottom: 10px;
+}
+/* 地域位置样式 */
+.location-info {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: #f0f9ff;
+    border-left: 4px solid #165dff;
+    border-radius: 4px;
+}
+.location-info h3 {
+    color: #0d47a1;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.location-address {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #e6f7ff;
+}
+/* 强调文本样式 */
+.highlight-text {
+    font-weight: bold;
+    color: #e74c3c;
+    text-decoration: underline;
+}
+/* 弹窗样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+.modal-content p {
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+.modal-content button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+/* 图片弹窗样式 */
+#img-popup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+#img-popup-modal.visible {
+    display: flex;
+}
+#img-popup-modal .modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+#img-popup-modal img {
+    width: 100%;
+    height: auto;
+}
+#close-img-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    z-index: 10;
+}
+/* 页脚样式 */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+footer .container {
+    text-align: center;
+}
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+/* 下拉图标黑色加粗 */
+.toggle-icon {
+    color: #222 !important;
+    font-weight: bold !important;
+}
+/* 固定弹窗按钮样式 */
+.popup-img-btn-fixed {
+    position: absolute;
+    top: 15px;
+    right: 60px;
+    z-index: 11;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.popup-img-btn-fixed:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+/* 超链接无下划线 */
+a,
+.switch-src-btn {
+    text-decoration: none !important;
+}
+/* 按钮统一样式优化 */
+.btn,
+.video-btn,
+.scroll-button,
+#carBtnSwitchSrcBtn,
+.popup-img-btn-fixed {
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+.btn-primary,
+.video-btn.active,
+#carBtnSwitchSrcBtn {
+    background: #3498db;
+    color: #fff;
+}
+.btn-primary:hover,
+.video-btn:not(.active):hover,
+#carBtnSwitchSrcBtn:hover {
+    background: #2980b9;
+}
+/* 音乐播放器样式 */
+#music-popup {
+    position: fixed;
+    right: 90px;
+    bottom: 24px;
+    z-index: 9999;
+    display: none;
+    background: rgba(44, 62, 80, 0.85);
+    border-radius: 10px;
+    padding: 16px 14px;
+    min-width: 140px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#music-file-name {
+    color: #fff;
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+/* 悬浮音乐按钮样式 */
+#music-float-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
+    background: #3498dbcc;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+/* 音乐控制按钮样式 */
+.music-control-btn,
+#music-prev,
+#music-play,
+#music-next {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+}
+/* 返回顶部和底部按钮样式 */
+.scroll-buttons {
+    position: fixed;
+    right: 24px;
+    bottom: 80px;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.scroll-button {
+    background: #3498dbcc;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.scroll-button:hover {
+    background: #3498db;
+    transform: scale(1.1);
+}
+.scroll-button.bottom {
+    background: #e74c3cbb;
+}
+.scroll-button.bottom:hover {
+    background: #e74c3c;
+}
+/* 车载按钮视频源切换按钮样式 */
+#carBtnSwitchSrcBtn {
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+#carBtnSwitchSrcBtn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+#carBtnSwitchSrcBtn:active {
+    transform: translateY(0);
+}
+/* 删除线样式 */
+.task-done { text-decoration: line-through; color: #aaa !important; }
