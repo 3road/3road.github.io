@@ -4,1590 +4,1002 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大同东升考场·科目三视频学习</title>
-    <meta name="keywords" content="大同东升考场, 科目三视频, 驾考内部培训, 科目三考试流程, 驾考视频教程, 大同驾校">
-    <meta name="description" content="大同东升考场科目三视频学习平台，提供详细的科目三考试流程、操作要点和模拟训练视频，助您轻松通过驾考科目三考试。">
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>山西省大同市本地驾校信息</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="pic/car-icon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/plyr.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* 基础提示样式 */
-        .basic-tips {
-            background-color: #e8f4fd;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 4px solid #3498db;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .basic-tips h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-        }
-
-        .basic-tips-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .basic-tip-item {
-            background: white;
-            padding: 15px;
-            border-radius: 6px;
-            transition: transform 0.3s;
-        }
-
-        .basic-tip-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .basic-tip-item h3 {
-            color: #3498db;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
-
-        .basic-tip-item ul {
-            margin-left: 20px;
-            line-height: 1.7;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .basic-tip-item li {
-            margin-bottom: 8px;
-        }
-
-        /* 考试流程列表样式 */
-        .exam-process-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            /* 可选：增加底部内边距，防止内容贴边 */
-            padding-bottom: 0;
-            /* 修复内容遮挡：允许内容完整显示 */
-        }
-
-        .exam-process-content.expanded {
-            max-height: 3000px;
-            /* 增大高度，保证内容完整显示 */
-            padding-bottom: 10px;
-            /* 可选：展开时增加内边距 */
-        }
-
-        /* 头部样式 */
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .logo i {
-            font-size: 1.8rem;
-        }
-
-        /* 轮播图样式 */
-        .carousel {
-            position: relative;
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            position: relative;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px;
-        }
-
-        .carousel-caption h3 {
-            margin-bottom: 5px;
-            font-size: 1.2rem;
-        }
-
-        .carousel-prev,
-        .carousel-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-prev {
-            left: 10px;
-        }
-
-        .carousel-next {
-            right: 10px;
-        }
-
-        .carousel-prev:hover,
-        .carousel-next:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .carousel-indicators {
-            position: absolute;
-            bottom: 60px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .carousel-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            border: none;
-            cursor: pointer;
-        }
-
-        .carousel-indicator.active {
-            background: white;
-        }
-
-        /* 固定图片按钮样式 */
-        .pin-button {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pin-button:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .pin-button.pinned {
-            background: #e74c3c;
-        }
-
-        /* 视频选择器样式 */
-        .video-selectors {
-            margin: 30px 0;
-        }
-
-        .video-selectors h2 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 1.5rem;
-        }
-
-        .selector-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .video-btn {
-            background: white;
-            border: 2px solid #3498db;
-            border-radius: 6px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .video-btn.active {
-            background: #3498db;
-            color: white;
-        }
-
-        .video-btn:not(.active):hover {
-            border-color: #2980b9;
-            background: #f0f7ff;
-        }
-
-        /* 视频播放器样式 */
-        .video-container {
-            margin: 20px 0;
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        #player {
-            width: 100%;
-            aspect-ratio: 16/9;
-        }
-
-        /* 按钮区域样式 */
-        .button-group {
-            margin: 20px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: #3498db;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #2980b9;
-        }
-
-        .btn-secondary {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #c0392b;
-        }
-
-        .btn-tertiary {
-            background: #f39c12;
-            color: white;
-        }
-
-        .btn-tertiary:hover {
-            background: #d35400;
-        }
-
-        .btn-info {
-            background: #2ecc71;
-            color: white;
-        }
-
-        .btn-info:hover {
-            background: #27ae60;
-        }
-
-        /* 提示框和笔记框样式 */
-        .info-box-container {
-            margin-bottom: 20px;
-        }
-
-        .info-box {
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 6px;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
-
-        .info-box.visible {
-            display: block;
-        }
-
-        .info-box h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .notes-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            background: #f8fbff;
-            border-radius: 8px;
-            padding: 12px 8px 8px 8px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-        }
-
-        .note-input {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            background: #fff;
-            border-radius: 6px;
-            padding: 8px 6px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-        }
-
-        .note-input textarea {
-            flex: 1;
-            padding: 10px 12px;
-            border: 1.5px solid #c6e2ff;
-            border-radius: 6px;
-            resize: none;
-            height: 70px;
-            font-size: 1rem;
-            background: #f6faff;
-            transition: border 0.2s;
-            min-width: 0;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        .note-input textarea:focus {
-            border: 1.5px solid #3498db;
-        }
-
-        .notes-list {
-            max-height: 260px;
-            overflow-y: auto;
-            margin-top: 10px;
-            border-top: 1px solid #e3eaf2;
-            padding-top: 10px;
-            background: #fafdff;
-            border-radius: 6px;
-        }
-
-        .note-item {
-            padding: 10px 12px 8px 12px;
-            background: #f4faff;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            position: relative;
-            box-shadow: 0 1px 2px rgba(52, 152, 219, 0.04);
-        }
-
-        .note-item .delete-note {
-            position: absolute;
-            top: 6px;
-            right: 6px;
-            color: #e74c3c;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            padding: 2px;
-        }
-
-        .note-item .note-time {
-            font-size: 0.82rem;
-            color: #7a8fa6;
-            margin-bottom: 3px;
-        }
-
-        .warning-text {
-            color: #e74c3c;
-            font-style: italic;
-            margin-top: 8px;
-            padding: 8px 10px;
-            background: #fff6f6;
-            border-radius: 4px;
-            font-size: 0.97rem;
-        }
-
-        /* 分割线样式 */
-        .divider {
-            height: 1px;
-            background-color: #ddd;
-            margin: 30px 0;
-            width: 100%;
-        }
-
-        /* 补考注意样式 */
-        .makeup-exam-notes {
-            margin: 25px 0;
-            padding: 20px;
-            background-color: #fff8e1;
-            border-left: 4px solid #f57c00;
-            border-radius: 4px;
-        }
-
-        .makeup-exam-notes h3 {
-            color: #e65100;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .makeup-exam-notes ul {
-            margin-left: 25px;
-            line-height: 1.8;
-        }
-
-        .makeup-exam-notes li {
-            margin-bottom: 10px;
-        }
-
-        /* 新增：地域位置样式 */
-        .location-info {
-            margin: 25px 0;
-            padding: 20px;
-            background-color: #f0f9ff;
-            border-left: 4px solid #165dff;
-            border-radius: 4px;
-        }
-
-        .location-info h3 {
-            color: #0d47a1;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .location-address {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            padding: 10px;
-            background-color: white;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            border: 1px solid #e6f7ff;
-        }
-
-        .location-map {
-            width: 100%;
-            height: 300px;
-            background-color: #e6f7ff;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .location-map-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: #4299e1;
-            gap: 10px;
-        }
-
-        .location-map-placeholder i {
-            font-size: 2rem;
-        }
-
-        .location-directions {
-            margin-top: 15px;
-        }
-
-        .location-directions h4 {
-            margin-bottom: 8px;
-            color: #0d47a1;
-            font-size: 1.05rem;
-        }
-
-        .location-directions ul {
-            margin-left: 20px;
-            line-height: 1.6;
-        }
-
-        /* 强调文本样式 */
-        .highlight-text {
-            font-weight: bold;
-            color: #e74c3c;
-            text-decoration: underline;
-        }
-
-        /* 弹窗样式 */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .modal.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .modal-content p {
-            margin: 20px 0;
-            font-size: 1.1rem;
-        }
-
-        .modal-content button {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        /* 图片弹窗样式 */
-        #img-popup-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-        }
-
-        #img-popup-modal.visible {
-            display: flex;
-        }
-
-        #img-popup-modal .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        #img-popup-modal img {
-            width: 100%;
-            height: auto;
-        }
-
-        #close-img-popup {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.3rem;
-            z-index: 10;
-        }
-
-        /* 页脚样式 - 已修改 */
-        footer {
-            background-color: #2c3e50;
-            /* 与头部相同的背景色 */
-            color: white;
-            /* 文字颜色 */
-            padding: 20px 0;
-            /* 上下内边距 */
-            margin-top: 40px;
-            /* 与上方内容保持距离 */
-        }
-
-        footer .container {
-            text-align: center;
-            /* 文字居中 */
-        }
-
-        footer p {
-            margin: 0;
-            /* 清除默认外边距 */
-            font-size: 1rem;
-            /* 调整字体大小 */
-        }
-
-        /* 下拉图标黑色加粗 */
-        .toggle-icon {
-            color: #222 !important;
-            font-weight: bold !important;
-        }
-
-        /* 固定弹窗按钮样式，与钉子按钮同级 */
-        .popup-img-btn-fixed {
-            position: absolute;
-            top: 15px;
-            right: 60px;
-            z-index: 11;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .popup-img-btn-fixed:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        /* 超链接无下划线 */
-        a,
-        .switch-src-btn {
-            text-decoration: none !important;
-        }
-
-        /* 按钮统一样式优化 */
-        .btn,
-        .video-btn,
-        .scroll-button,
-        #carBtnSwitchSrcBtn,
-        .popup-img-btn-fixed {
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .btn-primary,
-        .video-btn.active,
-        #carBtnSwitchSrcBtn {
-            background: #3498db;
-            color: #fff;
-        }
-
-        .btn-primary:hover,
-        .video-btn:not(.active):hover,
-        #carBtnSwitchSrcBtn:hover {
-            background: #2980b9;
-        }
-
-        /* 音乐播放器样式 */
-        #music-popup {
-            position: fixed;
-            right: 90px;
-            bottom: 24px;
-            z-index: 9999;
-            display: none;
-            background: rgba(44, 62, 80, 0.85);
-            border-radius: 10px;
-            padding: 16px 14px;
-            min-width: 140px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #music-file-name {
-            color: #fff;
-            font-size: 0.98rem;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        /* 悬浮音乐按钮样式 */
-        #music-float-btn {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 9999;
-            background: #3498dbcc;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        /* 音乐控制按钮样式 */
-        .music-control-btn,
-        #music-prev,
-        #music-play,
-        #music-next {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            padding: 0;
-        }
-
-        /* 返回顶部和底部按钮样式 */
-        .scroll-buttons {
-            position: fixed;
-            right: 24px;
-            bottom: 80px;
-            z-index: 9998;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .scroll-button {
-            background: #3498dbcc;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .scroll-button:hover {
-            background: #3498db;
-            transform: scale(1.1);
-        }
-
-        .scroll-button.bottom {
-            background: #e74c3cbb;
-        }
-
-        .scroll-button.bottom:hover {
-            background: #e74c3c;
-        }
-
-        /* 视频容器强制约束 */
-        .video-container {
-            width: 100% !important;
-            /* 确保容器占满父元素宽度 */
-            max-width: 1200px !important;
-            /* 可选：限制最大宽度，避免过大 */
-            margin: 20px auto !important;
-            /* 居中显示 */
-        }
-
-        /* 播放器尺寸强化（16:9比例锁定） */
-        #player {
-            width: 100% !important;
-            height: auto !important;
-            aspect-ratio: 16/9 !important;
-            /* 核心：锁定宽高比 */
-            object-fit: contain !important;
-            /* 视频内容适应容器，不拉伸 */
-            max-width: 100% !important;
-            max-height: none !important;
-        }
-
-        /* 车载按钮视频源切换按钮样式 */
-        #carBtnSwitchSrcBtn {
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 6px 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        #carBtnSwitchSrcBtn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        #carBtnSwitchSrcBtn:active {
-            transform: translateY(0);
-        }
-    </style>
+    <meta name="description" content="山西省大同市本地C1驾照学习专属平台，汇总大同优质驾校名录并附详细优缺点分析，深度解析C1驾照考试各项目考点与技巧，提供高清视频教程辅助学习，助力大同考生高效选驾校、轻松备考，一站式解决C1驾照从报名到拿证的全流程需求。">
+    <meta name="keywords" content="大同C1驾照学习,大同本地驾校,大同驾校优缺点分析,大同C1考试项目解析,C1驾照视频教程,山西省大同驾校报名,大同C1驾照备考,大同考驾照攻略">
 </head>
 
 <body>
-    <!-- 头部 -->
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fa fa-car"></i>
-                <span>大同/东升考场·科目三 视频学习</span>
-            </div>
+        <div class="container">
+            <h1><i class="fa fa-car" aria-hidden="true"></i>大同市本地驾校信息</h1>
         </div>
     </header>
 
-    <!-- 主内容区 -->
-
-    <div class="scroll-buttons">
-        <button class="scroll-button top" id="scrollToTop" title="返回顶部" aria-label="返回顶部">
-            <i class="fa fa-arrow-up"></i>
-        </button>
-        <button class="scroll-button bottom" id="scrollToBottom" title="返回底部" aria-label="返回底部">
-            <i class="fa fa-arrow-down"></i>
-        </button>
-    </div>
-
-    <div class="container">
-        <!-- 轮播图 -->
-        <div class="carousel">
-            <!-- 固定弹窗按钮，移出slide，和钉子按钮同级 -->
-            <button class="popup-img-btn-fixed" id="popupImgBtnFixed" title="图片大图预览">
-                <i class="fa fa-window-restore"></i>
-            </button>
-            <!-- 固定图片按钮 -->
-            <button class="pin-button" id="pinButton">
-                <i class="fa fa-thumb-tack"></i>
-            </button>
-            <div class="carousel-container">
-                <div class="carousel-slide">
-                    <img src="pic/p0.png" alt="考生专用通道" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>考生专用通道</h3>
-                        <p>进出路段、信息核对</p>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/15e76cec828f9be600bc85d39c2f77a920935fbc228dd3fd32657076a5dce10a/download?directDownload=true"
-                        alt="待考区图片" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>待考区</h3>
-                        <p>等候厅/发车区 叫名即出 </p>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/7e3d60a80a7985e30187cda6d6543cab5ef1d8f702924987e985e47e84430d8b/download?directDownload=true"
-                        alt="左转区（起步）图片" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>左转区（起步）</h3>
-                        <p>注：第一个拐弯口</p>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/1ba0f809a68dbff094c8e0798ec80b73d77809ac5769b7e3687e2892346aa276/download?directDownload=true"
-                        alt="出门区图片" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>出门区</h3>
-                        <p>注意减速、左右观察瞭望（3路均左转；勿压实线；必要可打“左转向”）</p>
-                    </div>
-                </div>
-
-                <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/99ea22a484241f6fc5e55436771c682ec2ae65809fdc04ccbff6891957caafce/download?directDownload=true"
-                        alt="签字/物品领取区图片" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>签字/物品领取区</h3>
-                        <p>合格签字，反之</p>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="https://workdrive.zohopublic.com.cn/external/d10be3317351490e9498f900f369bc4377898224b77562e4f704139a56bee62a/download?directDownload=true"
-                        alt="东升（通谐）考场·科目三 线路图图片" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>东升（通谐）考场·科目三 线路图</h3>
-                        <p>1、2、3号详情图</p>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="pic/r1.jpg" alt="1号线 平面图" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>东升（通谐）考场·1号线 平面图</h3>
-                        <p>1号线 平面图</p>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="pic/r2.jpg" alt="2号线 平面图" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>东升（通谐）考场·2号线 平面图</h3>
-                        <p>2号线 平面图</p>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="pic/r3.jpg" alt="3号线 平面图" loading="lazy">
-                    <div class="carousel-caption">
-                        <h3>东升（通谐）考场·3号线 平面图</h3>
-                        <p>3号线 平面图</p>
-                    </div>
+    <main class="container">
+        <!-- 驾考进度选择部分 -->
+        <section class="section progress-section">
+            <h2 class="section-title"><i class="fa fa-automobile" aria-hidden="true"></i> 驾考进度</h2>
+            <p class="prompt">请选择您的C1驾考进度</p>
+            <div class="progress-buttons">
+                <a href="k2/index.html" target="_blank" class="progress-btn"><i class="fa fa-check-circle"
+                        aria-hidden="true"></i> 科目二</a>
+                <a href="k3/index.html" target="_blank" class="progress-btn"><i class="fa fa-check-circle"
+                        aria-hidden="true"></i> 科目三</a>
+                <!-- 提示文字区域，按钮排列后 -->
+                <div style="width:100%; text-align:center; margin-top:10px;">
+                    <span style="font-size:13px; color:red; font-weight:bold;">注</span>
+                    <span style="font-size:13px; color:#222;">：此内容，仅供学校/参考；请以已报名驾校或策略为主</span>
                 </div>
             </div>
-            <button class="carousel-prev"><i class="fa fa-chevron-left"></i></button>
-            <button class="carousel-next"><i class="fa fa-chevron-right"></i></button>
-            <div class="carousel-indicators" id="carouselIndicators"></div>
-        </div>
+        </section>
 
-        <!-- 基础提示区域 -->
-        <div class="basic-tips">
-            <h2><i class="fa fa-lightbulb-o"></i> 基础提示</h2>
-            <div class="basic-tips-content">
-                <div class="basic-tip-item" data-toggle="tips-1">
-                    <h3 class="exam-process-toggle">
-                        <span>C1基本</span>
-                        <i class="fa fa-angle-double-down toggle-icon"></i>
-                    </h3>
-                    <div class="exam-process-content">
-                        <ul>
-                            <li><span style="font-weight: bold; color: #e74c3c;">转向灯</span>
-                                <div style="margin-left: 1em;">
-                                    <p>打灯 用力拨（重打轻拨）</p>
-                                    <p><span style="font-weight: bold; color: #e74c3c;">起步 先打左灯 是你爹</p>
-                                    <p><span style="font-weight: bold; color: #e74c3c;">靠边 先打右灯 是你娘</p>
-                                    <p>超转变掉道 打灯5秒后 再换路</p>
-                                    <p>转向灯 熄灭急补 ；项目结束 如亮手关 </p>
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">刹车</span>
-                                <div style="margin-left: 1em;">
-                                    <p>必刹车-无播报：学校、公交、人行横道</p>
-                                    <p>必刹车-有播报：会车、左/右转弯、掉头、路口直行、路口减速</p>
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">语音（拒抢语音 操作）</span>
-                                <div style="margin-left: 1em;">
-                                    <p>注：实考中，会因补考或已过项目，语音出现差异</p>
-                                    <p>驾校/初考：听到 下车上车准备→下车按钮 </p>
-                                    <p>驾校/初考：听到 开始起步→打灯起步（打开左转向后，等待安全员上车，发车） </p>
-                                    <p style="text-indent: 1em;">➤补考情况（仅参考）： </p>
-                                    <p style="text-indent: 1em;"></p>请开始上车准备考试 //从新绕车开始 </p>
-                                    <p style="text-indent: 1em;"></p>请启动发动机 //如插播夜间语音考试，系安全带，先完成语音考试 </p>
-                                    <p style="text-indent: 1em;"></p>请在x号线完成考试 请立即起步 //系安全带，直接打灯起步 </p>
+        <!-- 驾校选择部分 -->
+        <section class="section">
+            <h2 class="section-title"><i class="fa fa-check" aria-hidden="true"></i> 驾校选择</h2>
+            <button class="collapse-btn" id="collapseBtn">
+                <i class="fa fa-chevron-down" aria-hidden="true"></i> 查看大同市驾校列表
+            </button>
 
-
-                                    </p>
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">起步（灯=眼睛）</span>
-                                <div style="margin-left: 1em;">
-                                    <p>打灯：左灯→挂1挡→放手刹</p>
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">停车</span>
-                                <div style="margin-left: 1em;">
-                                    <p>摘空挡→拉手刹→钥匙熄火→安全带→松双脚→开/关车门</p>
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">左/右观望</span>
-                                <div style="margin-left: 1em;">
-                                    <p>涉及变动，就：左/右摆头 观望</p>
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">考试（模拟）流程</span>
-                                <div style="margin-left: 1em;">
-                                    <p>排队机器刷证(先刷先考)→入场刷证（递交电子设备）→等候厅等待（期间可如厕）→叫名+车号（开始出）→</p><br>
-                                    <p>上车→刷证→语言提示后（观望+开门10秒内下车，按车钮）→上车（调整座椅+灯光复位）+系安全带→灯光模拟→语言提示后（起步打灯，等安全员上车，后在开动车）→上路项目测验→靠边停车
-                                    </p>
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">直线行驶</span>
-                                <div style="margin-left: 1em;">
-                                    <p>有限的时间内，通过方向盘，左右摆动（幅度大小，要合适，几乎快调快回），回正调整行驶，避免机器判定</p>
-
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">附：车轮&方向盘</span>
-                                <div style="margin-left: 1em;">
-                                    <p>方向盘3、9点直线位，即车，左、右车轮宽位；用于：判定两侧线和车位</p>
-
-                                </div>
-                            </li>
-                        </ul>
+            <div class="collapsible" id="collapsibleContent">
+                <div class="table-wrapper" style="max-height:400px; overflow-y:auto;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <span class="update-date" style="margin: 0; text-align: left; font-style: normal; color: #555;">
+                            更新日期：2025年；数据来源：2023年 | 排名不分先后/推荐 |
+                            <a href="https://www.dt.gov.cn/dtszf/bumdth/202311/2b2cb06668bc4d82a24e3c7f66c4ecc6.shtml"
+                                target="_blank" style="color: #3498db; text-decoration: none;">
+                                政府文件
+                            </a>
+                        </span>
                     </div>
+                    <table class="driving-schools">
+                        <thead>
+                            <tr>
+                                <th>驾校名称</th>
+                                <th>地理区域</th>
+                                <th>考场名称</th>
+                                <th>在线照片</th>
+                                <th>联系电话</th>
+                                <th>优缺点</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>大同市公共交通有限责任公司驾驶员培训学校</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同津海机动车驾驶员培训有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>灵丘县通祥机动车驾驶员培训学校（有限公司）</td>
+                                <td>灵丘县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>灵丘县平安机动车驾驶员培训有限公司</td>
+                                <td>灵丘县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊区宏鑫机动车驾驶员培训有限责任公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市阳高机动车驾驶员培训学校</td>
+                                <td>阳高县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>天镇县骏驰机动车驾驶员培训学校</td>
+                                <td>天镇县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>广灵县顺风机动车驾驶员培训有限责任公司</td>
+                                <td>广灵县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市安邦机动车驾驶员培训学校有限公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市振兴机动车驾驶员培训有限责任公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊区光曜驾驶员培训学校有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市西韩岭机动车驾驶员培训学校</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊区鹏程驾驶员培训有限公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市御东沙岭机动车驾驶员培训学校</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市新蕾驾驶员培训学校有限公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市温军机动车驾驶员培训有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市金第汽车职业培训学校</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市风驰汽车职业培训学校有限责任公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>广灵县安驰机动车驾驶员培训有限责任公司</td>
+                                <td>广灵县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市新荣区荣诚驾驶员培训有限责任公司</td>
+                                <td>新荣区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>天镇县顺通驾校有限公司</td>
+                                <td>天镇县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市左云县职业技术学校驾驶员培训中心</td>
+                                <td>左云县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同县明阳机动车驾驶员培训有限公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市华磊机动车驾驶员培训有限公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊区光跃驾驶员培训学校有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同县万事通驾驶员培训有限责任公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>浑源县金土地驾校有限责任公司</td>
+                                <td>浑源县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市新英明驾驶技能培训中心</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市新博机动车驾驶员培训学校</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市机动车驾驶员培训五校</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同县岑鑫驾驶员培训服务有限公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>浑源县耀霖机动车驾驶员培训有限公司</td>
+                                <td>浑源县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市通谐汽车驾驶员培训学校有限公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市岑星机动车驾驶员培训有限公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市云海机动车驾驶员培训有限责任公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊区光华驾驶员学校有限责任公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市汇林驾驶员培训有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市新荣区泰和驾校有限责任公司</td>
+                                <td>新荣区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市金元机动车驾驶员培训有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊区新世纪机动车驾驶员培训学</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市欣磊机动车驾驶员培训有限责任公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市阳光新驾校有限责任公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市开特逸驾驶员培训有限责任公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊福海驾校有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市瑞新驾驶员培训有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市世纪阳光机动车驾驶员培训有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>左云县云顺机动车驾驶员培训有限公司</td>
+                                <td>左云县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市矿区幸福驾驶员职业培训有限公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市森辉机动车驾驶员培训有限责任公司</td>
+                                <td>平城区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊宏安驾校有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市永兴机动车驾驶员培训有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市盛益驾驶员培训有限责任公司</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市岑虹机动车驾驶员培训有限公司</td>
+                                <td>阳高县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>阳高县东昇驾驶员培训有限责任公司</td>
+                                <td>阳高县</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市云冈区鸿程机动车驾驶员培训学有限责任公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市南郊区明鑫驾校有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市新荣区凯骋机动车驾驶员培训学校有限责任公司</td>
+                                <td>新荣区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市建安驾校有限公司</td>
+                                <td>云冈区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>大同市鑫磊机动车驾驶员培训学校</td>
+                                <td>云州区</td>
+                                <td>--</td>
+                                <td><a href="#" target="_blank" class="photo-link">点击查看</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="basic-tip-item" data-toggle="tips-2">
-                    <h3 class="exam-process-toggle">
-                        <span>夜间灯光模拟</span>
-                        <i class="fa fa-angle-double-down toggle-icon"></i>
-                    </h3>
-                    <div class="exam-process-content">
-                        <ul>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="lamp-checkbox" style="margin-right:6px;">
-                                    <span style="font-weight: bold; color: #e74c3c;">近光灯</span>
-                                </label>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">与机动车会车</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">同方向近距离跟车</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">在照明良好道路上行驶</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">在有信号灯路口转弯</span>
-                                </div>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="lamp-checkbox" style="margin-right:6px;">
-                                    <span style="font-weight: bold; color: #e74c3c;">远光灯</span>
-                                </label>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">在无照明道路上行驶</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">在照明不良的道路上行驶</span>
-                                </div>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="lamp-checkbox" style="margin-right:6px;">
-                                    <span style="font-weight: bold; color: #e74c3c;">远近交替灯</span>
-                                </label>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">通过:急弯</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">通过:拱桥</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">通过:坡路</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">通过:超车</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">通过:人行横道</span>
-                                </div>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">通过:没有信号灯控制的路口</span>
-                                </div>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="checkbox" class="lamp-checkbox" style="margin-right:6px;">
-                                    <span style="font-weight: bold; color: #e74c3c;">示廓灯</span>
-                                </label>
-                                <div style="text-indent: 1em;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa fa-check-circle task-icon" style="color:#bbb;cursor:pointer;"></i>
-                                    <span class="task-text">路边临时停车</span>
-                                </div>
-                            </li>
-                            <li><span style="font-weight: bold; color: #e74c3c;">温馨提示</span>
-                                <div style="margin-left: 1em;">
-                                    <p>1.操作灯光拨杆，请缓慢，不要急速</p>
-                                    <p>2.如打灯时，上面有开着的，要先关闭，在操作，当前语音的（关闭所有灯光，同理）</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
-        </div>
+        </section>
 
-        <!-- 精简驾校版项目总结折叠卡片 -->
-        <div class="basic-tip-item" id="school-summary-toggle" style="margin-bottom:24px;">
-            <h3 class="exam-process-toggle" style="cursor:pointer;">
-                <i class="fa fa-tag"></i>
-                <span>驾校版：驾考解析·文字总结/精简</span>
-                <i class="fa fa-angle-double-down toggle-icon"></i>
-            </h3>
-            <div class="exam-process-content" id="school-summary-content">
-                <ul style="margin-left:0;">
-                    <li>
-                        <span style="font-weight:bold;color:#e74c3c;">基础档位 规则</span>
-                        <ul>
-                            <li>一档限制：除靠边停车外，所有路段一档行驶，不超过 <b>50 米</b>（及时挂2挡路）</li>
-                            <li>换挡标准：起步 / 停车后，离合平稳控制 <b>5 秒</b>再松开</li>
-                            <li>加油至 <b>15 迈</b>松油门、踩离合换二档，速度勿超 <b>20 迈</b>，否则视越档100分</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span style="font-weight:bold;color:#e74c3c;">重点项目 操作要点</span>
-                        <ul style="margin-left:1em;">
-                            <li>
-                                <b>一 起步</b><br>
-                                听指令，开左转向灯，挂一档、松手刹<br>
-                                慢抬离合，至车辆平稳；稳住5秒以上再松开，完成起步
-                            </li>
-                            <li>
-                                <b>二 加减档</b><br>
-                                <u>操作步骤：</u><br>
-                                听指令后，油门踩到底至30迈，踩离合挂3档，松离合后，左脚放地面<br>
-                                立即踩离合，挂4档，左脚离地后数8秒（匀速数）<br>
-                                踩离合退3档，轻踩刹车至30迈以下，踩离合退2档，慢松离合防抖动<br>
-                                <u>扣分红线：</u><br>
-                                180米内未完成、四档行驶时间不足扣10分<br>
-                                超速/低速，导致档位速度不匹配；轻度扣10分、严重扣100分<br>
-                                挂错档、离合未踩到底、未抬开时挂档，均视为越级挂档，扣100分
-                            </li>
-                            <li>
-                                <b>三 直线行驶</b><br>
-                                提前调整直线位置，微调后回正方向<br>
-                                指令播报后保持方向稳定，行驶120米结束，车不歪斜即可
-                            </li>
-                            <li>
-                                <b>四 会车</b><br>
-                                轻踩刹车减速，向右微调方向，路边线30公分（偏左多调、偏中/右少调）<br>
-                                随即向左回正，对正道路，行驶70米，并等待项目结束
-                            </li>
-                            <li>
-                                <b>五 变更车道</b><br>
-                                注：操作同超车，但不回原车道（一次只能变更1条车道；实际路途中，请合理引用）<br>
-                                开左转向灯，并数够5秒，左右观察，后视镜无车或安全距离后，打1/4方向变道<br>
-                                车头到道路中间，回正方向，再打1/4右方向，车正后回正
-                            </li>
-                            <li>
-                                <b>六 超车</b><br>
-                                注：操作同变更车道，但须变回原车道<br>
-                                开左转向灯，并数够5秒，左右观察，后视镜无车或安全距离后，打1/4方向变道，并将车回正，行驶几秒后<br>
-                                再开右转向灯，并数够5秒，左右观察，后视镜无车或安全距离后，打1/4方向变道，并将车回正行驶
-                            </li>
-                            <li>
-                                <b>七 掉头</b><br>
-                                注：请分辨车在那条道路，方便变道调整（中道：左转向灯+变最左侧、左道：左转向灯+掉头）<br>
-                                注意观察红路灯；选择参照物，向左打满方向掉头<br>
-                                正常用二档；遇阻碍可停车或退一档；掉头后，迅速加油升二档
-                            </li>
-                            <li>
-                                <b>八 路口操作</b><br>
-                                直行：斑马线前轻踩刹车<br>
-                                左转弯：打左转向灯，走最左侧车道，绿灯轻踩刹车、红灯停车等待<br>
-                                右转弯：打右转向灯，无需等红绿灯，斑马线前点刹转弯
-                            </li>
-                            <li>
-                                <b>九 人行横道（抽考）</b><br>
-                                注：机车前盖，请在停止线前，且盖住地上指路标识<br>
-                                播报“有行人”时，斑马线前停车；行人通过后，挂一档起步<br>
-                                无播报时，仅轻踩刹车通过
-                            </li>
-                            <li>
-                                <b>十 学校 / 公交站</b><br>
-                                经过前时，不加油、不鸣笛<br>
-                                公交站轻踩几脚刹车
-                            </li>
-                            <li>
-                                <b>十一 靠边停车</b><br>
-                                注：指令播报后，100米内完成停车，不提前停<br>
-                                最右侧车道：开右转向灯，退一档，摆正会车位置，确认车身距边缘线≤30公分后停车<br>
-                                在中间车道：开右转向灯，变至最右侧车道（灯灭需重开），后续同上述步骤<br>
-                                <u>停车后流程：</u><br>
-                                摘空挡→拉手刹→熄火→解安全带→松脚→开关车门（关车门后等待结果；熄火前，勿松离合、刹车）
-                            </li>
-                        </ul>
-                    </li>
+        <!-- 驾校选择指南内容整合开始 -->
+        <section class="section" id="school-guide-section" style="margin-bottom:2rem;">
+            <header
+                style="text-align:center; margin-bottom:30px; padding-bottom:20px; border-bottom:2px solid #4CAF50;">
+                <h1 style="color:#2E7D32; margin-bottom:10px;">驾校选择指南</h1>
+            </header>
+            <nav style="margin-bottom:30px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+                <ul class="nav-list" style="display:flex; list-style:none; overflow-x:auto; padding:0; margin:0;">
+                    <li class="nav-item"><a href="#bad-features" class="nav-link">垃圾驾校特征</a></li>
+                    <li class="nav-item"><a href="#inquiry" class="nav-link">报前详询</a></li>
+                    <li class="nav-item"><a href="#preferences" class="nav-link">优选建议</a></li>
                 </ul>
-            </div>
-        </div>
-
-        <!-- 新增：车载按钮·视频说明折叠模块 -->
-        <div class="basic-tip-item" id="car-btn-desc-toggle" style="margin-bottom:24px;">
-            <h3 class="exam-process-toggle" style="cursor:pointer;">
-                <i class="fa fa-automobile"></i>
-                <span>车载按钮·视频说明</span>
-                <i class="fa fa-angle-double-down toggle-icon"></i>
-            </h3>
-            <div class="exam-process-content" id="car-btn-desc-content">
-
-                <!-- 独立视频播放器区域 -->
-                <div style="margin-top:24px;">
-                    <!-- 按钮居中包裹 -->
-                    <div style="display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
-                        <button id="carBtnSwitchSrcBtn"
-                            style="background: #3498db; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 500;">
-                            <span id="carBtnOnlineBtn" style="cursor:pointer;">在线视频</span>
-                            <span style="color: #fff; font-weight: normal;">|</span>
-                            <span id="carBtnStreamBtn" style="color: #85dc85; cursor:pointer;">流畅视源</span>
-                        </button>
+            </nav>
+            <div class="container" style="max-width:1200px; margin:0 auto;">
+                <!-- 垃圾驾校特征 -->
+                <div class="accordion" id="bad-features">
+                    <div class="accordion-header"
+                        style="background:white; border-radius:8px; padding:15px 20px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 5px rgba(0,0,0,0.1); transition:all 0.3s;">
+                        <h2 style="color:#2E7D32; margin:0; padding:0; border:none; font-size:1.3em;">垃圾驾校特征（避坑重点）</h2>
+                        <i class="fa fa-chevron-down accordion-icon"></i>
                     </div>
-                    <div class="video-container" id="car-btn-video-container">
-                        <video id="car-btn-player" controls aria-label="车载按钮视频说明播放器"
-                            style="width:100%;height:auto;max-width:100%;aspect-ratio:16/9;display:block;">
-                            <source
-                                src="https://workdrive.zohopublic.com.cn/external/360a2794ccd059fb6137a9559672cb66fb8a0063871397ef965c566d519f0d03/download?directDownload=true"
-                                type="video/mp4">
-                            您的浏览器不支持视频播放
-                        </video>
+                    <div class="accordion-content" data-open="false">
+                        <p>垃圾驾校：问题集中在"宣传不实、服务低效、消费不透明、教学无保障"四大维度</p>
+                        <div class="table-container" style="overflow-x:auto;">
+                            <table style="width:100%; border-collapse:collapse; margin-bottom:20px;">
+                                <tr>
+                                    <th>特征分类</th>
+                                    <th>具体表现</th>
+                                    <th>重点关注人群</th>
+                                </tr>
+                                <tr>
+                                    <td>虚假宣传</td>
+                                    <td>
+                                        <ul>
+                                            <li>平台评论、宣传作假（刷好评、贴广告、夸大服务）</li>
+                                            <li>用"送礼品、限时低价话术"等吸引报名，后续不兑现</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">所有人群</span>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">学生党</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>服务低效</td>
+                                    <td>
+                                        <ul>
+                                            <li>练车时间，月均天数，无法持续：安排/保证</li>
+                                            <li>培训材料，图文内容不全，更新不及时、杂乱无章，阅读理解困难</li>
+                                            <li>只能依驾校，固定排列，缺乏我方自主性，错过即无；含时间、学习时段选择</li>
+                                            <li>如某科挂科，但未参考科目，部分满足条件，但仍不及时安排：训练/考试</li>
+                                            <li>考场验收，依旧招生，致拥堵拖拉；期间，不给安排任何、卡着不动</li>
+                                            <li>相关安排，以月为单位，计量（报后，容易看出）</li>
+                                            <p><span style="color: red;">注：</span>全职练车/考试，请慎重考虑，避免，浪费时间精力</p>
+
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">所有人群</span>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">上班族</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>消费不透明</td>
+                                    <td>
+                                        <ul>
+                                            <li>隐性收费：模拟、加练、场地、车辆、车管所、补考、材料等</li>
+                                            <li>如自有考场，但不给，实地训练，涉额外费用</li>
+                                            <p>注：虽口说无，但报后，或因环境/条件，换种方式存在</p>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">预算有限人群</span>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">担心加价者</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>教学无保障</td>
+                                    <td>
+                                        <ul>
+                                            <li>教练水平、态度、质量，部分存吃拿卡要</li>
+                                            <li>设备/场地老旧，操作差劲，不能与时俱进</li>
+                                            <li>训练、学习、考试，时间短，且计时不准，出入不灵活</li>
+                                            <li>教练，掌握过多权力，影响学员：考试、学习进度、中途卡停、推卸责任</li>
+                                            <p>注：部分驾校，无保险，承担挂科，会直扣教练费（教练挣，过科费）</p>
+                                            <li>考试/训练：因某项目欠缺，后续练车、模拟停滞（含驾校、合作考场）无法跟进、考试</li>
+                                            <li>驾校，多余车辆，闲置不用；多人拥挤，共享同车</li>
+                                            <p>注：学车，请避免，固定安排、30分钟类型，影响学习效果</p>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">所有人群</span>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">零基础学员</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>合同/发票</td>
+                                    <td>
+                                        <ul>
+                                            <li>合同条款、责任划分不合理、我方担责过重</li>
+                                            <li>报名后，或考科目一后，概不退款；合同条款，不规范</li>
+                                            <li>不开发票，缺乏有效凭证</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">所有人群</span>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">零基础学员</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>同价不同学</td>
+                                    <td>
+                                        <ul>
+                                            <li>同城同价下，服务内容差异，集中在：学习时间短、考试安排不及时、月训练天数少</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">所有人群</span>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">零基础学员</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>其它</td>
+                                    <td>
+                                        <ul>
+                                            <li>训练/考场，路远，交通工具有限，班车单一性/卡时；通勤、食宿成本较高</li>
+
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">所有人群</span>
+                                        <span class="人群标签"
+                                            style="display:inline-block; background-color:#e8f5e9; color:#2E7D32; padding:3px 8px; border-radius:4px; font-size:0.8em; margin-right:5px; margin-bottom:5px;">零基础学员</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div class="video-container" id="car-btn-iframe-container" style="display:none;text-align:center;">
-                        <div style="position:relative;width:100%;padding-top:56.25%;">
-                            <iframe id="car-btn-src-iframe" src="" scrolling="no" frameborder="0" allowfullscreen
-                                title="嵌入的代码"
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;"></iframe>
+                </div>
+                <!-- 报名前详询要点 -->
+                <div class="accordion" id="inquiry">
+                    <div class="accordion-header">
+                        <h2>报前详询（防踩坑关键）</h2>
+                        <i class="fa fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content" data-open="false">
+                        <p>多方考虑，拒绝低质驾校，耗时耗力；口说无凭；优选能将承诺，写入合同的驾校</p>
+                        <div class="table-container">
+                            <table>
+                                <tr>
+                                    <th>详询维度</th>
+                                    <th>具体询问内容</th>
+                                    <th>重点关注人群</th>
+                                </tr>
+                                <tr>
+                                    <td>收费与消费</td>
+                                    <td>
+                                        <ul>
+                                            <li>总费，所含项目？如：材料、考试费、模拟、场地、挂科</li>
+                                            <li>其它费用：体检、交管规费、</li>
+                                            <p>注：驾校大厅、教练报名，有不同价、优惠</p>
+                                            <p>注：驾校宣传“一费到底”，实际会偏差，如：加时、模拟（偏百元起/h）</p>
+                                            <p>注：驾校总费，会因时间段，发生降幅，不要过多相信，限时优惠</p>
+                                            <p>注：自助体检机，免费便捷，但部分驾校，涉定点医院，走形式，赚额外费</p>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签">预算有限人群</span>
+                                        <span class="人群标签">学生党</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>练考与时间</td>
+                                    <td>
+                                        <ul>
+                                            <li>练车时间、每月/每天，安排，能练多久？</li>
+                                            <li>是否，排班排点练车，还是随到随学</li>
+                                            <li>我如有事，能否两天时间，合在一起练</li>
+                                            <li>科一考完后，何时安排，科二训练？（其它类推）</li>
+                                            <li>科目二、三 ；正常下，分别练习天数</li>
+                                            <li>是否有考试，才给我安排练车，即使我之前练过；其它情况，平常不给安排</li>
+                                            <li>支持，或有，夜间练习吗？人多时，是否调整，练车时长？</li>
+                                            <li>从报名，到各科目，考试拿证，大致多久？</li>
+                                            <li>科目二、三 ，加时训练、考试模拟，费用多少？</li>
+                                            <li>通过或挂科后，未参考科目，多久能，安排新考试、培训练车</li>
+                                            <p>注：特指，我方在：存空闲时间、全职、某科已过、跳考、符合考试预约条件等情况下</p>
+
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签">上班族</span>
+                                        <span class="人群标签">备考周期短者</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>驾校口碑</td>
+                                    <td>
+                                        <ul>
+                                            <li>方式一：提前，网查，自行查询</li>
+                                            <li>方式二：实地，科目二场地，观看/询问，学员</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签">零基础学员</span>
+                                        <span class="人群标签">重视拿证效率者</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>场地与车辆</td>
+                                    <td>
+                                        <ul>
+                                            <li>训练/考试场地，具体位置，是否固定？
+                                            <li>如自有考场，是否，验收完成，或预验收时间？</li>
+                                            <li>训练场地=考试场地，日常是否，在考试场地练？</li>
+                                            <li>考试模拟练车，使用驾校车辆，还是考试车辆？</li>
+                                            <li>如无自有考场，涉合作考场，距离多远？日常练车在哪</li>
+                                            <li>教练车，是否充足，有无备用车（免坏，耽误练车）</li>
+                                            <p>注:部分，可能需，实地考察，并自行评估</p>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签">通勤不便者</span>
+                                        <span class="人群标签">对场地熟悉度要求高者</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>合同与退费</td>
+                                    <td>
+                                        <ul>
+                                            <li>包挂科目，时效、范围</li>
+                                            <li>退费条件、比例关系</li>
+                                            <li>因驾校问题，如场地验收，是否支持，包挂科项，时效延长</li>
+                                            <li>看合同条款，是否明确、合理；如：收费明细、服务范围、责任划分等</li>
+                                            <p>注：如遇不合理合同，请不要考虑；或协商补充，两者认可</p>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签">所有人群</span>
+                                        <span class="人群标签">担心维权难者</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>配套服务</td>
+                                    <td>
+                                        <ul>
+                                            <li>有无：班车接送、覆盖范围、发车时间</li>
+                                            <li>场地提供：食宿，吃饭收费？</li>
+
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="人群标签">通勤不便者</span>
+                                        <span class="人群标签">上班族</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>教练与教学</td>
+                                    <td>
+                                        <ul>
+                                            <li>教练，是否有正规资质</li>
+                                            <li>教练，分配方式；如指定/随机，能否更换？</li>
+                                            <li>教学：培训方式；如图文、视频理论+实地结合</li>
+
+                                        </ul>，
+                                    </td>
+                                    <td>
+                                        <span class="人群标签">零基础学员</span>
+                                        <span class="人群标签">项目欠缺、赶时间人群</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- 优选建议 -->
+                <div class="accordion" id="preferences">
+                    <div class="accordion-header">
+                        <h2>驾校优选方向</h2>
+                        <i class="fa fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content" data-open="false">
+                        <p>考驾照有效期 3 年，自科目一通过、核发学习驾驶证明起算；超期未考，或每科超考5次，成绩作废，需缴费报名重新考</p>
+                        <div class="table-container">
+                            <table>
+                                <tr>
+                                    <th>优选条件</th>
+                                    <th>优势说明</th>
+                                    <th>适配人群</th>
+                                </tr>
+                                <tr>
+                                    <td>自有考场</td>
+                                    <td>训练场地=考试场地；熟悉路线、点位，通过率高</td>
+                                    <td>
+                                        <span class="人群标签">零基础学员</span>
+                                        <span class="人群标签">对考试紧张的人群</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>交通便捷</td>
+                                    <td>训练/考试场地：交通覆盖，通勤便捷；避免班车单一性/成本</td>
+                                    <td>
+                                        <span class="人群标签">上班族</span>
+                                        <span class="人群标签">无代步工具的学员</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>随到随学</td>
+                                    <td>练车、选择，时间灵活自主；避免报后难学，或固定卡时安排</td>
+                                    <td>
+                                        <span class="人群标签">上班族</span>
+                                        <span class="人群标签">时间不固定的自由职业者</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>合同规范</td>
+                                    <td>收费、退费、服务范围、责任划分等；合同明确，维权有保障</td>
+                                    <td>
+                                        <span class="人群标签">所有人群</span>
+                                        <span class="人群标签">担心"踩坑"者</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>场地设备</td>
+                                    <td>越新越好，设施齐全，标线清晰、维护良好</td>
+                                    <td>
+                                        <span class="人群标签">所有人群</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>质保服务</td>
+                                    <td>学车，有效期三年；包挂科费，年限越长，优选</td>
+
+                                    <td>
+                                        <span class="人群标签">所有人群</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>货比三家</td>
+                                    <td>同城市，不扎堆选看，要多对比，避免：低质驾校</td>
+                                    <td>
+                                        <span class="人群标签">所有人群</span>
+                                        <span class="人群标签">首次报名者</span>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <a href="#" class="back-to-top"
+                style="position:fixed; bottom:20px; right:20px; background-color:#4CAF50; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; box-shadow:0 2px 5px rgba(0,0,0,0.3); opacity:0; transition:opacity 0.3s;">↑</a>
+        </section>
+    </main>
 
-        <!-- 视频选择器 -->
-        <div class="video-selectors">
-            <h2><i class="fa fa-flag"></i> 实拍线路</h2>
-            <div class="selector-buttons">
-                <div class="video-btn active" data-index="0"
-                    style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    <i class="fa fa-road"></i>
-                    <span>线路一</span>
-                    <span style="color: #fff; font-weight: normal;">|</span>
-                    <span class="switch-src-btn" data-src-index="0"
-                        style="color: #85dc85; cursor: pointer; text-decoration: underline;">流畅视源</span>
-                </div>
-                <div class="video-btn" data-index="1"
-                    style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    <i class="fa fa-road"></i>
-                    <span>线路二</span>
-                    <span style="color: #fff; font-weight: normal;">|</span>
-                    <span class="switch-src-btn" data-src-index="1"
-                        style="color: #85dc85; cursor: pointer; text-decoration: underline;">流畅视源</span>
-                </div>
-                <div class="video-btn" data-index="2"
-                    style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    <i class="fa fa-road"></i>
-                    <span>线路三</span>
-                    <span style="color: #fff; font-weight: normal;">|</span>
-                    <span class="switch-src-btn" data-src-index="2"
-                        style="color: #85dc85; cursor: pointer; text-decoration: underline;">流畅视源</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 视频播放器 -->
-        <div class="video-container" id="video-container">
-            <video id="player" controls aria-label="主线路视频播放器">
-                <source src="video1.mp4" type="video/mp4">
-                您的浏览器不支持视频播放
-            </video>
-        </div>
-        <!-- 视源iframe容器，初始隐藏 -->
-        <div class="video-container" id="iframe-container" style="display:none; text-align:center;">
-            <div style="position:relative;width:100%;padding-top:56.25%;"><!-- 16:9自适应容器 -->
-                <iframe id="src-iframe" src="" scrolling="no" frameborder="0" allowfullscreen title="嵌入的代码"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;"></iframe>
-            </div>
-        </div>
-
-        <!-- 按钮区域 -->
-        <div class="button-group">
-            <button class="btn btn-info" id="video-desc-btn">
-                <i class="fa fa-file-text-o"></i>
-                视频说明
-            </button>
-            <button class="btn btn-primary" id="tips-btn">
-                <i class="fa fa-info-circle"></i>
-                温馨提示
-            </button>
-            <button class="btn btn-secondary" id="notes-btn">
-                <i class="fa fa-pencil"></i>
-                我要记录
-            </button>
-            <button class="btn btn-tertiary" id="download-btn">
-                <i class="fa fa-download"></i>
-                视频下载
-            </button>
-        </div>
-
-        <!-- 提示框容器 -->
-        <div class="info-box-container">
-            <!-- 温馨提示框 -->
-            <div class="info-box" id="tips-box">
-                <h3><i class="fa fa-info-circle"></i> 温馨提示</h3>
-                <div id="tips-content">
-                    <div class="tips-item" data-index="0">
-                        <p>建议（2、3号线 按需采纳）</p>
-                        <p style="text-indent: 2em;">【预防系统逻辑·判定错误】请在出门口时，再次打开"左转向"灯，在对应车道走直后，记关</p>
-                        <p>1号线 直线行驶 在 路口直行 后（紧接着 请提前摆正、调整 </p>
-                        <p>1号线，在返程路口前，需自主变道（左）；用途：左转弯</p>
-                        <p>1号线，以3车道为基础；起步变更车道，请合理选择，其余多数均在中路</p>
-                        <p>临近靠边停车，不可在该线路，进口标线外或压线，停车；2、3号线可以</p>
-                    </div>
-                    <div class="tips-item" data-index="1" style="display:none">
-                        <p>2、3号线 加减档位置 一样</p>
-                        <p>2号线 直线行驶 位置在 黄房子边（请提前摆正、调整</p>
-                        <p>2号线 走中线后，需自主右打灯，变道</p>
-                        <p>2、3号线 转弯/掉头 2车道 逻辑/位置 一样（如3车道，请走中）</p>
-                        <p style="text-indent: 2em;">车 转弯前/掉头前 左车道 </p>
-                        <p style="text-indent: 2em;">车 转弯后/掉头后 右车道 </p>
-
-
-                    </div>
-                    <div class="tips-item" data-index="2" style="display:none">
-                        <p>2、3号线 加减档位置 一样</p>
-                        <p>3号线 直线行驶 在过第二个路口 后几米</p>
-                        <p>2、3号线 转弯/掉头 2车道 逻辑/位置 一样（如3车道，请走中）</p>
-                        <p style="text-indent: 2em;">车 转弯前/掉头前 左车道 </p>
-                        <p style="text-indent: 2em;">车 转弯后/掉头后 右车道 </p>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- 笔记框 -->
-            <div class="info-box" id="notes-box">
-                <h3><i class="fa fa-pencil"></i> 学习记录</h3>
-                <div class="notes-container">
-                    <div class="note-input">
-                        <textarea id="note-text" placeholder="输入您的学习要点记录..."></textarea>
-                        <button class="btn btn-primary" id="add-note">添加</button>
-                    </div>
-                    <div class="warning-text">
-                        刷新、关闭网页均失效；请您尽快转移
-                    </div>
-                    <div class="notes-list" id="notes-list-0">
-                        <!-- 线路一笔记将动态添加到这里 -->
-                    </div>
-                    <div class="notes-list" id="notes-list-1" style="display:none">
-                        <!-- 线路二笔记将动态添加到这里 -->
-                    </div>
-                    <div class="notes-list" id="notes-list-2" style="display:none">
-                        <!-- 线路三笔记将动态添加到这里 -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- 视频说明提示框 -->
-            <div class="info-box" id="video-desc-box">
-                <h3><i class="fa fa-file-text-o"></i>线路说明</h3>
-                <div id="video-desc-content">
-                    <div class="video-desc-item" data-index="0">
-                        <h4>线路一 </h4>
-                        <p>经实地对比：项目点范围，均正确</p>
-                        <p style="text-indent: 2em;">考试速度：要控制或低于：≤25-30km/h</p>
-                        <p style="text-indent: 2em;">学校、公交车站；踩刹车，均在掉头返程路侧</p>
-
-                        <li>其它提示：</li>
-
-
-                    </div>
-                    <div class="video-desc-item" data-index="1" style="display:none">
-                        <h4>线路二 </h4>
-                        <p>经实地对比：项目点范围，均正确</p>
-                        <p style="text-indent: 2em;">考试速度：要控制或低于：≤25-30km/h</p>
-                        <p style="text-indent: 2em;">学校、公交车站；踩刹车，均在掉头返程路侧</p>
-                        <li>其它提示：</li>
-
-                    </div>
-                    <div class="video-desc-item" data-index="2" style="display:none">
-                        <h4>线路三 </h4>
-                        <p>经实地对比：项目点范围，均正确</p>
-                        <p style="text-indent: 2em;">考试速度：要控制或低于：≤25-30km/h</p>
-                        <p style="text-indent: 2em;">学校、公交车站；踩刹车，均在掉头返程路侧</p>
-                        <li>其它提示：</li>
-                        <p>2、3号线，在掉头后，2车道</p>
-                        <p style="text-indent: 2em;">转弯前/掉头前 左车道 </p>
-                        <p style="text-indent: 2em;">转弯后/掉头后 右车道 </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 分割线 -->
-        <div class="divider"></div>
-
-        <!-- 补考注意内容 -->
-        <div class="makeup-exam-notes">
-            <h3><i class="fa fa-exclamation-triangle"></i> 补考注意</h3>
-            <ul>
-
-                <li>2次机会，挂后可补（安全员，将车，开到发车位置）</li>
-                <li class="highlight-text">灯光模拟、下车准备，如合格，但中途挂；直接进入：刷证+系安全带+打左转向灯+『起步』流程；反之，错哪弄哪，并开始</li>
-                <li>考试不合格，十天起（冷静期 ），才可重新预约</li>
-                <li>5次预约均未通过者，需重参报科一</li>
-            </ul>
-        </div>
-
-        <!-- 新增：地域位置信息 -->
-        <div class="location-info">
-            <h3 style="display: flex; align-items: center; gap: 10px;">
-                <i class="fa fa-map-marker"></i>
-                <span>地域位置</span>
-                <button id="copy-address-btn" title="复制地址"
-                    style="background: #3498db; color: #fff; border: none; border-radius: 4px; padding: 6px 12px; cursor: pointer; display: flex; align-items: center; gap: 4px;">
-                    <i class="fa fa-copy"></i> 复制
-                </button>
-            </h3>
-            <div class="location-address">
-                <span id="address-text">云洲区周士庄镇大同市装备制造产业园区园丰街园平路288号<br>（大同市通谐汽车驾驶员培训学校有限公司）</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 下载提示弹窗 -->
-    <div class="modal" id="download-modal">
-        <div class="modal-content">
-            <p>抱歉，暂不支持</p>
-        </div>
-    </div>
-
-    <!-- 图片弹窗 -->
-    <div class="modal" id="img-popup-modal" aria-modal="true" role="dialog">
-        <div class="modal-content">
-            <button id="close-img-popup" aria-label="关闭图片弹窗">
-                <i class="fa fa-times"></i>
-            </button>
-            <img id="popup-img" src="" alt="大图预览" style="max-width:80vw;max-height:80vh;">
-        </div>
-    </div>
-
-    <!-- 悬浮音乐按钮 -->
-    <button id="music-float-btn" title="夜间模拟语音"
-        style="position:fixed;right:24px;bottom:24px;z-index:9999;background:#3498dbcc;color:#fff;border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.18);font-size:1.2rem;cursor:pointer;">
-        <i class="fa fa-music"></i>
-    </button>
-    <!-- 音乐播放器弹出容器（只保留中间内容，无外围包裹，且刷新时默认收纳） -->
-    <div id="music-popup"
-        style="position:fixed;right:90px;bottom:24px;z-index:9999;display:none;background:rgba(44,62,80,0.85);border-radius:10px;padding:16px 14px;min-width:140px;box-shadow:0 2px 12px rgba(0,0,0,0.18);flex-direction:column;align-items:center;justify-content:center;">
-        <div id="music-file-name" style="color:#fff;font-size:0.98rem;margin-bottom:10px;text-align:center;">夜间模拟语音1
-        </div>
-        <audio id="music-audio" src="0.mp3"></audio>
-        <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
-            <button id="music-prev"
-                style="background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;width:28px;height:28px;padding:0;"><i
-                    class="fa fa-step-backward"></i></button>
-            <button id="music-play"
-                style="background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;width:28px;height:28px;padding:0;"><i
-                    class="fa fa-play"></i></button>
-            <button id="music-next"
-                style="background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;width:28px;height:28px;padding:0;"><i
-                    class="fa fa-step-forward"></i></button>
-        </div>
-    </div>
-
-    <!-- 页脚 -->
-    <footer class="bg-dark text-white py-10">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <p class="text-gray-400 max-w-md mx-auto mb-6">成绩合格-祝您考试顺利</p>
-                <p>
-                    <a href="#" target="_blank" style="color: white; text-decoration: none;">友情链接</a> |
-                    <a href="../k2/index.html" target="_blank" style="color: white; text-decoration: none;">科目二</a>
-                </p>
-            </div>
+    <footer>
+        <div class="container">
+            <p>驾校选择千万家 报前详询 杜绝低质驾校 </p>
         </div>
     </footer>
 
-    <!-- 本地引入Plyr脚本 -->
-    <script src="js/plyr.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- 固定右下角按钮组 -->
+    <div class="fixed-action-group">
+        <button class="action-btn" id="wxBtn" title="微信">
+            <i class="fa fa-weixin"></i>
+        </button>
+        <button class="action-btn" id="topBtn" title="置顶">
+            <i class="fa fa-arrow-up"></i>
+        </button>
+        <button class="action-btn" id="bottomBtn" title="置底">
+            <i class="fa fa-arrow-down"></i>
+        </button>
+        <div id="wxQrcodePopup"
+            style="display:none; position:fixed; right:70px; bottom:80px; z-index:2000; background:#fff; border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,0.18); padding:12px; text-align:center;">
+            <img src="" alt="微信二维码" style="width:120px;height:120px;display:block;">
+            <div style="font-size:13px;color:#666; margin-top:6px;">联系我</div>
+        </div>
+    </div>
 
+    <script src="js/main.js"></script>
 </body>
 
 </html>
