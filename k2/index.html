@@ -5,100 +5,1368 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>科目二考试指南 - 项目解析与注意事项</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="大同市科目二，大同科目二指南，大同科目二项目解析，科目二倒车入库 / 侧方停车技巧，科目二坡道扣分标准，大同新手科目二攻略，大同科目二流程">
     <meta name="description" content="科目二攻略：项目操作详解，点位 / 车速 / 方向盘技巧拆解，附流程、扣分点，帮新手轻松过考！">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3b82f6',
-                        secondary: '#10b981',
-                        accent: '#f59e0b',
-                        danger: '#ef4444',
-                        dark: '#1e293b',
-                        light: '#f8fafc'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-light: #dbeafe;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --secondary-light: #d1fae5;
+            --secondary-dark: #059669;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --accent-dark: #d97706;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --danger-dark: #dc2626;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --rounded: 0.25rem;
+            --rounded-md: 0.375rem;
+            --rounded-lg: 0.5rem;
+            --rounded-xl: 0.75rem;
+            --rounded-full: 9999px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* 工具类 */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .items-start {
+            align-items: flex-start;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .flex-shrink-0 {
+            flex-shrink: 0;
+        }
+
+        .space-y-2>*+* {
+            margin-top: 0.5rem;
+        }
+
+        .space-y-3>*+* {
+            margin-top: 0.75rem;
+        }
+
+        .space-y-4>*+* {
+            margin-top: 1rem;
+        }
+
+        .space-y-6>*+* {
+            margin-top: 1.5rem;
+        }
+
+        .space-x-2>*+* {
+            margin-left: 0.5rem;
+        }
+
+        .space-x-3>*+* {
+            margin-left: 0.75rem;
+        }
+
+        .space-x-4>*+* {
+            margin-left: 1rem;
+        }
+
+        .space-x-6>*+* {
+            margin-left: 1.5rem;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .w-6 {
+            width: 1.5rem;
+        }
+
+        .w-8 {
+            width: 2rem;
+        }
+
+        .w-12 {
+            width: 3rem;
+        }
+
+        .w-20 {
+            width: 5rem;
+        }
+
+        .h-1 {
+            height: 0.25rem;
+        }
+
+        .h-6 {
+            height: 1.5rem;
+        }
+
+        .h-8 {
+            height: 2rem;
+        }
+
+        .h-12 {
+            height: 3rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-5 {
+            margin-bottom: 1.25rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-16 {
+            margin-bottom: 4rem;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .ml-2 {
+            margin-left: 0.5rem;
+        }
+
+        .ml-3 {
+            margin-left: 0.75rem;
+        }
+
+        .mr-2 {
+            margin-right: 0.5rem;
+        }
+
+        .mr-3 {
+            margin-right: 0.75rem;
+        }
+
+        .mr-4 {
+            margin-right: 1rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .py-6 {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .py-8 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .py-10 {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .py-16 {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .p-1 {
+            padding: 0.25rem;
+        }
+
+        .p-2 {
+            padding: 0.5rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .p-5 {
+            padding: 1.25rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .bg-gray-50 {
+            background-color: var(--gray-50);
+        }
+
+        .bg-gray-100 {
+            background-color: var(--gray-100);
+        }
+
+        .bg-primary {
+            background-color: var(--primary);
+        }
+
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+
+        .bg-danger {
+            background-color: var(--danger);
+        }
+
+        .bg-dark {
+            background-color: var(--dark);
+        }
+
+        .bg-amber-50 {
+            background-color: #fffbeb;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .text-gray-400 {
+            color: var(--gray-400);
+        }
+
+        .text-gray-600 {
+            color: var(--gray-600);
+        }
+
+        .text-gray-700 {
+            color: var(--gray-700);
+        }
+
+        .text-gray-800 {
+            color: var(--gray-800);
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .text-secondary {
+            color: var(--secondary);
+        }
+
+        .text-danger {
+            color: var(--danger);
+        }
+
+        .text-dark {
+            color: var(--dark);
+        }
+
+        .text-amber-700 {
+            color: #b45309;
+        }
+
+        .text-amber-800 {
+            color: #92400e;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-base {
+            font-size: 1rem;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .rounded {
+            border-radius: var(--rounded);
+        }
+
+        .rounded-md {
+            border-radius: var(--rounded-md);
+        }
+
+        .rounded-lg {
+            border-radius: var(--rounded-lg);
+        }
+
+        .rounded-xl {
+            border-radius: var(--rounded-xl);
+        }
+
+        .rounded-full {
+            border-radius: var(--rounded-full);
+        }
+
+        .shadow-sm {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .shadow-md {
+            box-shadow: var(--shadow-md);
+        }
+
+        .shadow-lg {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .border {
+            border-width: 1px;
+        }
+
+        .border-l-4 {
+            border-left-width: 4px;
+        }
+
+        .border-amber-400 {
+            border-color: #fbbf24;
+        }
+
+        .border-gray-100 {
+            border-color: var(--gray-100);
+        }
+
+        .border-gray-200 {
+            border-color: var(--gray-200);
+        }
+
+        .transition-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-bg-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .hover-bg-secondary:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        .hover-text-primary:hover {
+            color: var(--primary);
+        }
+
+        .sticky {
+            position: sticky;
+        }
+
+        .top-0 {
+            top: 0;
+        }
+
+        .z-50 {
+            z-index: 50;
+        }
+
+        .fixed {
+            position: fixed;
+        }
+
+        .bottom-6 {
+            bottom: 1.5rem;
+        }
+
+        .right-6 {
+            right: 1.5rem;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .inset-0 {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .overflow-x-auto {
+            overflow-x: auto;
+        }
+
+        .max-w-md {
+            max-width: 28rem;
+        }
+
+        .max-w-5xl {
+            max-width: 64rem;
+        }
+
+        .max-h-90vh {
+            max-height: 90vh;
+        }
+
+        /* 自定义组件样式 */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-desktop {
+            display: none;
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-desktop a {
+            font-weight: 500;
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-button {
+            display: block;
+            color: var(--gray-600);
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .mobile-menu li {
+            margin: 0.75rem 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            font-weight: 500;
+            color: var(--gray-700);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .title-divider {
+            width: 5rem;
+            height: 0.25rem;
+            background-color: var(--primary);
+            border-radius: 9999px;
+            margin: 1rem auto 0;
+        }
+
+        /* 标签页样式 */
+        .tabs-container {
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            gap: 0.5rem;
+        }
+
+        .tab {
+            white-space: nowrap;
+            padding: 0.5rem 1rem;
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .tab.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .tab:hover:not(.active) {
+            background-color: var(--gray-300);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 项目卡片样式 */
+        .project-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .project-card-inner {
+                display: flex;
+            }
+
+            .project-card-content {
+                width: 50%;
+            }
+
+            .project-card-media {
+                width: 50%;
+                background-color: var(--gray-100);
             }
         }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .content-auto {
-                content-visibility: auto;
+
+        .project-card-content-inner {
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            /* 增大描述文本字号 */
+            letter-spacing: 0.03em;
+            /* 字间距适度 */
+            line-height: 1.5;
+            /* 行高适度 */
+        }
+
+        @media (min-width: 768px) {
+            .project-card-content-inner {
+                padding: 2rem;
             }
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .project-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .toggle-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .toggle-btn {
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .toggle-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .toggle-btn:not(.active) {
+            background-color: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .steps-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .steps-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-number {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 9999px;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .step-number.secondary {
+            background-color: var(--secondary);
+        }
+
+        .warning-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #fbbf24;
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+
+        .warning-title {
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .warning-list {
+            color: #b45309;
+            list-style: none;
+        }
+
+        .warning-list li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* 轮播图样式 */
+        .carousel-container {
+            position: relative;
+            background-color: white;
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .carousel {
+            position: relative;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            z-index: 10;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-btn {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: var(--gray-700);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* 新增：钉子按钮激活时背景黄色 */
+        .carousel-btn.bg-amber-400 {
+            background-color: #fbbf24 !important;
+            color: #fff !important;
+        }
+
+        .carousel-item {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.375rem;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+
+        .carousel-indicator {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .carousel-indicator.active,
+        .carousel-indicator:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .carousel-prev:hover,
+        .carousel-next:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-prev {
+            left: 0.5rem;
+        }
+
+        .carousel-next {
+            right: 0.5rem;
+        }
+
+        .key-points {
+            background-color: var(--gray-50);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .key-points-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--gray-800);
+        }
+
+        .key-points-list {
+            color: var(--gray-700);
+            list-style: none;
+        }
+
+        .key-points-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        /* 注意事项样式 */
+        .tips-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .tips-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .transition-custom {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tip-card {
+            background-color: var(--gray-50);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s;
+        }
+
+        .tip-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .tip-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .tip-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .tip-icon.danger {
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+
+        .tip-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .tip-list {
+            list-style: none;
+        }
+
+        .tip-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .tip-item-icon {
+            color: var(--secondary);
+            margin-top: 0.25rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .tip-item-icon.danger {
+            color: var(--danger);
+        }
+
+        .info-box {
+            background-color: white;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-icon {
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+        }
+
+        .info-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .info-list {
+            color: var(--gray-700);
+            list-style: none;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item-icon {
+            color: var(--secondary);
+            margin-top: 0.25rem;
+            margin-right: 0.5rem;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2.5rem 0;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--gray-400);
+            max-width: 28rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* 位置信息样式 */
+        .location-bar {
+            background-color: var(--gray-50);
+            padding: 2rem 0;
+            border-top: 1px solid var(--gray-200);
+            /* 新增：居中定位 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .location-content {
+            /* 居中显示，垂直居中 */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 64rem;
+            margin: 0 auto;
+            /* 新增：居中定位 */
+            width: 100%;
+        }
+
+        .copy-btn {
+            margin-left: 0.75rem;
+            color: var(--primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .copy-btn:hover {
+            color: rgba(59, 130, 246, 0.8);
+        }
+
+        .copy-success {
+            margin-left: 0.5rem;
+            color: var(--secondary);
+            font-size: 0.875rem;
+            display: none;
+        }
+
+        /* 模态框样式 */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(3px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .image-viewer-content {
+            position: relative;
+            max-width: 64rem;
+            width: 100%;
+            max-height: 90vh;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .viewer-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .close-viewer {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            color: white;
+            font-size: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 9999px;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            z-index: 2;
+        }
+
+        .close-viewer:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--gray-300);
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 42rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-lg);
+            padding: 1rem;
+        }
+
+        .close-video-modal {
+            position: absolute;
+            top: -2.5rem;
+            right: 1rem;
+            color: white;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-video-modal:hover {
+            color: var(--gray-300);
+        }
+
+        .video-iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 0.375rem;
+            border: none;
+        }
+
+        /* 滚动按钮样式 */
+        .scroll-actions {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .scroll-btn {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 9999px;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .scroll-btn:hover {
+            background-color: rgba(59, 130, 246, 0.8);
+        }
+
+        .scroll-btn.secondary {
+            background-color: var(--secondary);
+        }
+
+        .scroll-btn.secondary:hover {
+            background-color: rgba(16, 185, 129, 0.8);
+        }
+
+        /* 动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
             }
-            .carousel-item {
-                display: none;
-                animation: fadeIn 0.5s ease-in-out;
+
+            to {
+                opacity: 1;
             }
-            .carousel-item.active {
+        }
+
+        /* 响应式设计 */
+        @media (min-width: 768px) {
+            .nav-desktop {
                 display: block;
             }
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
+
+            .mobile-menu-button {
+                display: none;
             }
-            .modal-backdrop {
-                backdrop-filter: blur(3px);
-            }
-            /* 新增图片弹窗优化样式 */
-            #image-viewer .relative {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            #close-viewer {
-                /* 绝对定位于图片右上角 */
-                position: absolute;
-                top: 0.5rem;
-                right: 0.5rem;
+
+            .px-4-md {
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
         }
+
+        @media (max-width: 767px) {
+            .project-card-media {
+                padding: 1rem;
+            }
+
+            .carousel-controls {
+                top: 0.25rem;
+                right: 0.25rem;
+            }
+
+            .carousel-prev,
+            .carousel-next {
+                width: 1.5rem;
+                height: 1.5rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* 视频链接样式优化 */
+        .tab .video-link {
+            font-size: inherit;
+            vertical-align: middle;
+
+        }
+
+        .tab {
+            font-size: 1rem;
+            /* 设置统一字体大小 */
+        }
+
+        .tab .video-link {
+            font-size: 1rem;
+            /* 与标签页主文本保持一致 */
+        }
+
+        </
     </style>
 </head>
 
-<body class="bg-gray-50 font-sans text-gray-800">
+<body>
     <!-- 顶部导航 -->
-    <header class="sticky top-0 z-50 bg-white shadow-md transition-custom">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa fa-car text-primary text-2xl"></i>
-                <h1 class="text-xl md:text-2xl font-bold text-primary">科目二·项目解析</h1>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa fa-car text-primary text-xl"></i>
+                <h1 class="text-xl font-bold text-primary">科目二·项目解析</h1>
             </div>
-            <nav class="hidden md:block">
-                <ul class="flex space-x-6">
-
-                    <li><a href="#projects" class="hover:text-primary transition-custom font-medium">项目解析</a></li>
-                    <li><a href="#tips" class="hover:text-primary transition-custom font-medium">注意事项</a></li>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#projects" class="transition-custom">项目解析</a></li>
+                    <li><a href="#tips" class="transition-custom">注意事项</a></li>
                 </ul>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary transition-custom">
+            <button id="mobile-menu-button" class="mobile-menu-button transition-custom">
                 <i class="fa fa-bars text-xl"></i>
             </button>
         </div>
         <!-- 移动端菜单 -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="container mx-auto px-4 py-3">
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="container px-4 py-3">
                 <ul class="space-y-3">
-
-                    <li><a href="#projects" class="block hover:text-primary transition-custom font-medium py-2">项目解析</a>
-                    </li>
-                    <li><a href="#tips" class="block hover:text-primary transition-custom font-medium py-2">注意事项</a>
-                    </li>
+                    <li><a href="#projects" class="transition-custom py-2">项目解析</a></li>
+                    <li><a href="#tips" class="transition-custom py-2">注意事项</a></li>
                 </ul>
             </div>
         </div>
@@ -106,817 +1374,649 @@
 
     <!-- 项目解析 -->
     <section id="projects" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+        <div class="container">
+            <div class="section-title">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dark">项目解析</h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+                <div class="title-divider"></div>
             </div>
 
             <!-- 项目标签页 -->
-            <div class="max-w-5xl mx-auto">
-                <div class="flex overflow-x-auto pb-2 mb-6 scrollbar-hide space-x-2 md:space-x-4">
-                    <button
-                        class="project-tab active whitespace-nowrap px-4 py-2 bg-primary text-white rounded-full font-medium transition-custom"
-                        data-tab="parking">
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab active" data-tab="parking">
                         倒车入库
-                        <span class="video-link ml-2 cursor-pointer" data-video="video/1倒车入库.mp4">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/1.mp4">| 视频</span>
                     </button>
-                    <button
-                        class="project-tab whitespace-nowrap px-4 py-2 bg-gray-200 text-gray-700 rounded-full font-medium hover:bg-gray-300 transition-custom"
-                        data-tab="sidepark">
+                    <button class="tab" data-tab="sidepark">
                         侧方停车
-                        <span class="video-link ml-2 cursor-pointer" data-video="">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/2.mp4">| 视频</span>
                     </button>
-                    <button
-                        class="project-tab whitespace-nowrap px-4 py-2 bg-gray-200 text-gray-700 rounded-full font-medium hover:bg-gray-300 transition-custom"
-                        data-tab="ramp">
+                    <button class="tab" data-tab="ramp">
                         坡道定点停车和起步
-                        <span class="video-link ml-2 cursor-pointer" data-video="">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/3.mp4">| 视频</span>
                     </button>
-                    <button
-                        class="project-tab whitespace-nowrap px-4 py-2 bg-gray-200 text-gray-700 rounded-full font-medium hover:bg-gray-300 transition-custom"
-                        data-tab="rightangle">
+                    <button class="tab" data-tab="rightangle">
                         直角转弯
-                        <span class="video-link ml-2 cursor-pointer" data-video="">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/4.mp4">| 视频</span>
                     </button>
-                    <button
-                        class="project-tab whitespace-nowrap px-4 py-2 bg-gray-200 text-gray-700 rounded-full font-medium hover:bg-gray-300 transition-custom"
-                        data-tab="curve">
+                    <button class="tab" data-tab="curve">
                         曲线行驶
-                        <span class="video-link ml-2 cursor-pointer" data-video="">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/5.mp4">| 视频</span>
                     </button>
                 </div>
+            </div>
 
-                <!-- 倒车入库 -->
-                <div class="project-content active" id="parking-content">
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="md:flex">
-                            <div class="md:w-1/2">
-                                <div class="p-6 md:p-8">
-                                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-dark">倒车入库（半圈入库法）</h3>
+            <!-- 倒车入库 -->
+            <div class="project-content active" id="parking-content">
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-content">
+                            <div class="project-card-content-inner">
+                                <h3 class="project-card-title">倒车入库（半圈入库法）</h3>
 
-                                    <!-- 左/右倒库切换按钮 -->
-                                    <div class="mb-4 flex space-x-2">
-                                        <button id="btn-left-parking"
-                                            class="px-4 py-1 rounded-full font-medium transition-custom bg-gray-200 text-gray-700">左倒库</button>
-                                        <button id="btn-right-parking"
-                                            class="px-4 py-1 rounded-full font-medium transition-custom bg-primary text-white">右倒库</button>
-                                    </div>
+                                <!-- 左/右倒库切换按钮 -->
+                                <div class="toggle-buttons">
+                                    <button id="btn-left-parking" class="toggle-btn">左倒库</button>
+                                    <button id="btn-right-parking" class="toggle-btn active">右倒库</button>
+                                </div>
 
-                                    <!-- 操作步骤文本区域（两个div，切换显示） -->
-                                    <div id="L1" class="hidden">
-                                        <h4 class="font-semibold text-lg mb-3 text-secondary">操作步骤（左库）：</h4>
-                                        <ol class="space-y-3 mb-6 text-gray-700">
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-secondary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
-                                                <span>出库后；工作台最高位，机顶盖偏右点，对准T型库角，成一条直线后，回半圈；待车正后，回1圈（）</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-secondary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
-                                                <span>左肩旁与虚线，平行，停车</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-secondary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
-                                                <span>挂倒挡；当[左]后视镜，与虚线重合时，迅速，左打死，方向盘（本驾校，为车轮碾压到，地上实线）</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-secondary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
-                                                <span>看[左]后视镜，露出，第三根黄虚线，盖住一半时，迅速回半圈，方向盘（黄虚线，以）</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-secondary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">5</span>
-                                                <span>看[右]后视镜，当车身与边线，即将平行时，迅速回正方向盘</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-secondary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">6</span>
-                                                <span>[左]后视镜，与黄虚线，重叠时，停车（本驾校，放置参考物，与肩旁对齐；或门把手，盖碰住，库实线）</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-secondary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">7</span>
-                                                <span>【出库】挂1挡，看[左]后视镜，当车轮碾压，虚线时，迅速右打死；车近正时，回正，下一项目</span>
-                                            </li>
-                                        </ol>
-                                    </div>
-                                    <div id="R2">
-                                        <h4 class="font-semibold text-lg mb-3 text-primary">操作步骤（先右库）：</h4>
-                                        <ol class="space-y-3 mb-6 text-gray-700">
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
-                                                <span>从左往右数，第2-3根线的中间，行驶；车轮尽量，在第2根线的边线上</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
-                                                <span>肩旁与虚线，平行，停车</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
-                                                <span>踩离合，挂倒挡；当[左]后视镜，与虚线 重合时，迅速向右，打满方向盘（本驾校，为车轮碾压到，地上实线）</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
-                                                <span>观察[右]后视镜，露出，第三根黄虚线，盖住一半时，迅速回半圈，方向盘（黄虚线，以）</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">5</span>
-                                                <span>继续观察[右]后视镜，当车身与边线，即将平行时，迅速回正方向盘</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">6</span>
-                                                <span>[左]后视镜，与虚线，重叠时，停车（本驾校，放置参考物，与肩旁对齐；或门把手，盖碰住，库实线）</span>
-                                            </li>
-                                            <li class="flex items-start">
-                                                <span
-                                                    class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">7</span>
-                                                <span>【左倒库】挂1挡，看[左]后视镜，当车轮碾压，虚线时，迅速左打死，方向盘</span>
-                                            </li>
-                                        </ol>
-                                    </div>
+                                <!-- 左库操作步骤 -->
+                                <div id="L1" class="hidden">
+                                    <h4 class="steps-title text-secondary">操作步骤（左库）：</h4>
+                                    <ol class="steps-list">
+                                        <li class="step-item">
+                                            <span class="step-number secondary">1</span>
+                                            <span>出库后；工作台最高位，机顶盖偏右点，对准T型库角，成一条直线后，回半圈；待车正后，回1圈</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number secondary">2</span>
+                                            <span>左肩旁与虚线，平行，停车</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number secondary">3</span>
+                                            <span>挂倒挡；当[左]后视镜，与虚线重合时，迅速左打死方向盘（本驾校，为车轮碾压到地上实线）</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number secondary">4</span>
+                                            <span>看[左]后视镜，露出第三根黄虚线，盖住一半时，迅速回半圈方向盘</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number secondary">5</span>
+                                            <span>看[右]后视镜，当车身与边线即将平行时，迅速回正方向盘</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number secondary">6</span>
+                                            <span>[左]后视镜与黄虚线重叠时，停车（本驾校放置参考物与肩旁对齐；或门把手盖碰住库实线）</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number secondary">7</span>
+                                            <span>【出库】挂1挡，看[左]后视镜，当车轮碾压虚线时，迅速右打死；车近正时回正，下一项目</span>
+                                        </li>
+                                    </ol>
+                                </div>
 
-                                    <!-- 扣分点区域（不变） -->
-                                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
-                                        <h4 class="font-semibold text-amber-800 mb-2 flex items-center">
-                                            <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
-                                        </h4>
-                                        <ul class="text-amber-700 space-y-1">
-                                            <li>• 不按规定路线、顺序行驶 - 100分</li>
-                                            <li>• 车身出线 - 100分</li>
-                                            <li>• 倒库不入 - 100分</li>
-                                            <li>• 中途停车 - 5分/次（部分地区直接不合格）</li>
-                                        </ul>
-                                    </div>
+                                <!-- 右库操作步骤 -->
+                                <div id="R2">
+                                    <h4 class="steps-title text-primary">操作步骤（先右库）：</h4>
+                                    <ol class="steps-list">
+                                        <li class="step-item">
+                                            <span class="step-number">1</span>
+                                            <span>从左往右数，第2-3根线的中间行驶；车轮尽量在第2根线的边线上</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">2</span>
+                                            <span>肩旁与虚线平行，停车</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">3</span>
+                                            <span>踩离合，挂倒挡；当[左]后视镜与虚线重合时，迅速向右打满方向盘（本驾校为车轮碾压到地上实线）</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">4</span>
+                                            <span>观察[右]后视镜，露出第三根黄虚线，盖住一半时，迅速回半圈方向盘</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">5</span>
+                                            <span>继续观察[右]后视镜，当车身与边线即将平行时，迅速回正方向盘</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">6</span>
+                                            <span>[左]后视镜与虚线重叠时，停车（本驾校放置参考物与肩旁对齐；或门把手盖碰住库实线）</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">7</span>
+                                            <span>【左倒库】挂1挡，看[左]后视镜，当车轮碾压虚线时，迅速左打死方向盘</span>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <!-- 扣分点区域 -->
+                                <div class="warning-box">
+                                    <h4 class="warning-title">
+                                        <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
+                                    </h4>
+                                    <ul class="warning-list">
+                                        <li>• 不按规定路线、顺序行驶 - 100分</li>
+                                        <li>• 车身出线 - 100分</li>
+                                        <li>• 倒库不入 - 100分</li>
+                                        <li>• 中途停车 - 5分/次（部分地区直接不合格）</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="md:w-1/2 bg-gray-100">
-                                <div class="h-full flex flex-col justify-center p-4">
-                                    <div class="w-full max-w-md mx-auto">
-                                        <!-- 倒车入库轮播图 -->
-                                        <div class="relative bg-white p-1 rounded-lg shadow-md mb-4 overflow-hidden">
-                                            <div id="parking-carousel" class="relative">
-                                                <!-- 轮播控制按钮组 -->
-                                                <div class="absolute top-2 right-2 z-10 flex space-x-2">
-                                                    <button
-                                                        class="carousel-pin bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="固定当前图片">
-                                                        <i class="fa fa-thumb-tack"></i>
-                                                    </button>
-                                                    <button
-                                                        class="carousel-zoom bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="查看原图">
-                                                        <i class="fa fa-search-plus"></i>
-                                                    </button>
-                                                </div>
-
-                                                <div class="carousel-item active">
-                                                    <img src="pic/左右倒库点位.png" data-original="pic/左右倒库点位.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        左/右 倒车入库·倒库-点位
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img src="pic/右倒库点位.png" data-original="pic/右倒库点位.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        右 倒车入库·起步-点位
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img src="pic/左倒库点位.png" data-original="pic/左倒库点位1.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        左 倒车入库·起步-点位
-                                                    </div>
-                                                </div>
-
-
-
-                                                <!-- 轮播控制按钮 -->
-                                                <button
-                                                    class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-left"></i>
+                        </div>
+                        <div class="project-card-media">
+                            <div class="h-full flex flex-col justify-center p-4">
+                                <div class="w-full max-w-md mx-auto">
+                                    <!-- 倒车入库轮播图 -->
+                                    <div class="carousel-container">
+                                        <div id="parking-carousel" class="carousel">
+                                            <!-- 轮播控制按钮组 -->
+                                            <div class="carousel-controls">
+                                                <button class="carousel-btn carousel-pin" title="固定当前图片">
+                                                    <i class="fa fa-thumb-tack"></i>
                                                 </button>
-                                                <button
-                                                    class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-right"></i>
+                                                <button class="carousel-btn carousel-zoom" title="查看原图">
+                                                    <i class="fa fa-search-plus"></i>
                                                 </button>
                                             </div>
-
+                                            <div class="carousel-item active">
+                                                <img src="pic/左右倒库点位.png" data-original="pic/左右倒库点位.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">左/右 倒车入库·倒库-点位</div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="pic/右倒库点位.png" data-original="pic/右倒库点位.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">右 倒车入库·起步-点位</div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="pic/左倒库点位.png" data-original="pic/左倒库点位.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">左 倒车入库·起步-点位</div>
+                                            </div>
+                                            <!-- 轮播控制按钮 -->
+                                            <button class="carousel-prev">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </button>
+                                            <button class="carousel-next">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
                                             <!-- 轮播指示器 -->
-                                            <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-1">
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 active transition-custom"
-                                                    data-index="0"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="1"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="2"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="3"></button>
+                                            <div class="carousel-nav">
+                                                <button class="carousel-indicator" data-index="0"></button>
+                                                <button class="carousel-indicator" data-index="1"></button>
+                                                <button class="carousel-indicator" data-index="2"></button>
                                             </div>
                                         </div>
-
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <h4 class="font-semibold mb-2 text-gray-800">关键点位：</h4>
-                                            <ul class="text-gray-700 space-y-2">
-                                                <li class="flex items-start" data-index="0">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>库角线与车身距离判断</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="1">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>后视镜中车轮与边线位置</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="2">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>停车时车头与库线对齐</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    </div>
+                                    <!-- 关键点位区域 -->
+                                    <div class="key-points">
+                                        <h4 class="key-points-title">关键点位：</h4>
+                                        <ul class="key-points-list">
+                                            <li class="key-points-item" data-index="0">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>库角线与车身距离判断</span>
+                                            </li>
+                                            <li class="key-points-item" data-index="1">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>后视镜中车轮与边线位置</span>
+                                            </li>
+                                            <li class="key-points-item" data-index="2">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>停车时车头与库线对齐</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- 侧方停车 -->
-                <div class="project-content hidden" id="sidepark-content">
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="md:flex">
-                            <div class="md:w-1/2">
-                                <div class="p-6 md:p-8">
-                                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-dark">侧方停车</h3>
+            <!-- 侧方停车 -->
+            <div class="project-content hidden" id="sidepark-content">
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-content">
+                            <div class="project-card-content-inner">
+                                <h3 class="project-card-title">侧方停车</h3>
 
+                                <h4 class="steps-title text-primary">操作步骤（挂倒挡记时：90s）：</h4>
+                                <ol class="steps-list">
+                                    <li class="step-item">
+                                        <span class="step-number">1</span>
+                                        <span>车辆沿库位外侧边线行驶；保持30-50cm距离（本驾校以水泥路中心线、地标指线为中心点，人/盘/控制台正对行驶，可向右微调）</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">2</span>
+                                        <span>选择侧方线内合适位置停车；（本驾校以机顶盖碰/盖住地标指线即停）</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">3</span>
+                                        <span>挂倒挡、观察[右]后视镜、当库角消失时，迅速右打死</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">4</span>
+                                        <span>观察[左]后视镜，第二根线完全露出（或露出库底角），回正方向盘</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">5</span>
+                                        <span>继续倒车；观察[左]后视镜，后车轮即将压到虚线，方向盘左打满</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">6</span>
+                                        <span>继续倒车；留意后视镜，车/线平行，整车进库，停车</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">7</span>
+                                        <span>【出库】打左转向，踩离合，挂1挡</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">8</span>
+                                        <span>左大灯，机顶盖，碰/盖住侧边线，回正方向盘</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">9</span>
+                                        <span>机顶盖，中间 或雨刷器锚点，碰盖住侧边线，往右，打1圈方向</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">10</span>
+                                        <span>车正后，回正方向；进下一项目</span>
+                                    </li>
+                                </ol>
 
-                                    <h4 class="font-semibold text-lg mb-3 text-primary">操作步骤（挂倒挡记时：90s）：</h4>
-                                    <ol class="space-y-3 mb-6 text-gray-700">
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
-                                            <span>车辆沿库位 外侧边线
-                                                行驶；保持30-50cm距离（本驾校以：水泥路中心线，地标指线为中心点，人/盘/控制台，正对行驶，可向右微调）</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
-                                            <span>选择侧方线内，合适位置停车；（本驾校以：机顶盖，碰/盖住，地标指线，即停）</span>
-                                        </li>
-
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
-                                            <span>挂倒挡、观察[右]后视镜、当库角，消失时，迅速向右，打死方向盘</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">5</span>
-                                            <span>观察[左]后视镜，第二根线完全露出（或露出：库底角），回正方向盘</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">6</span>
-                                            <span>继续倒车；观察[左]后视镜，后车轮，即将压到虚线，方向盘，左打满</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">7</span>
-                                            <span>继续倒车；留意后视镜，车/线，平行，整车进库，停车</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">8</span>
-                                            <span>【出库】打，左转向，踩离合，挂1挡</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">9</span>
-                                            <span>左大灯机顶盖，碰盖住侧边线，回正方向盘</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">10</span>
-                                            <span>机顶盖，中间 或雨刷器锚点，碰盖住侧边线，往右，打1圈方向</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">11</span>
-                                            <span>车正后，回正方向；进下一项目</span>
-                                        </li>
-                                    </ol>
-
-                                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
-                                        <h4 class="font-semibold text-amber-800 mb-2 flex items-center">
-                                            <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
-                                        </h4>
-                                        <ul class="text-amber-700 space-y-1">
-                                            <li>• 车身出线 - 100分</li>
-                                            <li>• 中途停车 - 5分/次</li>
-                                            <li>• 未停车于库内 - 100分</li>
-                                            <li>• 出库不打左转向灯 - 10分</li>
-                                        </ul>
-                                    </div>
+                                <!-- 扣分点区域 -->
+                                <div class="warning-box">
+                                    <h4 class="warning-title">
+                                        <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
+                                    </h4>
+                                    <ul class="warning-list">
+                                        <li>• 不按规定路线、顺序行驶 - 100分</li>
+                                        <li>• 车身出线 - 100分</li>
+                                        <li>• 未停车于库内 - 100分</li>
+                                        <li>• 出库不打左转向灯 - 10分</li>
+                                        <li>• 中途停车 - 5分/次（部分地区直接不合格）</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="md:w-1/2 bg-gray-100">
-                                <div class="h-full flex flex-col justify-center p-4">
-                                    <div class="w-full max-w-md mx-auto">
-                                        <!-- 侧方停车轮播图 -->
-                                        <div class="relative bg-white p-1 rounded-lg shadow-md mb-4 overflow-hidden">
-                                            <div id="sidepark-carousel" class="relative">
-                                                <!-- 轮播控制按钮组 -->
-                                                <div class="absolute top-2 right-2 z-10 flex space-x-2">
-                                                    <button
-                                                        class="carousel-pin bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="固定当前图片">
-                                                        <i class="fa fa-thumb-tack"></i>
-                                                    </button>
-                                                    <button
-                                                        class="carousel-zoom bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="查看原图">
-                                                        <i class="fa fa-search-plus"></i>
-                                                    </button>
-                                                </div>
-
-                                                <div class="carousel-item active">
-                                                    <img src="pic/侧方停车.png" data-original="pic/侧方停车.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        侧方停车·倒库-点位
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img src="pic/侧方停车0.png" data-original="pic/侧方停车0.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        侧方停车·进库-点位
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img src="pic/侧方停车1.png" data-original="pic/侧方停车1.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        侧方停车·出库/下项目-点位
-                                                    </div>
-                                                </div>
-
-                                                <!-- 轮播控制按钮 -->
-                                                <button
-                                                    class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-left"></i>
+                        </div>
+                        <div class="project-card-media">
+                            <div class="h-full flex flex-col justify-center p-4">
+                                <div class="w-full max-w-md mx-auto">
+                                    <!-- 侧方停车轮播图 -->
+                                    <div class="carousel-container">
+                                        <div id="sidepark-carousel" class="carousel">
+                                            <!-- 轮播控制按钮组 -->
+                                            <div class="carousel-controls">
+                                                <button class="carousel-btn carousel-pin" title="固定当前图片">
+                                                    <i class="fa fa-thumb-tack"></i>
                                                 </button>
-                                                <button
-                                                    class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-right"></i>
+                                                <button class="carousel-btn carousel-zoom" title="查看原图">
+                                                    <i class="fa fa-search-plus"></i>
                                                 </button>
                                             </div>
-
+                                            <div class="carousel-item active">
+                                                <img src="pic/侧方停车.png" data-original="pic/侧方停车.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">侧方停车·倒库-点位</div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="pic/侧方停车0.png" data-original="pic/侧方停车0.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">侧方停车·进库-点位</div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="pic/侧方停车1.png" data-original="pic/侧方停车1.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">侧方停车·出库/下项目-点位</div>
+                                            </div>
+                                            <!-- 轮播控制按钮 -->
+                                            <button class="carousel-prev">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </button>
+                                            <button class="carousel-next">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
                                             <!-- 轮播指示器 -->
-                                            <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-1">
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 active transition-custom"
-                                                    data-index="0"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="1"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="2"></button>
+                                            <div class="carousel-nav">
+                                                <button class="carousel-indicator" data-index="0"></button>
+                                                <button class="carousel-indicator" data-index="1"></button>
+                                                <button class="carousel-indicator" data-index="2"></button>
                                             </div>
                                         </div>
-
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <h4 class="font-semibold mb-2 text-gray-800">关键点位：</h4>
-                                            <ul class="text-gray-700 space-y-2">
-                                                <li class="flex items-start" data-index="0">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>库角出现时机判断</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="1">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>车身与边线平行判断</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="2">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>停车时车尾与库线距离</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    </div>
+                                    <!-- 关键点位 -->
+                                    <div class="key-points">
+                                        <h4 class="key-points-title">关键点位：</h4>
+                                        <ul class="key-points-list">
+                                            <li class="key-points-item" data-index="0">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>库角出现时机判断</span>
+                                            </li>
+                                            <li class="key-points-item" data-index="1">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>车身与边线平行判断</span>
+                                            </li>
+                                            <li class="key-points-item" data-index="2">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>停车时车尾与库线距离</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- 坡道定点停车和起步 -->
-                <div class="project-content hidden" id="ramp-content">
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="md:flex">
-                            <div class="md:w-1/2">
-                                <div class="p-6 md:p-8">
-                                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-dark">坡道定点停车和起步</h3>
+            <!-- 坡道定点停车和起步 -->
+            <div class="project-content hidden" id="ramp-content">
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-content">
+                            <div class="project-card-content-inner">
+                                <h3 class="project-card-title">坡道定点停车和起步</h3>
 
-                                    <h4 class="font-semibold text-lg mb-3 text-primary">操作步骤：</h4>
-                                    <ol class="space-y-3 mb-6 text-gray-700">
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
-                                            <span>绕大弯过去后；车辆沿库位 侧边线
-                                                行驶；保持≤30cm距离内（本驾校：从右往左数，2-3黄虚线的中间，人/盘/控制台，正对行驶）</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
-                                            <span>车缓上；观察[左]后视镜下边沿，盖住第二条，大黄实线中间位置（身高/坐姿影响，可微调），确保车保险杠，在大黄实线内，停车</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
-                                            <span>拉起手刹，3秒后放下</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
-                                            <span>缓抬-离合，保持半联动，车抖动震动状态；随放-刹车，平稳起步，在往左偏些方向盘，即可</span>
-                                        </li>
-                                    </ol>
+                                <h4 class="steps-title text-primary">操作步骤：</h4>
+                                <ol class="steps-list">
+                                    <li class="step-item">
+                                        <span class="step-number">1</span>
+                                        <span>绕大弯过去后；车辆沿库位侧边线行驶；保持≤30cm距离内（本驾校：从右往左数，2-3黄虚线的中间，人/盘/控制台正对行驶）</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">2</span>
+                                        <span>车缓上；观察[左]后视镜下边沿，盖住第二条大黄实线中间位置（身高/坐姿影响，可微调），确保车保险杠在大黄实线内，停车</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">3</span>
+                                        <span>拉起手刹，3秒后放下</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">4</span>
+                                        <span>缓抬离合，保持半联动，车抖动震动状态；随放刹车，平稳起步，往左偏些方向盘即可</span>
+                                    </li>
+                                </ol>
 
-                                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
-                                        <h4 class="font-semibold text-amber-800 mb-2 flex items-center">
-                                            <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
-                                        </h4>
-                                        <ul class="text-amber-700 space-y-1">
-                                            <li>• 车辆停止后，车身距离边线超过30cm - 10分</li>
-                                            <li>• 车辆停止后，前保险杠未到停车线 - 10分</li>
-                                            <li>• 车辆停止后，前保险杠超过停车线50cm - 100分</li>
-                                            <li>• 起步时后溜大于30cm - 100分</li>
-                                            <li>• 起步时后溜小于30cm - 10分</li>
-                                            <li>• 起步超时（30秒内未完成） - 100分</li>
-                                        </ul>
-                                    </div>
+                                <!-- 扣分点区域 -->
+                                <div class="warning-box">
+                                    <h4 class="warning-title">
+                                        <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
+                                    </h4>
+                                    <ul class="warning-list">
+                                        <li>• 车辆停止后，车身距离边线超过30cm - 10分</li>
+                                        <li>• 车辆停止后，前保险杠未到停车线 - 10分</li>
+                                        <li>• 车辆停止后，前保险杠超过停车线50cm - 100分</li>
+                                        <li>• 中途停车 - 5分/次（部分地区直接不合格）</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="md:w-1/2 bg-gray-100">
-                                <div class="h-full flex flex-col justify-center p-4">
-                                    <div class="w-full max-w-md mx-auto">
-                                        <!-- 坡道定点停车和起步轮播图 -->
-                                        <div class="relative bg-white p-1 rounded-lg shadow-md mb-4 overflow-hidden">
-                                            <div id="ramp-carousel" class="relative">
-                                                <!-- 轮播控制按钮组 -->
-                                                <div class="absolute top-2 right-2 z-10 flex space-x-2">
-                                                    <button
-                                                        class="carousel-pin bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="固定当前图片">
-                                                        <i class="fa fa-thumb-tack"></i>
-                                                    </button>
-                                                    <button
-                                                        class="carousel-zoom bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="查看原图">
-                                                        <i class="fa fa-search-plus"></i>
-                                                    </button>
-                                                </div>
-
-                                                <div class="carousel-item active">
-                                                    <img src="pic/坡道定点停车和起步.png" data-original="pic/坡道定点停车和起步.png"
-                                                        alt="" class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        坡道定点停车和起步·入库-点位
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img src="pic/坡道定点停车和起步0.png" data-original="pic/坡道定点停车和起步0.png"
-                                                        alt="" class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        坡道定点停车和起步·进库-点位
-                                                    </div>
-                                                </div>
-
-                                                <!-- 轮播控制按钮 -->
-                                                <button
-                                                    class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-left"></i>
+                        </div>
+                        <div class="project-card-media">
+                            <div class="h-full flex flex-col justify-center p-4">
+                                <div class="w-full max-w-md mx-auto">
+                                    <!-- 坡道停车轮播图 -->
+                                    <div class="carousel-container">
+                                        <div id="ramp-carousel" class="carousel">
+                                            <!-- 新增：轮播控制按钮组 -->
+                                            <div class="carousel-controls">
+                                                <button class="carousel-btn carousel-pin" title="固定当前图片">
+                                                    <i class="fa fa-thumb-tack"></i>
                                                 </button>
-                                                <button
-                                                    class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-right"></i>
+                                                <button class="carousel-btn carousel-zoom" title="查看原图">
+                                                    <i class="fa fa-search-plus"></i>
                                                 </button>
                                             </div>
-
+                                            <div class="carousel-item active">
+                                                <img src="pic/坡道定点停车和起步.png" data-original="pic/坡道定点停车和起步.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">坡道定点停车和起步·入库-点位</div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="pic/坡道定点停车和起步0.png" data-original="pic/坡道定点停车和起步0.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">坡道定点停车和起步·进库-点位</div>
+                                            </div>
+                                            <!-- 轮播控制按钮 -->
+                                            <button class="carousel-prev">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </button>
+                                            <button class="carousel-next">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
                                             <!-- 轮播指示器 -->
-                                            <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-1">
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 active transition-custom"
-                                                    data-index="0"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="1"></button>
+                                            <div class="carousel-nav">
+                                                <button class="carousel-indicator" data-index="0"></button>
+                                                <button class="carousel-indicator" data-index="1"></button>
                                             </div>
                                         </div>
-
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <h4 class="font-semibold mb-2 text-gray-800">关键点位：</h4>
-                                            <ul class="text-gray-700 space-y-2">
-                                                <li class="flex items-start" data-index="0">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>边线30cm距离判断</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="1">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>停车时车头与库线对齐</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    </div>
+                                    <!-- 关键点位 -->
+                                    <div class="key-points">
+                                        <h4 class="key-points-title">关键点位：</h4>
+                                        <ul class="key-points-list">
+                                            <li class="key-points-item" data-index="0">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>边线30cm距离判断</span>
+                                            </li>
+                                            <li class="key-points-item" data-index="1">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>停车时车头与库线对齐</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- 直角转弯 -->
-                <div class="project-content hidden" id="rightangle-content">
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="md:flex">
-                            <div class="md:w-1/2">
-                                <div class="p-6 md:p-8">
-                                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-dark">直角转弯</h3>
+            <!-- 直角转弯 -->
+            <div class="project-content hidden" id="rightangle-content">
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-content">
+                            <div class="project-card-content-inner">
+                                <h3 class="project-card-title">直角转弯</h3>
 
-                                    <h4 class="font-semibold text-lg mb-3 text-primary">操作步骤：</h4>
-                                    <ol class="space-y-3 mb-6 text-gray-700">
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
-                                            <span>快进入前，打开[左]转向灯</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
-                                            <span>车辆沿库位 外侧边线 行驶；保持30-50cm距离（本驾校以：右数，第2个轮胎，人/盘/控制台，正对其行驶）</span>
-                                        </li>
+                                <h4 class="steps-title text-primary">操作步骤：</h4>
+                                <ol class="steps-list">
+                                    <li class="step-item">
+                                        <span class="step-number">1</span>
+                                        <span>快进入前，打开[左]转向灯</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">2</span>
+                                        <span>车辆沿库位 外侧边线 行驶；保持30-50cm距离（本驾校以：右数，第2个轮胎，人/盘/控制台，正对其行驶）</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">3</span>
+                                        <span>慢开，看[左]门把手 末端或中间，与边线库角，平行对齐时；迅速，左打死</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">4</span>
+                                        <span>待车走直后，逐回正方向盘</span>
+                                    </li>
+                                </ol>
 
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
-                                            <span>慢开，看[左]门把手 末端或中间，与边线库角，平行对齐时；迅速，左打死</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
-                                            <span>待车走直后，逐渐回正方向盘</span>
-                                        </li>
-
-                                    </ol>
-
-                                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
-                                        <h4 class="font-semibold text-amber-800 mb-2 flex items-center">
-                                            <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
-                                        </h4>
-                                        <ul class="text-amber-700 space-y-1">
-                                            <li>• 车轮压线 - 100分</li>
-                                            <li>• 中途停车 - 5分</li>
-                                            <li>• 转弯时车身出线 - 100分</li>
-                                        </ul>
-                                    </div>
+                                <!-- 扣分点区域 -->
+                                <div class="warning-box">
+                                    <h4 class="warning-title">
+                                        <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
+                                    </h4>
+                                    <ul class="warning-list">
+                                        <li>• 车轮压线 - 100分</li>
+                                        <li>• 中途停车 - 5分</li>
+                                        <li>• 转弯时车身出线 - 100分</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="md:w-1/2 bg-gray-100">
-                                <div class="h-full flex flex-col justify-center p-4">
-                                    <div class="w-full max-w-md mx-auto">
-                                        <!-- 直角转弯轮播图 -->
-                                        <div class="relative bg-white p-1 rounded-lg shadow-md mb-4 overflow-hidden">
-                                            <div id="rightangle-carousel" class="relative">
-                                                <!-- 轮播控制按钮组 -->
-                                                <div class="absolute top-2 right-2 z-10 flex space-x-2">
-                                                    <button
-                                                        class="carousel-pin bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="固定当前图片">
-                                                        <i class="fa fa-thumb-tack"></i>
-                                                    </button>
-                                                    <button
-                                                        class="carousel-zoom bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="查看原图">
-                                                        <i class="fa fa-search-plus"></i>
-                                                    </button>
-                                                </div>
-
-                                                <div class="carousel-item active">
-                                                    <img src="pic/直角转弯.png" data-original="pic/直角转弯.png"
-                                                        alt="直角转弯步骤1：准备位置" class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        直角转弯·入库-点位
-                                                    </div>
-                                                </div>
-
-
-                                                <!-- 轮播控制按钮 -->
-                                                <button
-                                                    class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-left"></i>
+                        </div>
+                        <div class="project-card-media">
+                            <div class="h-full flex flex-col justify-center p-4">
+                                <div class="w-full max-w-md mx-auto">
+                                    <!-- 直角转弯轮播图 -->
+                                    <div class="carousel-container">
+                                        <div id="rightangle-carousel" class="carousel">
+                                            <!-- 轮播控制按钮组 -->
+                                            <div class="carousel-controls">
+                                                <button class="carousel-btn carousel-pin" title="固定当前图片">
+                                                    <i class="fa fa-thumb-tack"></i>
                                                 </button>
-                                                <button
-                                                    class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-right"></i>
+                                                <button class="carousel-btn carousel-zoom" title="查看原图">
+                                                    <i class="fa fa-search-plus"></i>
                                                 </button>
                                             </div>
-
+                                            <div class="carousel-item active">
+                                                <img src="pic/直角转弯.png" data-original="pic/直角转弯.png" alt="直角转弯步骤1：准备位置"
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">直角转弯·入库-点位</div>
+                                            </div>
+                                            <!-- 轮播控制按钮 -->
+                                            <button class="carousel-prev">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </button>
+                                            <button class="carousel-next">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
                                             <!-- 轮播指示器 -->
-                                            <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-1">
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 active transition-custom"
-                                                    data-index="0"></button>
+                                            <div class="carousel-nav">
+                                                <button class="carousel-indicator" data-index="0"></button>
                                             </div>
                                         </div>
-
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <h4 class="font-semibold mb-2 text-gray-800">关键点位：</h4>
-                                            <ul class="text-gray-700 space-y-2">
-                                                <li class="flex items-start" data-index="0">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>车身与边线30cm距离控制</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="1">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>停车时车头与库线对齐</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    </div>
+                                    <!-- 关键点位 -->
+                                    <div class="key-points">
+                                        <h4 class="key-points-title">关键点位：</h4>
+                                        <ul class="key-points-list">
+                                            <li class="key-points-item" data-index="0">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>车身与边线30cm距离控制</span>
+                                            </li>
+                                            <li class="key-points-item" data-index="1">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>停车时车头与库线对齐</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- 曲线行驶（合并所有重复的 curve-content，仅保留一个） -->
-                <div class="project-content hidden" id="curve-content">
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="md:flex">
-                            <div class="md:w-1/2">
-                                <div class="p-6 md:p-8">
-                                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-dark">曲线行驶</h3>
-                                    <h4 class="font-semibold text-lg mb-3 text-primary">操作步骤：</h4>
-                                    <ol class="space-y-3 mb-6 text-gray-700">
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
-                                            <span>车辆在道路中心，摆正，进曲线入口</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
-                                            <span>【第一拐·左弯】左侧，机顶盖大灯位，盖/碰住，曲线时；左，打1圈，沿着曲线边，微调行驶（部分：留意后视镜）</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
-                                            <span>【第二拐·右弯】左侧，机顶盖大灯位，盖/碰住，曲线时，回正方向盘（本驾校：当车与，参考物，井盖，成一条直线时，回正方向盘）</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
-                                            <span>当雨刷器，中间锚点，盖/碰住，曲线时，右，打1圈方向，沿曲线边我，微调行驶</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">5</span>
-                                            <span>（本驾校：额外，当机顶盖，全部，遮住曲线时，看不见时，往右，半圈方向）</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <span
-                                                class="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">6</span>
-                                            <span>车头部，出曲线，回正方向盘</span>
-                                        </li>
-                                    </ol>
-
-                                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
-                                        <h4 class="font-semibold text-amber-800 mb-2 flex items-center">
-                                            <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
-                                        </h4>
-                                        <ul class="text-amber-700 space-y-1">
-                                            <li>• 车轮压线 - 100分</li>
-                                            <li>• 中途停车 - 5分</li>
-                                            <li>• 车身出线 - 100分</li>
-                                        </ul>
-                                    </div>
+            <!-- 曲线行驶 -->
+            <div class="project-content hidden" id="curve-content">
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-card-content">
+                            <div class="project-card-content-inner">
+                                <h3 class="project-card-title">曲线行驶</h3>
+                                <h4 class="steps-title text-primary">操作步骤：</h4>
+                                <ol class="steps-list">
+                                    <li class="step-item">
+                                        <span class="step-number">1</span>
+                                        <span>车辆在道路中心，摆正，进曲线入口</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">2</span>
+                                        <span>【第一拐·左弯】左侧机顶盖大灯位盖/碰住曲线时；左打1圈，沿着曲线边微调行驶（部分：留意后视镜）</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">3</span>
+                                        <span>【第二拐·右弯】左侧机顶盖大灯位盖/碰住曲线时，回正方向盘（本驾校：当车与参考物井盖成一条直线时，回正方向盘）</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">4</span>
+                                        <span>当雨刷器中间锚点盖/碰住曲线时，右打1圈方向，沿曲线边微调行驶</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">5</span>
+                                        <span>（本驾校：额外，当机顶盖全部遮住曲线时，看不见时，往右半圈方向）</span>
+                                    </li>
+                                    <li class="step-item">
+                                        <span class="step-number">6</span>
+                                        <span>车头部出曲线，回正方向盘</span>
+                                    </li>
+                                </ol>
+                                <!-- 补充扣分点区域 -->
+                                <div class="warning-box">
+                                    <h4 class="warning-title">
+                                        <i class="fa fa-exclamation-triangle mr-2"></i> 扣分点
+                                    </h4>
+                                    <ul class="warning-list">
+                                        <li>• 车轮压线 - 100分</li>
+                                        <li>• 中途停车 - 5分</li>
+                                        <li>• 车身出线 - 100分</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="md:w-1/2 bg-gray-100">
-                                <div class="h-full flex flex-col justify-center p-4">
-                                    <div class="w-full max-w-md mx-auto">
-                                        <!-- 曲线行驶轮播图（只保留4个圖片和指示器） -->
-                                        <div class="relative bg-white p-1 rounded-lg shadow-md mb-4 overflow-hidden">
-                                            <div id="curve-carousel" class="relative">
-                                                <!-- 轮播控制按钮组 -->
-                                                <div class="absolute top-2 right-2 z-10 flex space-x-2">
-                                                    <button
-                                                        class="carousel-pin bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="固定当前图片">
-                                                        <i class="fa fa-thumb-tack"></i>
-                                                    </button>
-                                                    <button
-                                                        class="carousel-zoom bg-white bg-opacity-70 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-custom"
-                                                        title="查看原图">
-                                                        <i class="fa fa-search-plus"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="carousel-item active">
-                                                    <img src="pic/曲线行驶1.png" data-original="pic/曲线行驶1.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        第一拐·左弯
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img src="pic/曲线行驶2.png" data-original="pic/曲线行驶2.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        第二拐·右弯
-                                                    </div>
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img src="pic/曲线行驶3.png" data-original="pic/曲线行驶3.png" alt=""
-                                                        class="w-full h-auto rounded">
-                                                    <div
-                                                        class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-sm">
-                                                        S弯出口点
-                                                    </div>
-                                                </div>
-                                                <!-- 轮播控制按钮 -->
-                                                <button
-                                                    class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-left"></i>
+                        </div>
+                        <div class="project-card-media">
+                            <div class="h-full flex flex-col justify-center p-4">
+                                <div class="w-full max-w-md mx-auto">
+                                    <!-- 曲线行驶轮播图 -->
+                                    <div class="carousel-container">
+                                        <div id="curve-carousel" class="carousel">
+                                            <!-- 新增：轮播控制按钮组 -->
+                                            <div class="carousel-controls">
+                                                <button class="carousel-btn carousel-pin" title="固定当前图片">
+                                                    <i class="fa fa-thumb-tack"></i>
                                                 </button>
-                                                <button
-                                                    class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white w-8 h-8 rounded-full flex items-center justify-center transition-custom">
-                                                    <i class="fa fa-chevron-right"></i>
+                                                <button class="carousel-btn carousel-zoom" title="查看原图">
+                                                    <i class="fa fa-search-plus"></i>
                                                 </button>
                                             </div>
-
-                                            <!-- 轮播指示器（只保留4个） -->
-                                            <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-1">
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 active transition-custom"
-                                                    data-index="0"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="1"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="2"></button>
-                                                <button
-                                                    class="carousel-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-custom"
-                                                    data-index="3"></button>
+                                            <div class="carousel-item active">
+                                                <img src="pic/曲线行驶1.png" data-original="pic/曲线行驶1.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">第一拐·左弯</div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="pic/曲线行驶2.png" data-original="pic/曲线行驶2.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">第二拐·右弯</div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="pic/曲线行驶3.png" data-original="pic/曲线行驶3.png" alt=""
+                                                    class="carousel-img">
+                                                <div class="carousel-caption">S弯出口点</div>
+                                            </div>
+                                            <!-- 轮播控制按钮 -->
+                                            <button class="carousel-prev">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </button>
+                                            <button class="carousel-next">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
+                                            <!-- 轮播指示器 -->
+                                            <div class="carousel-nav">
+                                                <button class="carousel-indicator" data-index="0"></button>
+                                                <button class="carousel-indicator" data-index="1"></button>
+                                                <button class="carousel-indicator" data-index="2"></button>
                                             </div>
                                         </div>
-
-                                        <div class="bg-gray-50 p-4 rounded-lg">
-                                            <h4 class="font-semibold mb-2 text-gray-800">关键点位：</h4>
-                                            <ul class="text-gray-700 space-y-2">
-                                                <li class="flex items-start" data-index="0">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>车头与边线对齐判断</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="1">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>车身与边线平行判断</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="2">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>停车时车尾与库线距离</span>
-                                                </li>
-                                                <li class="flex items-start" data-index="3">
-                                                    <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
-                                                    <span>S弯出口点</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    </div>
+                                    <!-- 关键点位区域（纠正位置，放在轮播图下方） -->
+                                    <div class="key-points">
+                                        <h4 class="key-points-title">关键点位：</h4>
+                                        <ul class="key-points-list">
+                                            <li class="key-points-item" data-index="0">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>车头与边线对齐判断</span>
+                                            </li>
+                                            <li class="key-points-item" data-index="1">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>车身与边线平行判断</span>
+                                            </li>
+                                            <li class="key-points-item" data-index="2">
+                                                <i class="fa fa-map-marker text-red-500 mt-1 mr-2"></i>
+                                                <span>S弯出口点</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -929,145 +2029,139 @@
 
     <!-- 注意事项 -->
     <section id="tips" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+        <div class="container">
+            <div class="section-title">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dark">注意事项</h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full mt-4"></div>
+                <div class="title-divider"></div>
             </div>
 
-            <div class="max-w-5xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
-
-
-                    <!-- 考试注意 -->
-                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-custom">
-                        <div class="flex items-center mb-5">
-                            <div
-                                class="w-12 h-12 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="fa fa-car text-secondary text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-dark">考试注意</h3>
+            <div class="tips-grid">
+                <!-- 考试注意 -->
+                <div class="tip-card">
+                    <div class="tip-header">
+                        <div class="tip-icon">
+                            <i class="fa fa-car text-secondary text-xl"></i>
                         </div>
-
-                        <ul class="space-y-4">
-                            <li class="flex">
-                                <i class="fa fa-angle-right text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                                <span>上车后 务必系好 安全带，调整座椅、后视镜</span>
-                            </li>
-                            <li class="flex">
-                                <i class="fa fa-angle-right text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                                <span><strong>控制车速，低速平稳，为调整方向留有余地</strong></span>
-                            </li>
-                            <li class="flex">
-                                <i class="fa fa-angle-right text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                                <span>依次/人考完 成绩合格 进下一项目</span>
-                            </li>
-                        </ul>
+                        <h3 class="tip-title">考试注意</h3>
                     </div>
 
-                    <!-- 常见失误 -->
-                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-custom">
-                        <div class="flex items-center mb-5">
-                            <div
-                                class="w-12 h-12 bg-danger bg-opacity-10 rounded-full flex items-center justify-center mr-4">
-                                <i class="fa fa-exclamation-circle text-danger text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-dark">常见失误</h3>
-                        </div>
+                    <ul class="tip-list">
+                        <li class="tip-item">
+                            <i class="fa fa-angle-right text-secondary tip-item-icon"></i>
+                            <span>上车后 务必系好 安全带，调整座椅、后视镜</span>
+                        </li>
+                        <li class="tip-item">
+                            <i class="fa fa-angle-right text-secondary tip-item-icon"></i>
+                            <span><strong>控制车速，低速平稳，为调整方向留有余地</strong></span>
+                        </li>
+                        <li class="tip-item">
+                            <i class="fa fa-angle-right text-secondary tip-item-icon"></i>
+                            <span>依次/人考完 成绩合格 在进下一项目</span>
+                        </li>
+                        <li class="tip-item">
+                            <i class="fa fa-angle-right text-secondary tip-item-icon"></i>
+                            <span><strong>考试流程：</strong>等候厅→叫名+车号（开始出）→上车+系安全带+调整→刷证验证→选择库位开始</span>
+                        </li>
+                    </ul>
+                </div>
 
-                        <ul class="space-y-4">
-                            <li class="flex">
-                                <i class="fa fa-angle-right text-danger mt-1 mr-3 flex-shrink-0"></i>
-                                <span>忘记系安全带，直接不合格</span>
-                            </li>
-                            <li class="flex">
-                                <i class="fa fa-angle-right text-danger mt-1 mr-3 flex-shrink-0"></i>
-                                <span>起步时 未松手刹、中途压线</span>
-                            </li>
-                            <li class="flex">
-                                <i class="fa fa-angle-right text-danger mt-1 mr-3 flex-shrink-0"></i>
-                                <span>考试中 禁长时停车、中途熄火</span>
-                            </li>
-                        </ul>
+                <!-- 常见失误 -->
+                <div class="tip-card">
+                    <div class="tip-header">
+                        <div class="tip-icon danger">
+                            <i class="fa fa-exclamation-circle text-danger text-xl"></i>
+                        </div>
+                        <h3 class="tip-title">常见失误</h3>
                     </div>
 
-                    <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100">
-                        <div class="flex items-center mb-3">
-                            <i class="fa fa-check-square-o text-accent text-xl mr-3"></i>
-                            <h3 class="font-semibold text-lg">考试要求</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
-                                <span>满分100分，80合格</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
-                                <span>考试中：不允许中途停车</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
-                                <span>车轮不得压线、出线</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
-                                <span>规定时间内 完成项目</span>
-                            </li>
-                        </ul>
+                    <ul class="tip-list">
+                        <li class="tip-item">
+                            <i class="fa fa-angle-right text-danger tip-item-icon danger"></i>
+                            <span>忘记系安全带，直接不合格</span>
+                        </li>
+                        <li class="tip-item">
+                            <i class="fa fa-angle-right text-danger tip-item-icon danger"></i>
+                            <span>起步时 未松手刹、中途压线</span>
+                        </li>
+                        <li class="tip-item">
+                            <i class="fa fa-angle-right text-danger tip-item-icon danger"></i>
+                            <span>考试中 禁长时停车、中途熄火</span>
+                        </li>
+                        <li class="tip-item">
+                            <i class="fa fa-angle-right text-danger tip-item-icon danger"></i>
+                            <span>侧方停车、直角转弯，可按住左转向灯，防误判扣10分，回正关闭</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-header">
+                        <i class="fa fa-check-square-o text-accent info-icon"></i>
+                        <h3 class="info-title">考试要求</h3>
                     </div>
-                    <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100">
-                        <div class="flex items-center mb-3">
-                            <i class="fa fa-check-square-o text-accent text-xl mr-3"></i>
-                            <h3 class="font-semibold text-lg">补考注意</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
-                                <span>补考次数：有效期内预约不超 5 次</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
-                                <span>补考间隔：不合格后 10 日可重约</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
-                                <span>当场补考：当场可补考一次()</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
-                                <span>成绩作废：第 5 次考场不行，已考过科作废</span>
-                            </li>
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <i class="fa fa-check-circle text-secondary info-item-icon"></i>
+                            <span>满分100分，80合格</span>
+                        </li>
+                        <li class="info-item">
+                            <i class="fa fa-check-circle text-secondary info-item-icon"></i>
+                            <span>车轮不得压线、出线</span>
+                        </li>
+                        <li class="info-item">
+                            <i class="fa fa-check-circle text-secondary info-item-icon"></i>
+                            <span>规定时间内 完成项目</span>
+                        </li>
+                    </ul>
+                </div>
 
-                        </ul>
+                <div class="info-box">
+                    <div class="info-header">
+                        <i class="fa fa-check-square-o text-accent info-icon"></i>
+                        <h3 class="info-title">补考注意</h3>
                     </div>
-
-
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <i class="fa fa-check-circle text-secondary info-item-icon"></i>
+                            <span>补考次数：预约不超 5 次、挂科后，满10日才可约</span>
+                        </li>
+                        <li class="info-item">
+                            <i class="fa fa-check-circle text-secondary info-item-icon"></i>
+                            <span>当场补考：当场可补考一次(自行开回起点)</span>
+                        </li>
+                        <li class="info-item">
+                            <i class="fa fa-check-circle text-secondary info-item-icon"></i>
+                            <span>成绩作废：第 5 次，考试失败，成绩均作废</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
-    <div class="bg-gray-50 py-8 border-t border-gray-200">
-        <div class="container mx-auto px-4">
-            <div class="max-w-5xl mx-auto flex items-center">
-                <span class="text-gray-700 font-medium">
+
+    <!-- 位置信息 -->
+    <div class="location-bar">
+        <div class="container">
+            <div class="location-content">
+                <span class="font-medium text-gray-700">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    位置信息：</span>
-                <span id="location-text" class="ml-2 text-gray-600">大同市xxx区考场（xx驾校）</span>
-                <button id="copy-location" class="ml-3 text-primary hover:text-primary/80 transition-custom"
-                    title="复制地址">
+                    位置信息：
+                </span>
+                <span id="location-text" class="location-text">大同市xxx区考场（xx驾校）</span>
+                <button id="copy-location" class="copy-btn" title="复制地址">
                     <i class="fa fa-copy"></i>
                 </button>
-                <span id="copy-success" class="ml-2 text-secondary text-sm hidden">已复制！</span>
+                <span id="copy-success" class="copy-success hidden">已复制！</span>
             </div>
         </div>
     </div>
+
     <!-- 图片查看器模态框 -->
-    <div id="image-viewer"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 modal-backdrop opacity-0 invisible transition-custom pointer-events-none">
-        <div class="relative max-w-5xl w-full max-h-[90vh] px-4 flex items-center justify-center">
+    <div id="image-viewer" class="modal">
+        <div class="image-viewer-content">
             <div class="relative">
-                <img id="viewer-image" src="" alt="大图预览"
-                    class="max-w-full max-h-[90vh] object-contain rounded shadow-lg">
-                <button id="close-viewer"
-                    class="absolute top-2 right-2 text-white text-2xl hover:text-gray-300 transition-custom bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
-                    style="z-index:2;">
+                <img id="viewer-image" src="" alt="大图预览" class="viewer-image">
+                <button id="close-viewer" class="close-viewer">
                     <i class="fa fa-times"></i>
                 </button>
             </div>
@@ -1075,120 +2169,209 @@
     </div>
 
     <!-- 视频弹窗模态框 -->
-    <div id="video-modal"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 modal-backdrop opacity-0 invisible transition-custom pointer-events-none">
-        <div class="relative w-full max-w-2xl bg-white rounded-lg shadow-lg p-4">
-            <button id="close-video-modal"
-                class="absolute -top-10 right-4 text-white text-2xl hover:text-gray-300 transition-custom">
+    <div id="video-modal" class="modal">
+        <div class="video-modal-content">
+            <button id="close-video-modal" class="close-video-modal">
                 <i class="fa fa-times"></i>
             </button>
-            <iframe id="video-iframe" src="" frameborder="0" allowfullscreen class="w-full h-[400px] rounded"></iframe>
+            <iframe id="video-iframe" src="" frameborder="0" allowfullscreen class="video-iframe"></iframe>
         </div>
     </div>
 
     <!-- 页脚 -->
-    <footer class="bg-dark text-white py-10">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <p class="text-gray-400 max-w-md mx-auto mb-6">成绩合格-祝您考试顺利</p>
-                <p>
-                    <a href="#" target="_blank" style="color: white; text-decoration: none;">友情链接</a> |
-                    <a href="../k3/index.html" target="_blank" style="color: white; text-decoration: none;">科目三</a>
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-content">
+                <p class="footer-text">成绩合格-祝您考试顺利</p>
+                <p class="footer-links">
+                    <a href="#" target="_blank">友情链接</a> |
+                    <a href="../k3/index.html" target="_blank">科目三</a>
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- 右下角置顶/置底按钮 -->
-    <div id="scroll-actions" class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
-        <button id="btn-to-top"
-            class="bg-primary text-white rounded-full shadow-lg w-12 h-12 flex items-center justify-center hover:bg-primary/80 transition-custom"
-            title="置顶">
+    <div id="scroll-actions" class="scroll-actions">
+        <button id="btn-to-top" class="scroll-btn" title="置顶">
             <i class="fa fa-arrow-up"></i>
         </button>
-        <button id="btn-to-bottom"
-            class="bg-secondary text-white rounded-full shadow-lg w-12 h-12 flex items-center justify-center hover:bg-secondary/80 transition-custom"
-            title="置底">
+        <button id="btn-to-bottom" class="scroll-btn secondary" title="置底">
+
             <i class="fa fa-arrow-down"></i>
         </button>
     </div>
 
     <script>
-        // 移动端菜单切换
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        // 优化：统一事件绑定方式，减少全局变量污染
+        document.addEventListener('DOMContentLoaded', function () {
+            // 移动端菜单切换
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
 
-        // 项目标签页切换
-        const projectTabs = document.querySelectorAll('.project-tab');
-        const projectContents = document.querySelectorAll('.project-content');
-        projectTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                projectTabs.forEach(t => {
-                    t.classList.remove('active', 'bg-primary', 'text-white');
-                    t.classList.add('bg-gray-200', 'text-gray-700');
+            // 项目标签页切换
+            const projectTabs = document.querySelectorAll('.tab');
+            const projectContents = document.querySelectorAll('.project-content');
+            projectTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    projectTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    projectContents.forEach(content => {
+                        if (content.id === `${tabId}-content`) {
+                            content.classList.add('active');
+                            content.classList.remove('hidden');
+                            content.style.display = 'block';
+                        } else {
+                            content.classList.remove('active');
+                            content.classList.add('hidden');
+                            content.style.display = 'none';
+                        }
+                    });
+                    if (document.getElementById(`${tabId}-carousel`)) {
+                        resetCarousel(tabId);
+                    }
                 });
-                projectContents.forEach(content => {
-                    content.classList.add('hidden');
+            });
+
+            // 倒车入库左右切换
+            const btnLeftParking = document.getElementById('btn-left-parking');
+            const btnRightParking = document.getElementById('btn-right-parking');
+            const L1 = document.getElementById('L1');
+            const R2 = document.getElementById('R2');
+            btnLeftParking.addEventListener('click', function () {
+                L1.classList.remove('hidden');
+                R2.classList.add('hidden');
+                btnLeftParking.classList.add('active');
+                btnRightParking.classList.remove('active');
+            });
+            btnRightParking.addEventListener('click', function () {
+                R2.classList.remove('hidden');
+                L1.classList.add('hidden');
+                btnRightParking.classList.add('active');
+                btnLeftParking.classList.remove('active');
+            });
+            // 默认显示倒车入库内容
+            projectContents.forEach(content => {
+                if (content.id === 'parking-content') {
+                    content.classList.add('active');
+                    content.classList.remove('hidden');
+                    content.style.display = 'block';
+                } else {
                     content.classList.remove('active');
-                });
-                tab.classList.add('active', 'bg-primary', 'text-white');
-                tab.classList.remove('bg-gray-200', 'text-gray-700');
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(`${tabId}-content`).classList.remove('hidden');
-                document.getElementById(`${tabId}-content`).classList.add('active');
-                resetCarousel(tabId);
-                // 重新初始化当前项目轮播按钮事件
-                initCarousel(tabId, true);
+                    content.classList.add('hidden');
+                    content.style.display = 'none';
+                }
             });
-        });
 
-        // 关键点位点击定位图片功能
-        function bindKeyPointClicks() {
-            // 项目与轮播ID映射
-            const mapping = {
-                'parking-content': 'parking',
-                'sidepark-content': 'sidepark',
-                'ramp-content': 'ramp',
-                'rightangle-content': 'rightangle',
-                'curve-content': 'curve'
-            };
-            Object.keys(mapping).forEach(contentId => {
-                const content = document.getElementById(contentId);
-                if (!content) return;
-                const keyPoints = content.querySelectorAll('ul.text-gray-700 > li[data-index]');
-                keyPoints.forEach(li => {
-                    li.style.cursor = 'pointer';
-                    li.onclick = function () {
-                        const idx = parseInt(li.getAttribute('data-index'));
-                        goToCarouselSlide(mapping[contentId], idx);
-                    };
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                    }
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 });
             });
-        }
 
-        // 轮播相关
-        const carouselIds = ['parking', 'sidepark', 'ramp', 'rightangle', 'curve'];
-        function initAllCarousels() {
-            carouselIds.forEach(carousel => {
-                initCarousel(carousel, false);
+            // 置顶/置底按钮
+            document.getElementById('btn-to-top').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-            bindKeyPointClicks();
-        }
-        function initCarousel(carouselId, forceRebind) {
-            const carousel = document.getElementById(`${carouselId}-carousel`);
-            if (!carousel) return;
-            if (forceRebind) {
-                // 清除所有事件绑定
-                carousel._eventsBound = false;
+            document.getElementById('btn-to-bottom').addEventListener('click', () => {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            });
+
+            // 复制地址功能
+            document.getElementById('copy-location').addEventListener('click', function () {
+                const text = document.getElementById('location-text').textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    const successMsg = document.getElementById('copy-success');
+                    successMsg.classList.remove('hidden');
+                    setTimeout(() => {
+                        successMsg.classList.add('hidden');
+                    }, 2000);
+                });
+            });
+
+            // 轮播图功能
+            const carouselIds = ['parking', 'sidepark', 'ramp', 'rightangle', 'curve'];
+            function updateCarouselDisplay(carousel) {
+                const items = carousel.querySelectorAll('.carousel-item');
+                const indicators = carousel.querySelectorAll('.carousel-indicator');
+                items.forEach((item, idx) => {
+                    item.classList.toggle('active', idx === carousel.currentIndex);
+                });
+                indicators.forEach((indicator, idx) => {
+                    indicator.classList.toggle('active', idx === carousel.currentIndex);
+                });
             }
-            if (!carousel._eventsBound) {
+            function startCarouselAutoPlay(carouselId) {
+                const carousel = document.getElementById(`${carouselId}-carousel`);
+                if (!carousel || carousel.isPinned) return;
+                stopCarouselAutoPlay(carouselId);
+                carousel.autoPlayInterval = setInterval(() => {
+                    nextCarouselSlide(carouselId);
+                }, 5000);
+            }
+            function stopCarouselAutoPlay(carouselId) {
+                const carousel = document.getElementById(`${carouselId}-carousel`);
+                if (carousel && carousel.autoPlayInterval) {
+                    clearInterval(carousel.autoPlayInterval);
+                    carousel.autoPlayInterval = null;
+                }
+            }
+            function prevCarouselSlide(carouselId) {
+                const carousel = document.getElementById(`${carouselId}-carousel`);
+                if (!carousel) return;
+                const items = carousel.querySelectorAll('.carousel-item');
+                carousel.currentIndex = (carousel.currentIndex - 1 + items.length) % items.length;
+                updateCarouselDisplay(carousel);
+            }
+            function nextCarouselSlide(carouselId) {
+                const carousel = document.getElementById(`${carouselId}-carousel`);
+                if (!carousel) return;
+                const items = carousel.querySelectorAll('.carousel-item');
+                carousel.currentIndex = (carousel.currentIndex + 1) % items.length;
+                updateCarouselDisplay(carousel);
+            }
+            function goToCarouselSlide(carouselId, index) {
+                const carousel = document.getElementById(`${carouselId}-carousel`);
+                if (!carousel) return;
+                const items = carousel.querySelectorAll('.carousel-item');
+                if (index >= 0 && index < items.length) {
+                    carousel.currentIndex = index;
+                    updateCarouselDisplay(carousel);
+                }
+            }
+            function resetCarousel(carouselId) {
+                const carousel = document.getElementById(`${carouselId}-carousel`);
+                if (!carousel) return;
+                carousel.isPinned = false;
+                const pinBtn = carousel.querySelector('.carousel-pin');
+                if (pinBtn) {
+                    pinBtn.classList.remove('bg-primary', 'text-white', 'bg-amber-400');
+                    pinBtn.classList.add('bg-white', 'text-gray-700');
+                    pinBtn.innerHTML = '<i class="fa fa-thumb-tack"></i>';
+                }
+                stopCarouselAutoPlay(carouselId);
+                goToCarouselSlide(carouselId, 0);
+                startCarouselAutoPlay(carouselId);
+            }
+            function initCarousel(carouselId) {
+                const carousel = document.getElementById(`${carouselId}-carousel`);
+                if (!carousel || carousel._eventsBound) return;
                 carousel.currentIndex = 0;
                 carousel.isPinned = false;
                 startCarouselAutoPlay(carouselId);
-
                 // 左右按钮
                 const prevBtn = carousel.querySelector('.carousel-prev');
                 const nextBtn = carousel.querySelector('.carousel-next');
@@ -1212,11 +2395,11 @@
                 }
                 // 指示器
                 const indicators = carousel.querySelectorAll('.carousel-indicator');
-                indicators.forEach((indicator, index) => {
+                indicators.forEach((indicator, idx) => {
                     indicator.onclick = () => {
                         if (!carousel.isPinned) {
                             stopCarouselAutoPlay(carouselId);
-                            goToCarouselSlide(carouselId, index);
+                            goToCarouselSlide(carouselId, idx);
                             startCarouselAutoPlay(carouselId);
                         }
                     };
@@ -1227,12 +2410,12 @@
                     pinBtn.onclick = () => {
                         carousel.isPinned = !carousel.isPinned;
                         if (carousel.isPinned) {
-                            pinBtn.classList.add('bg-primary', 'text-white');
-                            pinBtn.classList.remove('bg-white', 'text-gray-700');
+                            pinBtn.classList.add('bg-amber-400', 'text-white');
+                            pinBtn.classList.remove('bg-white', 'text-gray-700', 'bg-primary');
                             pinBtn.innerHTML = '<i class="fa fa-thumb-tack fa-rotate-45"></i>';
                             stopCarouselAutoPlay(carouselId);
                         } else {
-                            pinBtn.classList.remove('bg-primary', 'text-white');
+                            pinBtn.classList.remove('bg-amber-400', 'text-white');
                             pinBtn.classList.add('bg-white', 'text-gray-700');
                             pinBtn.innerHTML = '<i class="fa fa-thumb-tack"></i>';
                             startCarouselAutoPlay(carouselId);
@@ -1261,227 +2444,125 @@
                 };
                 carousel._eventsBound = true;
             }
-        }
-        function resetCarousel(carouselId) {
-            const carousel = document.getElementById(`${carouselId}-carousel`);
-            if (!carousel) return;
-            carousel.isPinned = false;
-            const pinBtn = carousel.querySelector('.carousel-pin');
-            if (pinBtn) {
-                pinBtn.classList.remove('bg-primary', 'text-white');
-                pinBtn.classList.add('bg-white', 'text-gray-700');
-                pinBtn.innerHTML = '<i class="fa fa-thumb-tack"></i>';
+            function initAllCarousels() {
+                carouselIds.forEach(id => {
+                    if (document.getElementById(`${id}-carousel`)) {
+                        initCarousel(id);
+                    }
+                });
+                bindKeyPointClicks();
             }
-            stopCarouselAutoPlay(carouselId);
-            goToCarouselSlide(carouselId, 0);
-            startCarouselAutoPlay(carouselId);
-        }
-        function prevCarouselSlide(carouselId) {
-            const carousel = document.getElementById(`${carouselId}-carousel`);
-            if (!carousel) return;
-            const items = carousel.querySelectorAll('.carousel-item');
-            carousel.currentIndex = (carousel.currentIndex - 1 + items.length) % items.length;
-            updateCarouselDisplay(carousel);
-        }
-        function nextCarouselSlide(carouselId) {
-            const carousel = document.getElementById(`${carouselId}-carousel`);
-            if (!carousel) return;
-            const items = carousel.querySelectorAll('.carousel-item');
-            carousel.currentIndex = (carousel.currentIndex + 1) % items.length;
-            updateCarouselDisplay(carousel);
-        }
-        function goToCarouselSlide(carouselId, index) {
-            const carousel = document.getElementById(`${carouselId}-carousel`);
-            if (!carousel) return;
-            carousel.currentIndex = index;
-            updateCarouselDisplay(carousel);
-        }
-        function updateCarouselDisplay(carousel) {
-            const items = carousel.querySelectorAll('.carousel-item');
-            const indicators = carousel.querySelectorAll('.carousel-indicator');
-            items.forEach((item, index) => {
-                if (index === carousel.currentIndex) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-            indicators.forEach((indicator, index) => {
-                if (index === carousel.currentIndex) {
-                    indicator.classList.add('bg-opacity-100');
-                    indicator.classList.remove('bg-opacity-50');
-                } else {
-                    indicator.classList.remove('bg-opacity-100');
-                    indicator.classList.add('bg-opacity-50');
-                }
-            });
-        }
-        function startCarouselAutoPlay(carouselId) {
-            const carousel = document.getElementById(`${carouselId}-carousel`);
-            if (!carousel || carousel.isPinned) return;
-            stopCarouselAutoPlay(carouselId);
-            carousel.autoPlayInterval = setInterval(() => {
-                nextCarouselSlide(carouselId);
-            }, 5000);
-        }
-        function stopCarouselAutoPlay(carouselId) {
-            const carousel = document.getElementById(`${carouselId}-carousel`);
-            if (carousel && carousel.autoPlayInterval) {
-                clearInterval(carousel.autoPlayInterval);
-                carousel.autoPlayInterval = null;
+            // 关键点位点击切换轮播
+            function bindKeyPointClicks() {
+                const mapping = {
+                    'parking-content': 'parking',
+                    'sidepark-content': 'sidepark',
+                    'ramp-content': 'ramp',
+                    'rightangle-content': 'rightangle',
+                    'curve-content': 'curve'
+                };
+                Object.keys(mapping).forEach(contentId => {
+                    const content = document.getElementById(contentId);
+                    if (!content) return;
+                    const keyPoints = content.querySelectorAll('.key-points-list .key-points-item[data-index]');
+                    keyPoints.forEach(item => {
+                        item.addEventListener('click', function () {
+                            const idx = parseInt(this.getAttribute('data-index'));
+                            goToCarouselSlide(mapping[contentId], idx);
+                        });
+                    });
+                });
             }
-        }
+            // 视频弹窗功能
+            function bindVideoLinks() {
+                const videoLinks = document.querySelectorAll('.video-link');
+                const videoModal = document.getElementById('video-modal');
+                const videoIframe = document.getElementById('video-iframe');
+                const closeVideoModal = document.getElementById('close-video-modal');
+                videoLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        const src = this.getAttribute('data-video');
+                        if (src) {
+                            videoIframe.src = src;
+                            videoModal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    });
+                });
+                // 关闭按钮
+                closeVideoModal.onclick = function () {
+                    videoModal.classList.remove('active');
+                    videoIframe.src = '';
+                    document.body.style.overflow = '';
+                };
+                // 点击弹窗外部关闭
+                videoModal.onclick = function (e) {
+                    if (e.target === videoModal) {
+                        videoModal.classList.remove('active');
+                        videoIframe.src = '';
+                        document.body.style.overflow = '';
+                    }
+                };
+                // ESC键关闭
+                document.addEventListener('keydown', function (e) {
+                    if (videoModal.classList.contains('active') && e.key === 'Escape') {
+                        videoModal.classList.remove('active');
+                        videoIframe.src = '';
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
 
-        // 图片查看器
-        function openImageViewer(imageSrc, altText) {
-            const viewer = document.getElementById('image-viewer');
-            const viewerImg = document.getElementById('viewer-image');
-            viewerImg.src = imageSrc;
-            viewerImg.alt = altText || '';
-            viewer.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
-            viewer.classList.add('opacity-100', 'visible', 'pointer-events-auto');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeImageViewer() {
-            const viewer = document.getElementById('image-viewer');
-            viewer.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-            viewer.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
-            document.body.style.overflow = '';
-        }
-        document.getElementById('close-viewer').addEventListener('click', closeImageViewer);
-        document.getElementById('image-viewer').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('image-viewer')) {
-                closeImageViewer();
-            }
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !document.getElementById('image-viewer').classList.contains('invisible')) {
-                closeImageViewer();
-            }
-        });
-
-        // 视频弹窗功能
-        document.querySelectorAll('.video-link').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.stopPropagation();
-                const videoUrl = this.getAttribute('data-video');
-                const modal = document.getElementById('video-modal');
-                const iframe = document.getElementById('video-iframe');
-                iframe.src = videoUrl;
-                modal.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
-                modal.classList.add('opacity-100', 'visible', 'pointer-events-auto');
+            // 图片查看器
+            function openImageViewer(imageSrc, altText) {
+                let viewer = document.getElementById('image-viewer');
+                if (!viewer) {
+                    viewer = document.createElement('div');
+                    viewer.id = 'image-viewer';
+                    viewer.className = 'modal active';
+                    viewer.innerHTML = `
+                        <div class="image-viewer-content">
+                            <div class="relative">
+                                <img id="viewer-image" src="" alt="" class="viewer-image">
+                                <button id="close-viewer" class="close-viewer">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(viewer);
+                }
+                const viewerImg = document.getElementById('viewer-image');
+                viewerImg.src = imageSrc;
+                viewerImg.alt = altText || '';
+                viewer.classList.add('active');
                 document.body.style.overflow = 'hidden';
-            });
-        });
-        function closeVideoModal() {
-            const modal = document.getElementById('video-modal');
-            const iframe = document.getElementById('video-iframe');
-            modal.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-            modal.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
-            iframe.src = '';
-            document.body.style.overflow = '';
-        }
-        document.getElementById('close-video-modal').addEventListener('click', closeVideoModal);
-        document.getElementById('video-modal').addEventListener('click', function (e) {
-            if (e.target === this) closeVideoModal();
-        });
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && !document.getElementById('video-modal').classList.contains('invisible')) {
-                closeVideoModal();
+
+                // 关闭按钮
+                const closeBtn = document.getElementById('close-viewer');
+                closeBtn.onclick = closeImageViewer;
+                // 点击弹窗外部关闭
+                viewer.onclick = function (e) {
+                    if (e.target === viewer) closeImageViewer();
+                };
+                // ESC键关闭
+                document.onkeydown = function (e) {
+                    if (e.key === 'Escape') closeImageViewer();
+                };
             }
-        });
-
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
+            function closeImageViewer() {
+                const viewer = document.getElementById('image-viewer');
+                if (viewer) {
+                    viewer.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.onkeydown = null;
                 }
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // 导航栏滚动效果
-        const header = document.querySelector('header');
-        function updateHeaderPadding() {
-            if (window.pageYOffset > 50) {
-                header.classList.add('py-2');
-                header.classList.remove('py-4');
-            } else {
-                header.classList.add('py-4');
-                header.classList.remove('py-2');
             }
-        }
-        window.addEventListener('scroll', updateHeaderPadding);
-        window.addEventListener('load', updateHeaderPadding);
 
-        // 置顶/置底按钮
-        const backToTopButton = document.getElementById('btn-to-top');
-        const backToBottomButton = document.getElementById('btn-to-bottom');
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        backToBottomButton.addEventListener('click', () => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        });
-
-        // 图片加载错误处理
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('error', function () {
-                const fallback = `https://picsum.photos/600/400?random=${Math.random()}`;
-                this.src = fallback;
-                this.alt = "科目二考试项目步骤示意图";
-            });
-        });
-
-        // 页面加载完成后初始化所有轮播和关键点位点击
-        window.addEventListener('load', initAllCarousels);
-
-        window.addEventListener('DOMContentLoaded', function () {
-            const btnLeftParking = document.getElementById('btn-left-parking');
-            const btnRightParking = document.getElementById('btn-right-parking');
-            const L1 = document.getElementById('L1');
-            const R2 = document.getElementById('R2');
-
-            btnLeftParking.addEventListener('click', function () {
-                L1.classList.remove('hidden');
-                R2.classList.add('hidden');
-                btnLeftParking.classList.add('bg-secondary', 'text-white');
-                btnLeftParking.classList.remove('bg-gray-200', 'text-gray-700');
-                btnRightParking.classList.remove('bg-primary', 'text-white');
-                btnRightParking.classList.add('bg-gray-200', 'text-gray-700');
-            });
-            btnRightParking.addEventListener('click', function () {
-                R2.classList.remove('hidden');
-                L1.classList.add('hidden');
-                btnRightParking.classList.add('bg-primary', 'text-white');
-                btnRightParking.classList.remove('bg-gray-200', 'text-gray-700');
-                btnLeftParking.classList.remove('bg-secondary', 'text-white');
-                btnLeftParking.classList.add('bg-gray-200', 'text-gray-700');
-            });
-            // 默认展示右倒库
-            R2.classList.remove('hidden');
-            L1.classList.add('hidden');
-            btnRightParking.classList.add('bg-primary', 'text-white');
-            btnLeftParking.classList.remove('bg-secondary', 'text-white');
-            btnLeftParking.classList.add('bg-gray-200', 'text-gray-700');
-        });
-    </script>
-    <script>
-        // 复制地址功能
-        document.getElementById('copy-location').addEventListener('click', function () {
-            const text = document.getElementById('location-text').textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                const successMsg = document.getElementById('copy-success');
-                successMsg.classList.remove('hidden');
-                setTimeout(() => {
-                    successMsg.classList.add('hidden');
-                }, 2000);
-            });
+            // 初始化所有轮播和关键点位点击
+            initAllCarousels();
+            bindVideoLinks();
         });
     </script>
 </body>
