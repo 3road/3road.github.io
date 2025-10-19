@@ -161,9 +161,70 @@
             box-shadow: 0 4px 12px rgba(64,128,255,0.12);
         }
 
-        /* 使滚动条更细（视觉优化） */
-        .playlist::-webkit-scrollbar { height: 6px; width: 8px; }
-        .playlist::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 6px; }
+        /* 全局与局部滚动条：WebKit 浏览器（Chrome、Edge、Safari）*/
+        /* 全局（页面最右侧浏览器滚动条） */
+        html::-webkit-scrollbar {
+            width: 10px;
+        }
+        html::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.12);
+            border-radius: 10px;
+            backdrop-filter: blur(6px);
+        }
+        html::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+            border-radius: 10px;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+            transition: background-color .15s ease, transform .12s ease;
+        }
+        html::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08));
+            transform: translateX(-1px);
+        }
+
+        /* 右侧播放列表：更窄、更细致 */
+        .playlist::-webkit-scrollbar {
+            width: 8px;
+        }
+        .playlist::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .playlist::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            border-radius: 6px;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.25);
+        }
+        .playlist::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05));
+        }
+
+        /* iframe 元素自身显示滚动条时的外观（注意：不能修改 iframe 内部跨域内容的样式） */
+        iframe::-webkit-scrollbar {
+            width: 10px;
+        }
+        iframe::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.10);
+            border-radius: 8px;
+        }
+        iframe::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+            border-radius: 8px;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18);
+        }
+        iframe::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, rgba(255,255,255,0.20), rgba(255,255,255,0.08));
+        }
+
+        /* Firefox 支持（细滚动条 + 颜色） */
+        html, .playlist {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.12) rgba(0,0,0,0.12);
+        }
+
+        /* 保持滚动条占位稳定以避免布局闪烁（现代浏览器） */
+        .playlist, body {
+            scrollbar-gutter: stable;
+        }
 
         @media (max-width: 900px) {
             .layout { flex-direction: column; }
