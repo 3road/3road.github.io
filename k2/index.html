@@ -10,6 +10,7 @@
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/box2.css">
     <style>
         /* 全局样式 */
         * {
@@ -629,8 +630,8 @@
         }
 
         .title-divider {
-            width: 5rem;
-            height: 0.25rem;
+            width: 1rem;
+            height: 0.15rem;
             background-color: var(--primary);
             border-radius: 9999px;
             margin: 1rem auto 0;
@@ -1207,30 +1208,38 @@
             color: var(--gray-300);
         }
 
+        /* 替换原有的 .video-modal-content 与 .close-video-modal 定义（避免覆盖外部响应式规则） */
         .video-modal-content {
+            /* 使用外部 css 的响应式尺寸，内联保持最小设置以避免覆盖 */
             position: relative;
-            width: 100%;
-            max-width: 42rem;
-            background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: var(--shadow-lg);
-            padding: 1rem;
+            background: transparent;
+            padding: 0;
         }
 
         .close-video-modal {
             position: absolute;
-            top: -2.5rem;
-            right: 1rem;
-            color: white;
-            font-size: 1.5rem;
-            background: none;
+            top: 0.6rem;
+            right: 0.6rem;
+            z-index: 30;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            background: var(--danger);
+            /* 红色 */
+            color: #fff;
             border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
             cursor: pointer;
-            transition: color 0.3s;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
         }
 
         .close-video-modal:hover {
-            color: var(--gray-300);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
         }
 
         .video-iframe {
@@ -1386,23 +1395,24 @@
                 <div class="tabs">
                     <button class="tab active" data-tab="parking">
                         倒车入库
-                        <span class="video-link ml-2 cursor-pointer" data-video="video/1.mp4">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/index.html?video=parking">| 视频</span>
                     </button>
+                    
                     <button class="tab" data-tab="sidepark">
                         侧方停车
-                        <span class="video-link ml-2 cursor-pointer" data-video="video/2.mp4">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/index.html?video=sidepark">| 视频</span>
                     </button>
                     <button class="tab" data-tab="ramp">
                         坡道定点停车和起步
-                        <span class="video-link ml-2 cursor-pointer" data-video="video/3.mp4">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/index.html?video=ramp">| 视频</span>
                     </button>
                     <button class="tab" data-tab="rightangle">
                         直角转弯
-                        <span class="video-link ml-2 cursor-pointer" data-video="video/4.mp4">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/index.html?video=rightangle">| 视频</span>
                     </button>
                     <button class="tab" data-tab="curve">
                         曲线行驶
-                        <span class="video-link ml-2 cursor-pointer" data-video="video/5.mp4">| 视频</span>
+                        <span class="video-link ml-2 cursor-pointer" data-video="video/index.html?video=curve">| 视频</span>
                     </button>
                 </div>
             </div>
@@ -2173,13 +2183,15 @@
         </div>
     </div>
 
-    <!-- 视频弹窗模态框 -->
+    <!-- 视频弹窗模态框（保留 DOM） -->
     <div id="video-modal" class="modal">
         <div class="video-modal-content">
-            <button id="close-video-modal" class="close-video-modal">
+            <button id="close-video-modal" class="close-video-modal" title="关闭" aria-label="关闭视频弹窗">
                 <i class="fa fa-times"></i>
             </button>
-            <iframe id="video-iframe" src="" frameborder="0" allowfullscreen class="video-iframe"></iframe>
+            <iframe id="video-iframe" src="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen title="视频播放窗口" class="video-iframe" aria-hidden="true"></iframe>
         </div>
     </div>
 
@@ -2567,9 +2579,9 @@
 
             // 初始化所有轮播和关键点位点击
             initAllCarousels();
-            bindVideoLinks();
         });
     </script>
+    <script src="js/box2.js"></script>
 </body>
 
 </html>

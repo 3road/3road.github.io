@@ -1,0 +1,95 @@
+/* 视频弹窗专用样式 */
+#video-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 60;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(3px);
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.25s ease;
+	pointer-events: none;
+}
+#video-modal.active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+/* 替换：video-modal-content 与 video-iframe 的响应式尺寸规则 */
+.video-modal-content {
+	/* responsive width and maintain aspect ratio (16:9) */
+	width: min(96vw, 1200px);
+	max-width: 96vw;
+	/* Ensure it never exceeds viewport height */
+	max-height: 90vh;
+	/* Use aspect-ratio when supported to keep 16:9 */
+	aspect-ratio: 16 / 9;
+	/* Fallback: if browser doesn't support aspect-ratio, use padding trick via height (we already set max-height) */
+	background: #000;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+	display: block;
+	position: relative;
+	/* allow focus for keyboard trap */
+	outline: none;
+	margin: 0 2vw;
+}
+/* iframe fills the modal content */
+.video-iframe {
+	width: 100%;
+	height: 100%;
+	min-height: 280px; /* ensure usable height on very small screens */
+	border: 0;
+	background: #000;
+	display: block;
+}
+/* 右上角 X 按钮（稍大） */
+.close-video-modal {
+	position: absolute;
+	top: 0.6rem;
+	right: 0.6rem;
+	z-index: 10;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 9999px;
+	background: rgba(255, 130, 130, 0.8);
+	color: #fff;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.15rem;
+	cursor: pointer;
+	transition: background 0.15s;
+}
+.close-video-modal:hover {
+	background: rgba(255, 165, 0, 0.8); /* 橙色背景，带一点透明度 */
+}
+.close-video-modal:focus {
+	box-shadow: 0 0 0 4px rgba(59,130,246,0.18);
+	outline: none;
+}
+.video-modal-content:focus {
+	outline: none;
+}
+@media (max-width: 640px) {
+	.video-modal-content { height: calc(100vh - 2rem); border-radius: 6px; }
+	.close-video-modal { width: 2.6rem; height: 2.6rem; font-size: 1rem; top: 0.4rem; right: 0.4rem; }
+}
+/* 小屏适配：当宽度受限时，将模态改为竖向占比更高 */
+@media (max-width: 540px) {
+	.video-modal-content {
+		/* 更高的占比以保持观看体验 */
+		width: calc(96vw);
+		aspect-ratio: auto;
+		height: min(70vh, 560px);
+		max-height: 80vh;
+	}
+	.video-iframe {
+		min-height: 360px;
+	}
+}
